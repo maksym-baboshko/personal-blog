@@ -1,2 +1,2 @@
-export { default as App } from './App';
-export { JointProvider } from './providers/JointProvider';
+export { default as App } from './App'
+export { JointProvider } from './providers/JointProvider'

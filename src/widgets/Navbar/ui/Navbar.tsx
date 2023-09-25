@@ -1,14 +1,14 @@
-import cn from 'classnames';
-import { useTranslation } from 'react-i18next';
+import cn from 'classnames'
+import { useTranslation } from 'react-i18next'
 
-import { Link, LinkTheme } from '@shared/ui/Link';
+import { Link, LinkTheme } from '@shared/ui/Link'
 
-import { NavbarProps } from './Navbar.props';
+import { type NavbarFC } from './Navbar.types'
 
-import cls from './Navbar.module.scss';
+import cls from './Navbar.module.scss'
 
-export const Navbar = ({ className }: NavbarProps) => {
-  const { t } = useTranslation('common');
+export const Navbar: NavbarFC = ({ className }) => {
+  const { t } = useTranslation('common')
 
   return (
     <div className={cn(cls.navbar, className)}>
@@ -21,5 +21,5 @@ export const Navbar = ({ className }: NavbarProps) => {
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}

@@ -1,11 +1,11 @@
-import { StrictMode, Suspense } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { StrictMode, Suspense } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
-import { ThemeProvider } from '@app/providers/ThemeProvider';
+import { ThemeProvider } from '@app/providers/ThemeProvider'
 
-import { JointProviderProps } from './JointProvider.props';
+import { type JointProviderFC } from './JointProvider.types'
 
-export const JointProvider = ({ children }: JointProviderProps) => {
+export const JointProvider: JointProviderFC = ({ children }) => {
   return (
     <StrictMode>
       <BrowserRouter>
@@ -14,5 +14,5 @@ export const JointProvider = ({ children }: JointProviderProps) => {
         </ThemeProvider>
       </BrowserRouter>
     </StrictMode>
-  );
-};
+  )
+}

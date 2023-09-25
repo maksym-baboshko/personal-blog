@@ -3,5 +3,5 @@ export enum AppRoutes {
   ABOUT = 'about'
 }
 
-export const getMainRoute = () => '/';
-export const getAboutRoute = () => '/about';
+export const getMainRoute = (): string => '/'
+export const getAboutRoute = (): string => '/about'

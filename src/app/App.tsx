@@ -1,15 +1,16 @@
-import cn from 'classnames';
+import cn from 'classnames'
+import { type FC } from 'react'
 
-import { AppRouter } from '@app/router';
-import { Navbar } from '@widgets/Navbar';
-import { Sidebar } from '@widgets/Sidebar';
-import { useTheme } from '@shared/lib/hooks/useTheme';
+import { AppRouter } from '@app/router'
+import { Navbar } from '@widgets/Navbar'
+import { Sidebar } from '@widgets/Sidebar'
+import { useTheme } from '@shared/lib/hooks/useTheme'
 
-import '@app/config/i18n';
-import './styles/index.scss';
+import '@app/config/i18n'
+import './styles/index.scss'
 
-const App = () => {
-  const { theme } = useTheme();
+const App: FC = () => {
+  const { theme } = useTheme()
 
   return (
     <div className={cn('app', theme)}>
@@ -20,7 +21,7 @@ const App = () => {
         <AppRouter />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

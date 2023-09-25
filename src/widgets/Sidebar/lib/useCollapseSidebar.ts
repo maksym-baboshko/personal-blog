@@ -1,25 +1,32 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
-export const useCollapseSidebar = () => {
-  const [isCollapsed, setIsCollapsed] = useState(true);
+import { LS_SIDEBAR_KEY } from '@shared/constants/localStorage'
 
-  const onCollapse = () => {
+interface CollapseSidebar {
+  isCollapsed: boolean
+  onCollapse: () => void
+}
+
+export const useCollapseSidebar = (): CollapseSidebar => {
+  const [isCollapsed, setIsCollapsed] = useState(true)
+
+  const onCollapse = (): void => {
     if (isCollapsed) {
-      localStorage.setItem('sidebar', 'expanded');
+      localStorage.setItem(LS_SIDEBAR_KEY, 'expanded')
     } else {
-      localStorage.setItem('sidebar', 'collapsed');
+      localStorage.setItem(LS_SIDEBAR_KEY, 'collapsed')
     }
 
-    setIsCollapsed((prev) => !prev);
-  };
+    setIsCollapsed((prev) => !prev)
+  }
 
   useEffect(() => {
-    const sidebar = localStorage.getItem('sidebar');
+    const sidebar = localStorage.getItem(LS_SIDEBAR_KEY)
 
-    if (sidebar) {
-      setIsCollapsed(sidebar === 'collapsed');
+    if (sidebar !== null) {
+      setIsCollapsed(sidebar === 'collapsed')
     }
-  }, []);
+  }, [])
 
-  return { isCollapsed, onCollapse };
-};
+  return { isCollapsed, onCollapse }
+}

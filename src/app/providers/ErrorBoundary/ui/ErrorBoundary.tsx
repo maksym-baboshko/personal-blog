@@ -1,5 +1,7 @@
-const ErrorBoundary = () => {
-  return <div>ErrorBoundary</div>;
-};
+import { type FC } from 'react'
 
-export default ErrorBoundary;
+const ErrorBoundary: FC = () => {
+  return <div>ErrorBoundary</div>
+}
+
+export default ErrorBoundary

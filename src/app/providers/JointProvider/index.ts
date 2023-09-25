@@ -1,1 +1,1 @@
-export { JointProvider } from './ui/JointProvider';
+export { JointProvider } from './ui/JointProvider'

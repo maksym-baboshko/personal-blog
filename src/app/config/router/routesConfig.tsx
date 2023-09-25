@@ -1,12 +1,12 @@
-import { MainPage } from '@pages/main';
-import { AboutPage } from '@pages/about';
-import { AppRoutesProps } from '@shared/types/router';
+import { MainPage } from '@pages/main'
+import { AboutPage } from '@pages/about'
+import { type AppRoutesProps } from '@shared/types/router'
 
 import {
   AppRoutes,
-  getAboutRoute,
-  getMainRoute
-} from '@shared/constants/router';
+  getMainRoute,
+  getAboutRoute
+} from '@shared/constants/router'
 
 export const routesConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {
@@ -17,4 +17,4 @@ export const routesConfig: Record<AppRoutes, AppRoutesProps> = {
     path: getAboutRoute(),
     element: <AboutPage />
   }
-};
+}

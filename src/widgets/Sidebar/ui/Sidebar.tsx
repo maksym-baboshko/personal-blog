@@ -1,20 +1,20 @@
-import cn from 'classnames';
+import cn from 'classnames'
 
-import { Button } from '@shared/ui/Button';
-import { useTheme } from '@shared/lib/hooks/useTheme';
-import { ThemeSwitcher } from '@features/ThemeSwitcher';
-import { LanguageSwitcher } from '@features/LanguageSwitcher';
-import { useCollapseSidebar } from '../lib/useCollapseSidebar';
+import { Button } from '@shared/ui/Button'
+import { useTheme } from '@shared/lib/hooks/useTheme'
+import { ThemeSwitcher } from '@features/ThemeSwitcher'
+import { LanguageSwitcher } from '@features/LanguageSwitcher'
+import { useCollapseSidebar } from '../lib/useCollapseSidebar'
 
-import BurgerIcon from '@shared/assets/icons/burger.svg';
+import BurgerIcon from '@shared/assets/icons/burger.svg'
 
-import { SidebarProps } from './Sidebar.props';
+import { type SidebarFC } from './Sidebar.types'
 
-import cls from './Sidebar.module.scss';
+import cls from './Sidebar.module.scss'
 
-export const Sidebar = ({ className }: SidebarProps) => {
-  const { isCollapsed, onCollapse } = useCollapseSidebar();
-  const { theme } = useTheme();
+export const Sidebar: SidebarFC = ({ className }) => {
+  const { isCollapsed, onCollapse } = useCollapseSidebar()
+  const { theme } = useTheme()
 
   return (
     <div
@@ -29,5 +29,5 @@ export const Sidebar = ({ className }: SidebarProps) => {
         <ThemeSwitcher />
       </div>
     </div>
-  );
-};
+  )
+}

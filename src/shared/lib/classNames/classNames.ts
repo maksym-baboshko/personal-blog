@@ -1,10 +1,10 @@
-type Mods = Record<string, boolean | string>;
+type Mods = Record<string, boolean | string>
 
 type ClassNamesFunc = (
   cls: string,
   mods?: Mods,
   additional?: string[]
-) => string;
+) => string
 
 export const classNames: ClassNamesFunc = (cls, mods = {}, additional = []) => {
   return [
@@ -13,9 +13,8 @@ export const classNames: ClassNamesFunc = (cls, mods = {}, additional = []) => {
     ...Object.entries(mods)
       .filter(([_, cond]) => Boolean(cond))
       .map(([cls]) => cls)
-  ].join(' ');
-};
+  ].join(' ')
+}
 
-classNames('remove-btn', { hovered: true, selectable: true, red: false }, [
-  'pdg'
-]); // 'remove-btn hovered selectable pdg'
+// @return 'remove-btn hovered pdg'
+classNames('remove-btn', { hovered: true, red: false }, ['pdg'])

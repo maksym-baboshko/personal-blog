@@ -1,14 +1,14 @@
-import path from 'path';
-import { BuildAliasFunc } from './types/config';
+import path from 'path'
+import { type BuildAliasFunc } from './types/config'
 
 export const buildAlias: BuildAliasFunc = ({ paths }) => {
-  const entries = ['app', 'pages', 'widgets', 'features', 'entities', 'shared'];
+  const entries = ['app', 'pages', 'widgets', 'features', 'entities', 'shared']
 
   const aliases = entries.reduce<Record<string, string>>((acc, entry) => {
-    acc[`@${entry}`] = path.resolve(paths.src, entry);
+    acc[`@${entry}`] = path.resolve(paths.src, entry)
 
-    return acc;
-  }, {});
+    return acc
+  }, {})
 
-  return aliases;
-};
+  return aliases
+}
