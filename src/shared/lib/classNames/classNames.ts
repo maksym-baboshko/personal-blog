@@ -9,10 +9,10 @@ type ClassNamesFunc = (
 export const classNames: ClassNamesFunc = (cls, mods = {}, additional = []) => {
   return [
     cls,
-    ...additional.filter(Boolean),
     ...Object.entries(mods)
       .filter(([_, cond]) => Boolean(cond))
-      .map(([cls]) => cls)
+      .map(([cls]) => cls),
+    ...additional.filter(Boolean)
   ].join(' ')
 }
 
