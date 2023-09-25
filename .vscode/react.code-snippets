@@ -1,0 +1,31 @@
+{
+  // Place your personal-blog workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+
+  "customReactArrowFunctionalComponent": {
+    "scope": "typescript, typescriptreact",
+    "prefix": "rafc",
+    "body": [
+      "import cn from 'classnames';",
+      "",
+      "import { ${TM_FILENAME_BASE}Props } from './${TM_FILENAME_BASE}.props';",
+      "",
+      "import cls from './${TM_FILENAME_BASE}.module.scss';",
+      "",
+      "export const ${TM_FILENAME_BASE} = (props: ${TM_FILENAME_BASE}Props) => {",
+      "  const { $2 } = props;",
+      "",
+      "  return (",
+      "    <div className={cn(cls.container)}>",
+      "      $1",
+      "    </div>",
+      "  );",
+      "};"
+    ],
+    "description": "Creates a React Arrow Functional Component"
+  }
+}

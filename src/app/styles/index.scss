@@ -1,0 +1,26 @@
+@import './reset.scss';
+@import './fonts.scss';
+@import './variables/global.scss';
+
+@import './themes/light.scss';
+@import './themes/dark.scss';
+
+.app {
+  font: var(--font-m);
+
+  background: var(--inverted-bg-color);
+  color: var(--primary-color);
+
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  display: flex;
+}
+
+.page-wrapper {
+  background: var(--bg-color);
+  border-top-left-radius: 30px;
+  flex: 1;
+  padding: 20px 30px;
+}

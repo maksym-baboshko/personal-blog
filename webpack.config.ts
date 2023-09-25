@@ -1,14 +1,15 @@
 import path from 'path';
 import { Configuration } from 'webpack';
 
-import { buildConfig } from './configs/build/build-config';
-import { BuildEnv, BuildPaths } from './configs/build/types/config';
+import { buildConfig } from './config/build/build-config';
+import { BuildEnv, BuildPaths } from './config/build/types/config';
 
 export default (env: BuildEnv) => {
   const paths: BuildPaths = {
     entry: path.resolve(__dirname, 'src', 'main.tsx'),
     dist: path.resolve(__dirname, 'dist'),
-    html: path.resolve(__dirname, 'public', 'index.html')
+    html: path.resolve(__dirname, 'public', 'index.html'),
+    src: path.resolve(__dirname, 'src')
   };
 
   const port = env.port || 3000;
