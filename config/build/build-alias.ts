@@ -1,4 +1,5 @@
 import path from 'path'
+
 import { type BuildAliasFunc } from './types/config'
 
 export const buildAlias: BuildAliasFunc = ({ paths }) => {

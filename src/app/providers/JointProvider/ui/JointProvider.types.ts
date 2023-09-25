@@ -1,4 +1,4 @@
-import { type ReactNode, type FC } from 'react'
+import { type FC, type ReactNode } from 'react'
 
 interface JointProviderProps {
   children: ReactNode

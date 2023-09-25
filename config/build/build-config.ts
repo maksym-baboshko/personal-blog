@@ -1,6 +1,6 @@
 import { buildServer } from './build-server'
-import { buildPlugins } from './build-plugins'
 import { buildLoaders } from './build-loaders'
+import { buildPlugins } from './build-plugins'
 import { buildResolvers } from './build-resolvers'
 import { type BuildConfigFunc } from './types/config'
 

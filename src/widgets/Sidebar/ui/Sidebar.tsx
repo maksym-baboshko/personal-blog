@@ -4,9 +4,9 @@ import { Button } from '@shared/ui/Button'
 import { useTheme } from '@shared/lib/hooks/useTheme'
 import { ThemeSwitcher } from '@features/ThemeSwitcher'
 import { LanguageSwitcher } from '@features/LanguageSwitcher'
-import { useCollapseSidebar } from '../lib/useCollapseSidebar'
-
 import BurgerIcon from '@shared/assets/icons/burger.svg'
+
+import { useCollapseSidebar } from '../lib/useCollapseSidebar'
 
 import { type SidebarFC } from './Sidebar.types'
 

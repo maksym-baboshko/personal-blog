@@ -2,6 +2,7 @@ import cn from 'classnames'
 import { useTranslation } from 'react-i18next'
 
 import { Button } from '@shared/ui/Button'
+
 import { getNextLang } from '../lib/changeLanguage'
 
 import { type LanguageSwitcherFC } from './LanguageSwitcher.types'

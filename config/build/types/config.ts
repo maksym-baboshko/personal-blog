@@ -1,11 +1,10 @@
+import { type Configuration as DevServerConfiguration } from 'webpack-dev-server'
 import {
-  type RuleSetRule,
   type Configuration,
   type ResolveOptions,
+  type RuleSetRule,
   type WebpackPluginInstance
 } from 'webpack'
-
-import { type Configuration as DevServerConfiguration } from 'webpack-dev-server'
 
 type BuildConfigFunc = (options: BuildOptions) => Configuration
 type BuildLoadersFunc = (options: BuildOptions) => RuleSetRule[]

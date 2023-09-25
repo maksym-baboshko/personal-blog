@@ -1,4 +1,5 @@
 import { type ReactNode, type ButtonHTMLAttributes, type FC } from 'react'
+
 import { type ButtonTheme } from './Button.theme'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

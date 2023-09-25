@@ -22,6 +22,7 @@ const initOptions: InitOptions = {
 }
 
 i18n.on('missingKey', (lng, ns, key) => {
+  // eslint-disable-next-line no-console
   console.error(`${lng[0].toUpperCase()}.${ns} is missing the ${key} key`)
 })
 
