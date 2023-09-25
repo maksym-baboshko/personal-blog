@@ -13,10 +13,10 @@ export const Navbar: NavbarFC = ({ className }) => {
   return (
     <div className={cn(cls.navbar, className)}>
       <div className={cls.links}>
-        <Link to='/' theme={LinkTheme.INVERTED}>
+        <Link to="/" theme={LinkTheme.INVERTED}>
           {t('main')}
         </Link>
-        <Link to='/about' theme={LinkTheme.INVERTED}>
+        <Link to="/about" theme={LinkTheme.INVERTED}>
           {t('about')}
         </Link>
       </div>

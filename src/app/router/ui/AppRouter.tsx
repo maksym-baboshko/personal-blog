@@ -6,7 +6,7 @@ import { routesConfig } from '@app/config/router'
 
 const AppRouter: FC = () => {
   return (
-    <div className='page-wrapper'>
+    <div className="page-wrapper">
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           {Object.values(routesConfig).map(({ path, element }) => {

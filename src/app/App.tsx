@@ -18,7 +18,7 @@ const App: FC = () => {
     <div className={cn('app', theme)}>
       <Navbar />
 
-      <div className='content-wrapper'>
+      <div className="content-wrapper">
         <Sidebar />
         <AppRouter />
       </div>
