@@ -12,7 +12,10 @@
   "i18n-ally.extract.keygenStyle": "snake_case",
   "i18n-ally.enabledFrameworks": ["react", "react-i18next"],
   "cSpell.words": ["Lngs"],
+  "scss.validate": false,
+  "stylelint.validate": ["css", "scss"],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
   }
 }
