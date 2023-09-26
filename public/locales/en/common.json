@@ -1,6 +1,5 @@
 {
-  "change_lang": "Switch language",
-  "hello": "Hello",
   "main": "Main",
-  "about": "About us"
+  "about": "About us",
+  "page_not_found": "Ooops! Page not found"
 }

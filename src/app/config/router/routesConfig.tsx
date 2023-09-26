@@ -1,10 +1,12 @@
 import {
   AppRoutes,
+  getMainRoute,
   getAboutRoute,
-  getMainRoute
+  getNotFoundRoute
 } from '@shared/constants/router'
 import { MainPage } from '@pages/main'
 import { AboutPage } from '@pages/about'
+import { NotFoundPage } from '@pages/not-found'
 import { type AppRoutesProps } from '@shared/types/router'
 
 export const routesConfig: Record<AppRoutes, AppRoutesProps> = {
@@ -15,5 +17,9 @@ export const routesConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.ABOUT]: {
     path: getAboutRoute(),
     element: <AboutPage />
+  },
+  [AppRoutes.NOT_FOUND]: {
+    path: getNotFoundRoute(),
+    element: <NotFoundPage />
   }
 }

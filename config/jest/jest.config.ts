@@ -9,12 +9,6 @@ const config: Config = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
-  // Stop running tests after `n` failures
-  // bail: 0,
-
-  // The directory where Jest should store its cached dependency information
-  // cacheDirectory: "/private/var/folders/k4/h95ll0l55tbb25lctdr76st00000gn/T/jest_dx",
-
   // The root directory that Jest should scan for tests and modules within
   rootDir: '../../',
 
@@ -37,12 +31,18 @@ const config: Config = {
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      '<rootDir>/__mocks__/fileMock.js',
+      '<rootDir>/config/jest/__mocks__/fileMock.js',
     '\\.(css|less)$': 'identity-obj-proxy'
   },
 
   // An array of file extensions your modules use
   moduleFileExtensions: ['js', 'mjs', 'cjs', 'jsx', 'ts', 'tsx', 'json', 'node']
+
+  // Stop running tests after `n` failures
+  // bail: 0,
+
+  // The directory where Jest should store its cached dependency information
+  // cacheDirectory: "/private/var/folders/k4/h95ll0l55tbb25lctdr76st00000gn/T/jest_dx",
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
