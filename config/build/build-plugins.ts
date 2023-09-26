@@ -16,7 +16,7 @@ export const buildPlugins: BuildPluginsFunc = ({ paths, isDev }) => {
       chunkFilename: 'css/style.[contenthash:8].css'
     }),
     new DefinePlugin({
-      _IS_DEV_: JSON.stringify(isDev)
+      __IS_DEV__: JSON.stringify(isDev)
     })
   ]
 

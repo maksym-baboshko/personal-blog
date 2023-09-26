@@ -17,6 +17,8 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.rulers": [100],
+  "jest.jestCommandLine": "npm run test:unit --",
+  "jest.autoRevealOutput": "on-run",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true

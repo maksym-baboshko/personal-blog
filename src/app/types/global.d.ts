@@ -11,4 +11,5 @@ declare module '*.svg' {
   export default SVG
 }
 
-declare const _IS_DEV_: boolean
+// eslint-disable-next-line @typescript-eslint/naming-convention
+declare const __IS_DEV__: boolean

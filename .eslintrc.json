@@ -24,10 +24,7 @@
   "rules": {
     "react/prop-types": "off",
     "no-console": "warn",
-    "@typescript-eslint/no-misused-promises": [
-      "error",
-      { "checksVoidReturn": false }
-    ],
+    "@typescript-eslint/no-misused-promises": ["error", { "checksVoidReturn": false }],
     "promise/param-names": [
       "error",
       { "resolvePattern": "^_?resolve|res$", "rejectPattern": "^_?reject|rej$" }

@@ -3,17 +3,6 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { type BuildLoadersFunc } from './types/config'
 
 export const buildLoaders: BuildLoadersFunc = ({ isDev }) => {
-  const babelLoader = {
-    test: /\.(js|jsx|ts|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env']
-      }
-    }
-  }
-
   const typescriptLoader = {
     test: /\.tsx?$/,
     use: 'ts-loader',
@@ -27,9 +16,7 @@ export const buildLoaders: BuildLoadersFunc = ({ isDev }) => {
     options: {
       modules: {
         auto: /.*\.module\..*/,
-        localIdentName: isDev
-          ? '[path][name]__[local]--[hash:base64:5]'
-          : '[hash:base64:8]'
+        localIdentName: isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]'
       }
     }
   }
@@ -49,5 +36,5 @@ export const buildLoaders: BuildLoadersFunc = ({ isDev }) => {
     use: ['@svgr/webpack']
   }
 
-  return [fileLoader, svgLoader, cssLoaders, babelLoader, typescriptLoader]
+  return [fileLoader, svgLoader, cssLoaders, typescriptLoader]
 }
