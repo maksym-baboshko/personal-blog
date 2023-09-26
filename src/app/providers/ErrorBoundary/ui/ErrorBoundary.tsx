@@ -14,11 +14,7 @@ export const ErrorBoundary: ErrorBoundaryFC = ({ children }) => {
   }
 
   return (
-    <ReactErrorBoundary
-      onError={logError}
-      onReset={handleResetError}
-      FallbackComponent={PageError}
-    >
+    <ReactErrorBoundary FallbackComponent={PageError} onError={logError} onReset={handleResetError}>
       {children}
     </ReactErrorBoundary>
   )

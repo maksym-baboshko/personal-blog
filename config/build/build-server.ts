@@ -3,6 +3,6 @@ import { type BuildServerFunc } from './types/config'
 export const buildServer: BuildServerFunc = ({ port }) => ({
   port,
   hot: true,
-  open: true,
+  open: false,
   historyApiFallback: true
 })

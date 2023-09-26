@@ -16,6 +16,7 @@
   "stylelint.validate": ["css", "scss"],
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
+  "editor.rulers": [100],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true

@@ -1,10 +1,6 @@
 type Mods = Record<string, boolean | string>
 
-type ClassNamesFunc = (
-  cls: string,
-  mods?: Mods,
-  additional?: string[]
-) => string
+type ClassNamesFunc = (cls: string, mods?: Mods, additional?: string[]) => string
 
 export const classNames: ClassNamesFunc = (cls, mods = {}, additional = []) => {
   return [

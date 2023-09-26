@@ -17,9 +17,7 @@ export const Sidebar: SidebarFC = ({ className }) => {
   const { theme } = useTheme()
 
   return (
-    <div
-      className={cn(cls.sidebar, { [cls.collapsed]: isCollapsed }, className)}
-    >
+    <div className={cn(cls.sidebar, { [cls.collapsed]: isCollapsed }, className)}>
       <Button onClick={onCollapse}>
         <BurgerIcon fill={theme === 'light' ? '#fff' : '#000'} />
       </Button>
