@@ -1,6 +1,8 @@
 {
+  "i18n-ally.enabledFrameworks": ["react", "react-i18next"],
   "i18n-ally.pathMatcher": "{locale}/{namespace}.json",
   "i18n-ally.localesPaths": ["public/locales"],
+  "i18n-ally.extract.keygenStyle": "snake_case",
   "i18n-ally.namespace": true,
   "i18n-ally.defaultNamespace": "common",
   "i18n-ally.sourceLanguage": "uk",
@@ -9,16 +11,15 @@
   "i18n-ally.annotationInPlace": false,
   "i18n-ally.annotationDelimiter": "|",
   "i18n-ally.keystyle": "nested",
-  "i18n-ally.extract.keygenStyle": "snake_case",
-  "i18n-ally.enabledFrameworks": ["react", "react-i18next"],
   "cSpell.words": ["Lngs"],
+  "css.validate": false,
   "scss.validate": false,
   "stylelint.validate": ["css", "scss"],
+  "jest.autoRevealOutput": "on-run",
+  "jest.jestCommandLine": "npm run test:unit --",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.rulers": [100],
-  "jest.jestCommandLine": "npm run test:unit --",
-  "jest.autoRevealOutput": "on-run",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true

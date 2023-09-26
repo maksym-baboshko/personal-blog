@@ -7,6 +7,12 @@ logs
 *.log
 npm-debug.log*
 
+# Envs
+.env.development.local
+.env.production.local
+.env.test.local
+.env.local
+
 # Editor directories and files
 .DS_Store
 .idea
