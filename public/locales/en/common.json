@@ -1,5 +1,7 @@
 {
   "main": "Main",
   "about": "About us",
-  "page_not_found": "Ooops! Page not found"
+  "page_not_found": "Ooops! Page not found",
+  "error_boundary": "Oops! Something went wrong!",
+  "refresh_page": "Refresh page"
 }

@@ -1,0 +1,31 @@
+.error-boundary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 4px;
+  height: 100vh;
+
+  h2 {
+    font: var(--font-xl);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font: var(--font-m);
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font: var(--font-m);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+}

@@ -1,7 +1,25 @@
-import { type FC } from 'react'
+import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary'
 
-const ErrorBoundary: FC = () => {
-  return <div></div>
+import { PageError } from '@widgets/PageError'
+
+import { type ErrorBoundaryFC } from './ErrorBoundary.types'
+
+export const ErrorBoundary: ErrorBoundaryFC = ({ children }) => {
+  const handleResetError = (): void => {
+    location.reload()
+  }
+
+  const logError = (): void => {
+    // TODO: add some logging service here
+  }
+
+  return (
+    <ReactErrorBoundary
+      onError={logError}
+      onReset={handleResetError}
+      FallbackComponent={PageError}
+    >
+      {children}
+    </ReactErrorBoundary>
+  )
 }
-
-export default ErrorBoundary

@@ -1,5 +1,7 @@
 {
   "main": "Hoved",
   "about": "Om oss",
-  "page_not_found": "Oops! Side ikke funnet"
+  "page_not_found": "Oops! Side ikke funnet",
+  "error_boundary": "Oops! Noe gikk galt!",
+  "refresh_page": "Oppdater siden"
 }
