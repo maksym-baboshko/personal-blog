@@ -17,6 +17,10 @@
       "env": { "node": true },
       "files": [".eslintrc.{js,cjs}"],
       "parserOptions": { "sourceType": "script" }
+    },
+    {
+      "files": ["**/src/**/*.test.{js,jsx,ts,tsx}"],
+      "rules": { "i18next/no-literal-string": "off" }
     }
   ],
   "parserOptions": { "ecmaVersion": "latest", "sourceType": "module" },
