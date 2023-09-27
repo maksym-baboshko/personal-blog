@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react'
 
 import { LS_SIDEBAR_KEY } from '@shared/constants/localStorage'
 
-interface CollapseSidebar {
+interface ToggleSidebar {
   isCollapsed: boolean
-  onCollapse: () => void
+  onToggle: () => void
 }
 
-export const useCollapseSidebar = (): CollapseSidebar => {
+export const useToggleSidebar = (): ToggleSidebar => {
   const [isCollapsed, setIsCollapsed] = useState(true)
 
-  const onCollapse = (): void => {
+  const onToggle = (): void => {
     if (isCollapsed) {
       localStorage.setItem(LS_SIDEBAR_KEY, 'expanded')
     } else {
@@ -28,5 +28,5 @@ export const useCollapseSidebar = (): CollapseSidebar => {
     }
   }, [])
 
-  return { isCollapsed, onCollapse }
+  return { isCollapsed, onToggle }
 }

@@ -6,19 +6,22 @@ import { ThemeSwitcher } from '@features/ThemeSwitcher'
 import { LanguageSwitcher } from '@features/LanguageSwitcher'
 import BurgerIcon from '@shared/assets/icons/burger.svg'
 
-import { useCollapseSidebar } from '../lib/useCollapseSidebar'
+import { useToggleSidebar } from '../lib/useToggleSidebar'
 
 import { type SidebarFC } from './Sidebar.types'
 
 import cls from './Sidebar.module.scss'
 
 export const Sidebar: SidebarFC = ({ className }) => {
-  const { isCollapsed, onCollapse } = useCollapseSidebar()
+  const { isCollapsed, onToggle } = useToggleSidebar()
   const { theme } = useTheme()
 
   return (
-    <div className={cn(cls.sidebar, { [cls.collapsed]: isCollapsed }, className)}>
-      <Button onClick={onCollapse}>
+    <div
+      className={cn(cls.sidebar, { [cls.collapsed]: isCollapsed }, className)}
+      data-testid="sidebar"
+    >
+      <Button onClick={onToggle} data-testid="sidebar-toggle">
         <BurgerIcon fill={theme === 'light' ? '#fff' : '#000'} />
       </Button>
 
