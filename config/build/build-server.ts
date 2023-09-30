@@ -1,4 +1,4 @@
-import { type BuildServerFunc } from './types/config'
+import { type BuildServerFunc } from './types'
 
 export const buildServer: BuildServerFunc = ({ port }) => ({
   port,

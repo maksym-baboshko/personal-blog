@@ -3,21 +3,22 @@
 @import './variables/global';
 @import './themes/light';
 @import './themes/dark';
+@import './themes/aprikot';
 
 .app {
   font: var(--font-m);
-  background: var(--inverted-bg-color);
   color: var(--primary-color);
-  min-height: 100vh;
 }
 
 .content-wrapper {
   display: flex;
+  background: var(--inverted-bg-color);
+  min-height: calc(100vh - var(--navbar-height));
 }
 
 .page-wrapper {
   background: var(--bg-color);
-  border-top-left-radius: 30px;
-  flex: 1;
+  border-top-left-radius: 36px;
   padding: 20px 30px;
+  flex: 1;
 }

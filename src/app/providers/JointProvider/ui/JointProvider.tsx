@@ -11,11 +11,11 @@ export const JointProvider: JointProviderFC = ({ children }) => {
   return (
     <StrictMode>
       <BrowserRouter>
-        <ErrorBoundary>
-          <ThemeProvider>
+        <ThemeProvider>
+          <ErrorBoundary>
             <Suspense fallback={null}>{children}</Suspense>
-          </ThemeProvider>
-        </ErrorBoundary>
+          </ErrorBoundary>
+        </ThemeProvider>
       </BrowserRouter>
     </StrictMode>
   )

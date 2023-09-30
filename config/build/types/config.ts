@@ -6,43 +6,30 @@ import {
   type WebpackPluginInstance
 } from 'webpack'
 
-type BuildConfigFunc = (options: BuildOptions) => Configuration
-type BuildLoadersFunc = (options: BuildOptions) => RuleSetRule[]
-type BuildResolversFunc = (options: BuildOptions) => ResolveOptions
-type BuildAliasFunc = (options: BuildOptions) => Record<string, string>
-type BuildServerFunc = (options: BuildOptions) => DevServerConfiguration
-type BuildPluginsFunc = (options: BuildOptions) => WebpackPluginInstance[]
+export type BuildMode = 'development' | 'production'
 
-type BuildMode = 'development' | 'production'
+export type BuildConfigFunc = (options: BuildOptions) => Configuration
+export type BuildLoadersFunc = (options: BuildOptions) => RuleSetRule[]
+export type BuildResolversFunc = (options: BuildOptions) => ResolveOptions
+export type BuildAliasFunc = (options: BuildOptions) => Record<string, string>
+export type BuildServerFunc = (options: BuildOptions) => DevServerConfiguration
+export type BuildPluginsFunc = (options: BuildOptions) => WebpackPluginInstance[]
 
-interface BuildEnv {
+export interface BuildEnv {
   mode: BuildMode
   port: number
 }
 
-interface BuildPaths {
+export interface BuildPaths {
   entry: string
   dist: string
   html: string
   src: string
 }
 
-interface BuildOptions {
+export interface BuildOptions {
   mode: BuildMode
   paths: BuildPaths
   isDev: boolean
   port: number
-}
-
-export type {
-  BuildEnv,
-  BuildMode,
-  BuildPaths,
-  BuildOptions,
-  BuildAliasFunc,
-  BuildConfigFunc,
-  BuildServerFunc,
-  BuildLoadersFunc,
-  BuildPluginsFunc,
-  BuildResolversFunc
 }

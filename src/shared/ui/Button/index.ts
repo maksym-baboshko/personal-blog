@@ -1,2 +1,2 @@
 export { Button } from './Button'
-export { ButtonTheme } from './Button.theme'
+export { ButtonVariant } from './Button.types'

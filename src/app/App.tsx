@@ -5,10 +5,9 @@ import cn from 'classnames'
 import { AppRouter } from '@app/router'
 import { Navbar } from '@widgets/Navbar'
 import { Sidebar } from '@widgets/Sidebar'
-import { useTheme } from '@shared/lib/hooks/useTheme'
+import { useTheme } from '@shared/lib/hooks'
 
 import '@app/config/i18n'
-
 import './styles/index.scss'
 
 const App: FC = () => {

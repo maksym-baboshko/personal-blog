@@ -3,9 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 18px 0 30px;
   width: var(--sidebar-width);
-  height: calc(100vh - var(--navbar-height));
   background: var(--inverted-bg-color);
   position: relative;
   transition: width 0.3s;
@@ -16,8 +15,6 @@
 }
 
 .switchers {
-  // position: absolute;
-  // bottom: 20px;
   display: flex;
   gap: 8px;
   align-items: center;

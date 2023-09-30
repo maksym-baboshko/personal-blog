@@ -1,5 +1,5 @@
-.page-loader-wrapper {
-  min-height: calc(100vh - var(--navbar-height));
+.page-loader {
+  min-height: calc(100vh - var(--navbar-height) - 40px);
   display: flex;
   justify-content: center;
   align-items: center;

@@ -12,8 +12,10 @@
   "i18n-ally.annotationDelimiter": "|",
   "i18n-ally.keystyle": "nested",
   "css.validate": false,
+  "less.validate": false,
   "scss.validate": false,
   "stylelint.validate": ["css", "scss"],
+  "stylelint.enable": true,
   "jest.autoRevealOutput": "on-run",
   "jest.jestCommandLine": "npm run test:unit --",
   "editor.formatOnSave": true,
@@ -23,5 +25,5 @@
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
   },
-  "cSpell.words": ["Lngs", "testid"]
+  "cSpell.words": ["aprikot", "autodocs", "Lngs", "testid"]
 }

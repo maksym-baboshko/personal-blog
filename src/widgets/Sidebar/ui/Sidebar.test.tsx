@@ -1,17 +1,17 @@
 import { fireEvent, screen } from '@testing-library/react'
 
-import { renderUsingI18next } from '@shared/lib/tests'
+import { renderWithI18next } from '@shared/lib/tests'
 
-import { Sidebar } from '..'
+import { Sidebar } from './Sidebar'
 
 describe('Sidebar', () => {
   it('should render', () => {
-    renderUsingI18next(<Sidebar />)
+    renderWithI18next(<Sidebar />)
     expect(screen.getByTestId('sidebar')).toBeInTheDocument()
   })
 
   it('should toggle sidebar', () => {
-    renderUsingI18next(<Sidebar />)
+    renderWithI18next(<Sidebar />)
 
     const toggleBtn = screen.getByTestId('sidebar-toggle')
 

@@ -1,10 +1,14 @@
 {
-  "env": { "browser": true, "es2021": true },
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
   "extends": [
     "standard-with-typescript",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "plugin:i18next/recommended",
+    "plugin:storybook/recommended",
     "prettier"
   ],
   "settings": {
@@ -14,24 +18,41 @@
   },
   "overrides": [
     {
-      "env": { "node": true },
+      "env": {
+        "node": true
+      },
       "files": [".eslintrc.{js,cjs}"],
-      "parserOptions": { "sourceType": "script" }
+      "parserOptions": {
+        "sourceType": "script"
+      }
     },
     {
       "files": ["**/src/**/*.test.{js,jsx,ts,tsx}"],
-      "rules": { "i18next/no-literal-string": "off" }
+      "rules": {
+        "i18next/no-literal-string": "off"
+      }
     }
   ],
-  "parserOptions": { "ecmaVersion": "latest", "sourceType": "module" },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
   "plugins": ["react", "i18next"],
   "rules": {
     "react/prop-types": "off",
     "no-console": "warn",
-    "@typescript-eslint/no-misused-promises": ["error", { "checksVoidReturn": false }],
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": false
+      }
+    ],
     "promise/param-names": [
       "error",
-      { "resolvePattern": "^_?resolve|res$", "rejectPattern": "^_?reject|rej$" }
+      {
+        "resolvePattern": "^_?resolve|res$",
+        "rejectPattern": "^_?reject|rej$"
+      }
     ],
     "import/order": [
       "error",

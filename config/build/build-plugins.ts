@@ -4,7 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
-import { type BuildPluginsFunc } from './types/config'
+import { type BuildPluginsFunc } from './types'
 
 export const buildPlugins: BuildPluginsFunc = ({ paths, isDev }) => {
   const plugins = [

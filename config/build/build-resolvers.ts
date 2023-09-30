@@ -1,5 +1,5 @@
-import { buildAlias } from './build-alias'
-import { type BuildResolversFunc } from './types/config'
+import { buildAlias } from './lib'
+import { type BuildResolversFunc } from './types'
 
 export const buildResolvers: BuildResolversFunc = (options) => ({
   extensions: ['.js', '.jsx', '.ts', '.tsx'],

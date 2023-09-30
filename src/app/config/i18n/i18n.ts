@@ -17,8 +17,8 @@ const initOptions: InitOptions = {
   defaultNS: 'common',
   backend: { loadPath: '/locales/{{lng}}/{{ns}}.json' },
   detection: { lookupLocalStorage: LS_I18N_LANG_KEY },
-  saveMissing: true,
-  debug: __IS_DEV__
+  saveMissing: true
+  // debug: __IS_DEV__
 }
 
 i18n.on('missingKey', (lng, ns, key) => {

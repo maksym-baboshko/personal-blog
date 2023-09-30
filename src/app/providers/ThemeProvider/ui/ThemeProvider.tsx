@@ -1,15 +1,16 @@
 import { useMemo, useState } from 'react'
 
+import { AppTheme } from '@shared/constants/appTheme'
+import { ThemeContext } from '@app/lib/context/ThemeContext'
 import { LS_THEME_KEY } from '@shared/constants/localStorage'
-import { Theme, ThemeContext } from '@app/lib/context/ThemeContext'
 
 import { type ThemeProviderFC } from './ThemeProvider.types'
 
-const themeFromLS = localStorage.getItem(LS_THEME_KEY) as Theme
-const defaultTheme = themeFromLS ?? Theme.LIGHT
+const themeFromLS = localStorage.getItem(LS_THEME_KEY) as AppTheme
 
-export const ThemeProvider: ThemeProviderFC = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(defaultTheme)
+export const ThemeProvider: ThemeProviderFC = ({ children, initialTheme }) => {
+  const defaultTheme = themeFromLS ?? initialTheme ?? AppTheme.LIGHT
+  const [theme, setTheme] = useState<AppTheme>(defaultTheme)
 
   const defaultProps = useMemo(() => ({ theme, setTheme }), [theme])
 

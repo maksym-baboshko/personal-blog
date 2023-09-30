@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { useTranslation } from 'react-i18next'
 
-import { Link, LinkTheme } from '@shared/ui/Link'
+import { Link } from '@shared/ui/Link'
 
 import { type NavbarFC } from './Navbar.types'
 
@@ -13,10 +13,10 @@ export const Navbar: NavbarFC = ({ className }) => {
   return (
     <div className={cn(cls.navbar, className)}>
       <div className={cls.links}>
-        <Link to="/" theme={LinkTheme.INVERTED}>
+        <Link to="/" variant="secondary">
           {t('main')}
         </Link>
-        <Link to="/about" theme={LinkTheme.INVERTED}>
+        <Link to="/about" variant="secondary">
           {t('about')}
         </Link>
       </div>

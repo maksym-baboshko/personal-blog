@@ -4,8 +4,9 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  border-radius: 4px;
   height: 100vh;
+  font: var(--font-m);
+  color: var(--text-primary-color);
 
   h2 {
     font: var(--font-xl);
@@ -14,18 +15,6 @@
   }
 
   p {
-    font: var(--font-m);
-    color: #333;
     margin-bottom: 20px;
-  }
-
-  button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font: var(--font-m);
-    border-radius: 10px;
-    cursor: pointer;
   }
 }

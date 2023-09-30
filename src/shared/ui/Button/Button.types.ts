@@ -1,11 +1,14 @@
-import { type ReactNode, type ButtonHTMLAttributes, type FC } from 'react'
+import { type ButtonHTMLAttributes, type FC } from 'react'
 
-import { type ButtonTheme } from './Button.theme'
+import { type EnumAsUnion } from '@shared/types'
+
+export enum ButtonVariant {
+  PRIMARY = 'primary',
+  OUTLINED = 'outlined'
+}
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  theme?: ButtonTheme
-  className?: string
-  children: ReactNode
+  variant?: EnumAsUnion<typeof ButtonVariant>
 }
 
 export type ButtonFC = FC<ButtonProps>

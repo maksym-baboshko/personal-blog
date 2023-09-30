@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
-
 import { LS_SIDEBAR_KEY } from '@shared/constants/localStorage'
+import { useLocalStorage } from '@shared/lib/hooks'
 
 interface ToggleSidebar {
   isCollapsed: boolean
@@ -8,25 +7,11 @@ interface ToggleSidebar {
 }
 
 export const useToggleSidebar = (): ToggleSidebar => {
-  const [isCollapsed, setIsCollapsed] = useState(true)
+  const [isCollapsed, setIsCollapsed] = useLocalStorage(LS_SIDEBAR_KEY, true)
 
   const onToggle = (): void => {
-    if (isCollapsed) {
-      localStorage.setItem(LS_SIDEBAR_KEY, 'expanded')
-    } else {
-      localStorage.setItem(LS_SIDEBAR_KEY, 'collapsed')
-    }
-
-    setIsCollapsed((prev) => !prev)
+    setIsCollapsed((isCollapsed) => !isCollapsed)
   }
-
-  useEffect(() => {
-    const sidebar = localStorage.getItem(LS_SIDEBAR_KEY)
-
-    if (sidebar !== null) {
-      setIsCollapsed(sidebar === 'collapsed')
-    }
-  }, [])
 
   return { isCollapsed, onToggle }
 }

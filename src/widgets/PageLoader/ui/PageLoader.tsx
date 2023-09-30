@@ -8,7 +8,7 @@ import cls from './PageLoader.module.scss'
 
 export const PageLoader: FC = () => {
   return (
-    <div className={cn(cls['page-loader-wrapper'])}>
+    <div className={cn(cls['page-loader'])}>
       <Loader />
     </div>
   )

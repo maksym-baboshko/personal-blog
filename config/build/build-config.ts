@@ -1,8 +1,8 @@
 import { buildServer } from './build-server'
 import { buildLoaders } from './build-loaders'
+import { type BuildConfigFunc } from './types'
 import { buildPlugins } from './build-plugins'
 import { buildResolvers } from './build-resolvers'
-import { type BuildConfigFunc } from './types/config'
 
 export const buildConfig: BuildConfigFunc = (options) => {
   const { mode, paths, isDev } = options
