@@ -7,21 +7,21 @@ export enum AppTheme {
 export const lightTheme = {
   value: AppTheme.LIGHT,
   title: 'Light',
-  color: '#e9ecef',
+  color: '#f7f6f6',
   icon: 'circle'
 }
 
 export const darkTheme = {
   value: AppTheme.DARK,
   title: 'Dark',
-  color: '#212529',
+  color: '#171920',
   icon: 'circle'
 }
 
 export const aprikotTheme = {
   value: AppTheme.APRIKOT,
   title: 'Aprikot',
-  color: '#f8cb9b',
+  color: '#ffd8b1',
   icon: 'circle'
 }
 

@@ -1,10 +1,18 @@
 .aprikot-theme {
-  --bg-color: #f8cb9b;
-  --inverted-bg-color: #fcefe1;
-  --primary-color: #31281f;
-  --secondary-color: #f8cb9b;
-  --inverted-primary-color: #1e64d5;
-  --inverted-secondary-color: #63513e;
-  --text-primary-color: #31281f;
-  --text-secondary-color: #e9ecef;
+  // Common
+  --bg-primary: #ffd8b1;
+  --bg-secondary: #fc9;
+  --text-primary: #523006;
+  --text-secondary: #734612;
+
+  // Button
+  --btn-bg-primary: #523006;
+  --btn-text-primary: #fc9;
+
+  // Link
+  --link-primary: #914e02;
+  --link-primary-hover: #653702;
+
+  // Border
+  --border-primary: #734612;
 }

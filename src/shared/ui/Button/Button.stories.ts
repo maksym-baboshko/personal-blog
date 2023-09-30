@@ -22,10 +22,10 @@ const captions = {
   nb: 'Knapp'
 }
 
-export const Primary: Story = {
+export const Solid: Story = {
   render: renderWithLocalization(Button, captions),
   args: {
-    variant: ButtonVariant.PRIMARY,
+    variant: ButtonVariant.SOLID,
     children: 'Button'
   }
 }

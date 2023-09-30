@@ -9,7 +9,7 @@ describe('Button', () => {
   })
 
   it('should render Button with theme', () => {
-    render(<Button variant={ButtonVariant.PRIMARY}>Button</Button>)
-    expect(screen.getByText('Button')).toHaveClass('primary')
+    render(<Button variant={ButtonVariant.SOLID}>Button</Button>)
+    expect(screen.getByText('Button')).toHaveClass('solid')
   })
 })

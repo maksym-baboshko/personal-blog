@@ -6,7 +6,7 @@
   padding: 20px;
   height: 100vh;
   font: var(--font-m);
-  color: var(--text-primary-color);
+  color: var(--text-primary);
 
   h2 {
     font: var(--font-xl);
@@ -16,5 +16,6 @@
 
   p {
     margin-bottom: 20px;
+    color: var(--text-secondary);
   }
 }

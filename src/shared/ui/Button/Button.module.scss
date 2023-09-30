@@ -4,19 +4,19 @@
   background: none;
   cursor: pointer;
   border: 1px solid transparent;
-  color: var(--text-primary-color);
+  color: var(--text-primary);
 }
 
-.primary {
-  background-color: var(--primary-color);
-  color: var(--text-secondary-color);
+.solid {
+  background-color: var(--btn-bg-primary);
+  color: var(--btn-text-primary);
   padding: 10px 16px;
   border-radius: 8px;
 }
 
 .outlined {
-  border: 1px solid var(--primary-color);
-  color: var(--primary-color);
+  border: 1px solid var(--btn-bg-primary);
+  color: var(--btn-bg-primary);
   padding: 10px 16px;
   border-radius: 8px;
 }

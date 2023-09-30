@@ -16,7 +16,7 @@ export const PageError: PageErrorFC = (props) => {
     <div className={cn(cls['error-boundary'])}>
       <h2>{t('error_boundary')}</h2>
       <p>{error.message}</p>
-      <Button variant="primary" onClick={resetErrorBoundary}>
+      <Button variant="solid" onClick={resetErrorBoundary}>
         {t('refresh_page')}
       </Button>
     </div>

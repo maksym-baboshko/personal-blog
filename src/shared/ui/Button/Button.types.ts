@@ -3,7 +3,7 @@ import { type ButtonHTMLAttributes, type FC } from 'react'
 import { type EnumAsUnion } from '@shared/types'
 
 export enum ButtonVariant {
-  PRIMARY = 'primary',
+  SOLID = 'solid',
   OUTLINED = 'outlined'
 }
 

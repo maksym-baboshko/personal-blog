@@ -13,10 +13,10 @@ export const Navbar: NavbarFC = ({ className }) => {
   return (
     <div className={cn(cls.navbar, className)}>
       <div className={cls.links}>
-        <Link to="/" variant="secondary">
+        <Link to="/" color="primary">
           {t('main')}
         </Link>
-        <Link to="/about" variant="secondary">
+        <Link to="/about" color="primary">
           {t('about')}
         </Link>
       </div>

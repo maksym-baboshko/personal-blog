@@ -4,13 +4,12 @@ import { type LinkProps as RouterLinkProps } from 'react-router-dom'
 
 import { type EnumAsUnion } from '@shared/types'
 
-export enum LinkVariant {
-  PRIMARY = 'primary',
-  SECONDARY = 'secondary'
+export enum LinkColor {
+  PRIMARY = 'primary'
 }
 
 interface LinkProps extends RouterLinkProps {
-  variant?: EnumAsUnion<typeof LinkVariant>
+  color?: EnumAsUnion<typeof LinkColor>
 }
 
 export type LinkFC = FC<LinkProps>
