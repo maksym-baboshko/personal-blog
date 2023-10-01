@@ -17,7 +17,8 @@
     "test:unit:watch": "jest --config ./config/jest/jest.config.ts --watch",
     "test:unit:coverage": "jest --config ./config/jest/jest.config.ts --coverage",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "build:storybook": "storybook build -s public"
+    "build:storybook": "storybook build -c ./config/storybook",
+    "test:chromatic": "npx chromatic --project-token=chpt_5a665c150071dab --build-script-name build:storybook"
   },
   "keywords": [],
   "author": "",
@@ -59,6 +60,7 @@
     "@types/webpack-bundle-analyzer": "^4.6.1",
     "@types/webpack-dev-server": "^4.7.2",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "chromatic": "^7.2.0",
     "css-loader": "^6.8.1",
     "eslint": "^8.50.0",
     "eslint-config-prettier": "^9.0.0",
@@ -90,5 +92,7 @@
     "webpack-bundle-analyzer": "^4.9.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "personal-blog@1.0.0"
 }
