@@ -2,13 +2,24 @@ import { type ButtonHTMLAttributes, type FC } from 'react'
 
 import { type EnumAsUnion } from '@shared/types'
 
-export enum ButtonVariant {
+enum ButtonVariant {
   SOLID = 'solid',
-  OUTLINED = 'outlined'
+  OUTLINED = 'outlined',
+  LIGHT = 'light'
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+enum ButtonSize {
+  XS = 'xs',
+  SM = 'sm',
+  MD = 'md',
+  LG = 'lg',
+  XL = 'xl'
+}
+
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: EnumAsUnion<typeof ButtonVariant>
+  size?: EnumAsUnion<typeof ButtonSize>
+  isIcon?: boolean
 }
 
 export type ButtonFC = FC<ButtonProps>

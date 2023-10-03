@@ -4,12 +4,21 @@ import { type LinkProps as RouterLinkProps } from 'react-router-dom'
 
 import { type EnumAsUnion } from '@shared/types'
 
-export enum LinkColor {
+enum LinkColor {
   PRIMARY = 'primary'
 }
 
-interface LinkProps extends RouterLinkProps {
+enum LinkUnderline {
+  NONE = 'none',
+  HOVER = 'hover',
+  ALWAYS = 'always',
+  ACTIVE = 'active',
+  FOCUS = 'focus'
+}
+
+export interface LinkProps extends RouterLinkProps {
   color?: EnumAsUnion<typeof LinkColor>
+  underline?: EnumAsUnion<typeof LinkUnderline>
 }
 
 export type LinkFC = FC<LinkProps>

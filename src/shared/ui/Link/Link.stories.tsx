@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { renderWithLocalization } from '@shared/lib/storybook'
 
 import { Link } from './Link'
-import { LinkColor } from './Link.types'
 
 const meta = {
   title: 'shared/Link',
@@ -26,7 +25,7 @@ const captions = {
 export const Primary: Story = {
   render: renderWithLocalization(Link, captions),
   args: {
-    color: LinkColor.PRIMARY,
+    color: 'primary',
     children: 'Link'
   }
 }

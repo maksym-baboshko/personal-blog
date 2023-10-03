@@ -3,20 +3,139 @@
   outline: none;
   background: none;
   cursor: pointer;
-  border: 1px solid transparent;
   color: var(--text-primary);
+  font-weight: 600;
+  border: none;
+
+  &:focus-visible {
+    transition: all 0.3s ease;
+  }
+}
+
+.xs {
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: var(--font-size-xs);
+  line-height: var(--font-line-xs);
+}
+
+.sm {
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: var(--font-size-s);
+  line-height: var(--font-line-s);
+}
+
+.md {
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: var(--font-size-m);
+  line-height: var(--font-line-m);
+}
+
+.lg {
+  padding: 10px 24px;
+  border-radius: 12px;
+  font-size: var(--font-size-l);
+  line-height: var(--font-line-l);
+}
+
+.xl {
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-size: var(--font-size-xl);
+  line-height: var(--font-line-xl);
+}
+
+.light {
+  border: none;
+  padding: 0;
+
+  &.xs:focus-visible,
+  &.sm:focus-visible {
+    box-shadow:
+      0 0 0 3px var(--bg-primary),
+      0 0 0 6px var(--btn-primary-focus);
+  }
+
+  &.md:focus-visible {
+    box-shadow:
+      0 0 0 4px var(--bg-primary),
+      0 0 0 7px var(--btn-primary-focus);
+  }
+
+  &.lg:focus-visible,
+  &.xl:focus-visible {
+    box-shadow:
+      0 0 0 5px var(--bg-primary),
+      0 0 0 8px var(--btn-primary-focus);
+  }
 }
 
 .solid {
   background-color: var(--btn-bg-primary);
   color: var(--btn-text-primary);
-  padding: 10px 16px;
-  border-radius: 8px;
+
+  &.xs:focus-visible,
+  &.sm:focus-visible {
+    box-shadow:
+      0 0 0 3px var(--bg-primary),
+      0 0 0 6px var(--border-primary);
+  }
+
+  &.md:focus-visible {
+    box-shadow:
+      0 0 0 4px var(--bg-primary),
+      0 0 0 7px var(--border-primary);
+  }
+
+  &.lg:focus-visible,
+  &.xl:focus-visible {
+    box-shadow:
+      0 0 0 5px var(--bg-primary),
+      0 0 0 8px var(--border-primary);
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+
+  &.xs:focus-visible,
+  &.sm:focus-visible,
+  &.md:focus-visible {
+    box-shadow: 0 0 0 3px var(--btn-primary-focus);
+  }
+
+  &.lg:focus-visible,
+  &.xl:focus-visible {
+    box-shadow: 0 0 0 4px var(--btn-primary-focus);
+  }
 }
 
 .outlined {
   border: 1px solid var(--btn-bg-primary);
   color: var(--btn-bg-primary);
-  padding: 10px 16px;
-  border-radius: 8px;
+
+  &.xs:focus-visible,
+  &.sm:focus-visible {
+    box-shadow:
+      0 0 0 3px var(--bg-primary),
+      0 0 0 6px var(--border-primary);
+  }
+
+  &.md:focus-visible {
+    box-shadow:
+      0 0 0 4px var(--bg-primary),
+      0 0 0 7px var(--border-primary);
+  }
+
+  &.lg:focus-visible,
+  &.xl:focus-visible {
+    box-shadow:
+      0 0 0 5px var(--bg-primary),
+      0 0 0 8px var(--border-primary);
+  }
 }

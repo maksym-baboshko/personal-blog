@@ -3,5 +3,7 @@
   "about": "Про нас",
   "page_not_found": "Ойой! Сторінка не знайдена",
   "error_boundary": "Ойой! Щось пішло не так!",
-  "refresh_page": "Оновити сторінку"
+  "refresh_page": "Оновити сторінку",
+  "language": "Мова",
+  "theme": "Тема"
 }

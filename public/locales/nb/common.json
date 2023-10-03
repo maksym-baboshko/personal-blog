@@ -3,5 +3,7 @@
   "about": "Om oss",
   "page_not_found": "Oops! Side ikke funnet",
   "error_boundary": "Oops! Noe gikk galt!",
-  "refresh_page": "Oppdater siden"
+  "refresh_page": "Oppdater siden",
+  "language": "Språk",
+  "theme": "Tema"
 }

@@ -1,6 +1,13 @@
 .switcher {
-  height: 23px;
-  width: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn {
+  height: 26px;
+  width: 26px;
   border-radius: 50%;
   border: 2px solid var(--border-primary);
 }

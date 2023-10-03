@@ -2,6 +2,7 @@
   width: 100%;
   height: var(--navbar-height);
   background: var(--bg-secondary);
+  transition: background 0.4s;
   display: flex;
   align-items: center;
   padding: 20px;

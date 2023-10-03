@@ -6,10 +6,13 @@ import { type LinkFC } from './Link.types'
 import cls from './Link.module.scss'
 
 export const Link: LinkFC = (props) => {
-  const { children, className, color = '', ...restProps } = props
+  const { children, className, color = '', underline = 'none', ...restProps } = props
 
   return (
-    <RouterLink className={cn(cls.link, className, { [cls[color]]: color })} {...restProps}>
+    <RouterLink
+      className={cn(cls.link, cls[`underline-${underline}`], { [cls[color]]: color }, className)}
+      {...restProps}
+    >
       {children}
     </RouterLink>
   )

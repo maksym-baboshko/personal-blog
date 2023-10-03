@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import { Button, ButtonVariant } from '.'
+import { Button } from '.'
 
 describe('Button', () => {
   it('should render Button', () => {
@@ -9,7 +9,7 @@ describe('Button', () => {
   })
 
   it('should render Button with theme', () => {
-    render(<Button variant={ButtonVariant.SOLID}>Button</Button>)
+    render(<Button variant="solid">Button</Button>)
     expect(screen.getByText('Button')).toHaveClass('solid')
   })
 })

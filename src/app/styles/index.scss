@@ -13,11 +13,13 @@
 .content-wrapper {
   display: flex;
   background: var(--bg-secondary);
+  transition: background 0.4s;
   min-height: calc(100vh - var(--navbar-height));
 }
 
 .page-wrapper {
   background: var(--bg-primary);
+  transition: background 0.4s;
   border-top-left-radius: 36px;
   padding: 20px 30px;
   flex: 1;

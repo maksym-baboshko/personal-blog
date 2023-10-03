@@ -1,5 +1,22 @@
 .link {
   color: var(--text-primary);
+  outline: none;
+  padding: 3px 5px;
+  border-radius: 5px;
+  text-decoration: none;
+
+  &:focus-visible {
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 3px var(--btn-primary-focus);
+  }
+}
+
+.underline-none {
+  text-decoration: none;
+}
+
+.underline-hover:hover {
+  text-decoration: underline;
 }
 
 .primary {

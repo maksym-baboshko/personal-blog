@@ -1,9 +1,16 @@
 .switcher {
-  height: 23px;
-  width: 23px;
-  font-size: 11px;
-  border: 1px solid var(--border-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn {
+  width: 26px;
+  height: 26px;
   border-radius: 5px;
   color: var(--border-primary);
-  line-height: normal;
+  border: 2px solid var(--border-primary);
+  font-weight: 700;
+  padding: 3px;
 }
