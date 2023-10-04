@@ -12,6 +12,8 @@
     background 0.4s;
 }
 
+// Items
+
 .items {
   display: flex;
   flex-direction: column;
@@ -50,15 +52,19 @@
   width: var(--collapsed-sidebar-width);
 }
 
+// Footer
+
 .sidebar-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .arrow-btn {
   transform: rotate(-180deg);
   transition: transform 0.35s;
+  margin-top: 22px;
 }
 
 .collapsed .arrow-btn {
@@ -66,8 +72,8 @@
 }
 
 .arrow-icon {
-  fill: var(--text-primary);
-  stroke: var(--text-primary);
+  fill: var(--border-primary);
+  stroke: var(--border-primary);
 }
 
 .switchers::before {
@@ -88,13 +94,14 @@
   justify-content: center;
   margin-top: 22px;
   padding-top: 24px;
+  gap: 8px;
+  width: 100%;
 
   & span {
     opacity: 1;
     max-width: 100px;
     white-space: nowrap;
     overflow: hidden;
-    margin: 0 8px;
     transition:
       max-width 0.3s,
       transform 0.3s,
@@ -103,11 +110,6 @@
 
   .collapsed & span {
     opacity: 0;
-    margin: 0 8px 0 0;
     max-width: 0;
-  }
-
-  & div:last-child span {
-    margin-right: 0;
   }
 }

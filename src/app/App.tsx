@@ -14,7 +14,7 @@ const App: FC = () => {
   const { theme } = useTheme()
 
   return (
-    <div className={cn('app', theme)}>
+    <div id="app" className={cn(theme)}>
       <Navbar />
 
       <div className="content-wrapper">

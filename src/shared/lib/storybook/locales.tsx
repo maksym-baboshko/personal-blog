@@ -14,7 +14,7 @@ export const sbDefaultLocale = sbLocales[1]
 type LocaleKeys = keyof typeof locales
 type TranslatedCaptions = Record<LocaleKeys, string>
 
-const getTranslatedCaption = (locale: string, captions: TranslatedCaptions): string =>
+export const getTranslatedCaption = (locale: string, captions: TranslatedCaptions): string =>
   captions[(supportedLngs.find((lng) => lng === locale) ?? sbDefaultLocale.value) as LocaleKeys]
 
 export const renderWithLocalization = (

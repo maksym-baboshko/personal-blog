@@ -1,2 +1,2 @@
 export { getSbBackground, sbBackgrounds, sbDefaultBg } from './backgrounds'
-export { renderWithLocalization, sbLocales, sbDefaultLocale } from './locales'
+export { renderWithLocalization, getTranslatedCaption, sbLocales, sbDefaultLocale } from './locales'

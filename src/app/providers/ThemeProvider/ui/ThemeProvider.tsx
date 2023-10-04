@@ -9,7 +9,7 @@ import { type ThemeProviderFC } from './ThemeProvider.types'
 const themeFromLS = localStorage.getItem(LS_THEME_KEY) as AppTheme
 
 export const ThemeProvider: ThemeProviderFC = ({ children, initialTheme }) => {
-  const defaultTheme = themeFromLS ?? initialTheme ?? AppTheme.LIGHT
+  const defaultTheme = themeFromLS ?? initialTheme ?? AppTheme.DARK
   const [theme, setTheme] = useState<AppTheme>(defaultTheme)
 
   const defaultProps = useMemo(() => ({ theme, setTheme }), [theme])

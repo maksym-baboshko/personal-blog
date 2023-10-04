@@ -5,5 +5,6 @@
   "error_boundary": "Oops! Noe gikk galt!",
   "refresh_page": "Oppdater siden",
   "language": "Språk",
-  "theme": "Tema"
+  "theme": "Tema",
+  "login": "Logg inn"
 }

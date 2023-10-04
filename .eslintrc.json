@@ -1,9 +1,9 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true
-  },
+  "env": { "browser": true, "es2021": true },
+  "settings": { "react": { "version": "detect" } },
+  "parserOptions": { "ecmaVersion": "latest", "sourceType": "module" },
   "extends": [
+    "plugin:react-hooks/recommended",
     "standard-with-typescript",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
@@ -11,42 +11,23 @@
     "plugin:storybook/recommended",
     "prettier"
   ],
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
+  "plugins": ["react", "i18next"],
   "overrides": [
     {
-      "env": {
-        "node": true
-      },
+      "env": { "node": true },
       "files": [".eslintrc.{js,cjs}"],
-      "parserOptions": {
-        "sourceType": "script"
-      }
+      "parserOptions": { "sourceType": "script" }
     },
     {
       "files": ["**/src/**/*.test.{js,jsx,ts,tsx}"],
-      "rules": {
-        "i18next/no-literal-string": "off"
-      }
+      "rules": { "i18next/no-literal-string": "off" }
     }
   ],
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },
-  "plugins": ["react", "i18next"],
   "rules": {
     "react/prop-types": "off",
     "no-console": "warn",
-    "@typescript-eslint/no-misused-promises": [
-      "error",
-      {
-        "checksVoidReturn": false
-      }
-    ],
+    "react-hooks/exhaustive-deps": "error",
+    "@typescript-eslint/no-misused-promises": ["error", { "checksVoidReturn": false }],
     "promise/param-names": [
       "error",
       {

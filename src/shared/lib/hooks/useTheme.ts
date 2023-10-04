@@ -26,7 +26,7 @@ export const useTheme = (): Result => {
   const toggleTheme = useCallback((): void => {
     setTheme(nextTheme)
     localStorage.setItem(LS_THEME_KEY, nextTheme)
-  }, [nextTheme])
+  }, [nextTheme, setTheme])
 
   return { theme, nextThemeIdx, toggleTheme }
 }

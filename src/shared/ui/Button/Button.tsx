@@ -7,7 +7,7 @@ import cls from './Button.module.scss'
 export const Button: ButtonFC = (props) => {
   const { children, className, variant = 'light', size = 'md', isIcon, ...restProps } = props
 
-  const styles = cn(
+  const classes = cn(
     cls.button,
     cls[size],
     { [cls[variant]]: variant, [cls.icon]: isIcon },
@@ -15,7 +15,7 @@ export const Button: ButtonFC = (props) => {
   )
 
   return (
-    <button className={styles} {...restProps}>
+    <button className={classes} {...restProps}>
       {children}
     </button>
   )

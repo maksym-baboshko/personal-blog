@@ -1,7 +1,7 @@
 import { type ReactNode } from 'react'
 
-import { BrowserRouter } from 'react-router-dom'
+import { MemoryRouter, type MemoryRouterProps } from 'react-router-dom'
 
-export const withRouter = (component: ReactNode): ReactNode => {
-  return <BrowserRouter>{component}</BrowserRouter>
+export const withRouter = (component: ReactNode, options: MemoryRouterProps = {}): ReactNode => {
+  return <MemoryRouter {...options}>{component}</MemoryRouter>
 }
