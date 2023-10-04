@@ -1,5 +1,5 @@
 import { LS_SIDEBAR_KEY } from '@shared/constants/localStorage'
-import { useLocalStorage } from '@shared/lib/hooks'
+import { useLocalStorage } from '@shared/hooks'
 
 interface ToggleSidebar {
   isCollapsed: boolean

@@ -41,5 +41,18 @@
       "export type ${1:Component}FC = FC<${1:Component}Props>",
       ""
     ]
+  },
+  "customTestingTemplate": {
+    "prefix": "ctest",
+    "description": "Template for testing",
+    "scope": "typescript, typescriptreact",
+    "body": [
+      "describe('${TM_FILENAME_BASE}', () => {",
+      "  it('should $1', () => {",
+      "    expect().toEqual()",
+      "  })",
+      "})",
+      ""
+    ]
   }
 }

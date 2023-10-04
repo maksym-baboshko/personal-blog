@@ -1,2 +1,1 @@
-export { withRouter } from './withRouter'
-export { renderWithI18next } from './renderWithI18next'
+export { renderWithProviders } from './renderWithProviders'

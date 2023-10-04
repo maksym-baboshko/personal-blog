@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react'
 
-export interface AppRoutesProps {
+export interface AppRoutesConfig {
   path: string
   element: ReactNode | null
 }
