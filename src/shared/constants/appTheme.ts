@@ -8,21 +8,21 @@ export const lightTheme = {
   value: AppTheme.LIGHT,
   title: 'Light',
   color: '#f7f6f6',
-  icon: 'circle'
+  icon: 'circlehollow'
 }
 
 export const darkTheme = {
   value: AppTheme.DARK,
   title: 'Dark',
   color: '#171920',
-  icon: 'circle'
+  icon: 'circlehollow'
 }
 
 export const aprikotTheme = {
   value: AppTheme.APRIKOT,
   title: 'Aprikot',
   color: '#ffd8b1',
-  icon: 'circle'
+  icon: 'circlehollow'
 }
 
 export const appThemes = [lightTheme, darkTheme, aprikotTheme]

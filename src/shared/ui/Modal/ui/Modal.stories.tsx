@@ -11,7 +11,8 @@ import { Modal } from './Modal'
 const meta = {
   title: 'shared/Modal',
   component: Modal,
-  parameters: { layout: 'padded' }
+  parameters: { layout: 'centered' },
+  tags: ['autodocs']
 } satisfies Meta<typeof Modal>
 
 export default meta
@@ -54,14 +55,15 @@ export const Default: Story = {
     }, [])
 
     return (
-      <div>
+      <>
         <Button onClick={toggleModal} variant="solid">
           {getTranslatedCaption(ctx.globals.locale, buttonCaptions)}
         </Button>
+
         <Modal {...args} isOpen={hasModal} onClose={toggleModal}>
           {getTranslatedCaption(ctx.globals.locale, modalCaptions)}
         </Modal>
-      </div>
+      </>
     )
   }
 }

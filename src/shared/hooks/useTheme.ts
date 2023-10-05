@@ -21,12 +21,14 @@ export const useTheme = (): Result => {
     return { nextThemeIdx, nextTheme }
   }, [theme])
 
-  const { nextTheme, nextThemeIdx } = useMemo(getNextTheme, [getNextTheme])
+  const { nextTheme: newTheme, nextThemeIdx } = useMemo(getNextTheme, [getNextTheme])
 
   const toggleTheme = useCallback((): void => {
-    setTheme(nextTheme)
-    localStorage.setItem(LS_THEME_KEY, nextTheme)
-  }, [nextTheme, setTheme])
+    setTheme(newTheme)
+    localStorage.setItem(LS_THEME_KEY, newTheme)
+
+    document.body.className = newTheme
+  }, [newTheme, setTheme])
 
   return { theme, nextThemeIdx, toggleTheme }
 }

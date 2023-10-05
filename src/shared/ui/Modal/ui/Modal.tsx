@@ -59,7 +59,7 @@ export const Modal: ModalFC = (props) => {
   }, [isOpen, handleKeydown])
 
   return (
-    <Portal container={document.getElementById('app')}>
+    <Portal>
       <div className={classes}>
         <div onClick={handleClose} className={cls.overlay}>
           <div className={cls.content} onClick={handleContentClick}>
