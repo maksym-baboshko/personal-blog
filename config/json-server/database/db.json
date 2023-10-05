@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "email": "max.baboshko@gmail.com",
+      "password": "$2a$10$ycyJ9arm8Ny06mLnIqAM4.1t2thysdZS97ECIbFhL4L6I/yTihNhK",
+      "id": 1
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "Post 1",
+      "author": "John Doe",
+      "date": "2020-01-01T00:00:00.000Z",
+      "body": "Lorem ipsum dolor sit amet"
+    }
+  ]
+}

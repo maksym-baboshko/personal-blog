@@ -1,29 +1,24 @@
 {
   "name": "personal-blog",
+  "author": "Maksym Baboshko",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "webpack serve --env port=3000 --env mode=development",
-    "build:prod": "webpack build --env mode=production",
-    "build:dev": "webpack build --env mode=development",
-    "lint:ts": "eslint . --ext .ts,.tsx",
-    "lint:ts:fix": "eslint . --ext .ts,.tsx --fix",
-    "lint:css": "stylelint '**/*.scss'",
-    "lint:css:fix": "stylelint '**/*.scss' --fix",
-    "format": "prettier --write ./src",
-    "format:check": "prettier --check ./src",
-    "test:unit": "jest --config ./config/jest/jest.config.ts",
-    "test:unit:watch": "jest --config ./config/jest/jest.config.ts --watch",
-    "test:unit:coverage": "jest --config ./config/jest/jest.config.ts --coverage",
-    "test:ui": "npx chromatic --project-token=chpt_5a665c150071dab --build-script-name storybook:build",
-    "test:ui:ci": "npx chromatic --project-token=chpt_5a665c150071dab --build-script-name storybook:build --exit-zero-on-changes",
-    "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "storybook:build": "storybook build -c ./config/storybook"
-  },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "start:dev:client": "webpack serve --env port=3000 --env mode=development",
+    "start:dev:server": "node ./config/json-server/index.js",
+    "start:dev:storybook": "storybook dev -p 6006 -c ./config/storybook",
+    "build:dev:client": "webpack build --env mode=development",
+    "build:prod:client": "webpack build --env mode=production",
+    "build:prod:storybook": "storybook build -c ./config/storybook",
+    "test:unit:client": "jest --config ./config/jest/jest.config.ts",
+    "check:ts": "eslint . --ext .ts,.tsx",
+    "check:css": "stylelint '**/*.scss'",
+    "check:formatting": "prettier --check ./src",
+    "fix:ts": "eslint . --ext .ts,.tsx --fix",
+    "fix:css": "stylelint '**/*.scss' --fix",
+    "fix:formatting": "prettier --write ./src"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.6",
     "classnames": "^2.3.2",
@@ -80,7 +75,10 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "jest-transformer-svg": "^2.0.1",
+    "json-server": "^0.17.4",
+    "json-server-auth": "^2.1.0",
     "mini-css-extract-plugin": "^2.7.6",
+    "multer": "^1.4.5-lts.1",
     "prettier": "3.0.3",
     "react-refresh": "^0.14.0",
     "sass": "^1.68.0",
@@ -97,7 +95,5 @@
     "webpack-bundle-analyzer": "^4.9.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
-  },
-  "readme": "ERROR: No README data found!",
-  "_id": "personal-blog@1.0.0"
+  }
 }

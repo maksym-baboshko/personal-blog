@@ -21,13 +21,15 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
+      - name: Installing dependencies
         run: npm install
-      - name: Build the project
-        run: npm run build:prod
-      - name: Linting TypeScript
-        run: npm run lint:ts
-      - name: Linting CSS
-        run: npm run lint:css
+      - name: Building the project
+        run: npm run build:prod:client
+      - name: Checking TypeScript
+        run: npm run check:ts
+      - name: Checking CSS
+        run: npm run check:css
+      - name: Checking formatting
+        run: npm run check:formatting
       - name: Unit testing
-        run: npm run test:unit
+        run: npm run test:unit:client
