@@ -3,7 +3,6 @@
   "author": "Maksym Baboshko",
   "version": "1.0.0",
   "license": "ISC",
-  "type": "module",
   "scripts": {
     "start:dev:client": "webpack serve --env port=3000 --env mode=development",
     "start:dev:server": "node ./config/json-server/index.js",

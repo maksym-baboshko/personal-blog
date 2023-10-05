@@ -1,11 +1,7 @@
-import path from 'path'
-import multer from 'multer'
-import { fileURLToPath } from 'url'
-import auth from 'json-server-auth'
-import jsonServer from 'json-server'
-
-const _filename = fileURLToPath(import.meta.url)
-const _dirname = path.dirname(_filename)
+const path = require('path')
+const multer = require('multer')
+const auth = require('json-server-auth')
+const jsonServer = require('json-server')
 
 const PORT = 8000
 const ROUTER_PREFIX = '/api'
@@ -14,7 +10,7 @@ const resourcePermits = {
   posts: 644
 }
 
-const dbPath = path.join(_dirname, 'database', 'db.json')
+const dbPath = path.join(__dirname, 'database', 'db.json')
 const permissionsConfig = Object.entries(resourcePermits).reduce((acc, [key, value]) => {
   acc[`${ROUTER_PREFIX.slice(1)}/${key}`] = value
   return acc
