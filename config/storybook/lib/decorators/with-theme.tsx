@@ -8,14 +8,15 @@ import { ThemeProvider } from '@app/providers/ThemeProvider'
 
 export const withTheme: Decorator = (Story, ctx) => {
   const theme = ctx.parameters.themes ?? ctx.globals.themes
+  const bg = getSbBackground(theme)
 
   useEffect(() => {
-    ctx.globals.backgrounds = { value: getSbBackground(theme) }
-  }, [theme, ctx.globals])
+    const bgStyles = `background-color: ${bg} !important; transition: background-color 0.3s;`
 
-  useEffect(() => {
     document.body.className = theme
-  }, [theme])
+    document.body.setAttribute('style', bgStyles)
+    ctx.globals.backgrounds = { value: bg }
+  }, [theme, bg, ctx.globals])
 
   return (
     <ThemeProvider initialTheme={theme}>

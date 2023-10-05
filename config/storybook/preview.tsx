@@ -9,16 +9,7 @@ import '@app/styles/index.scss'
 const preview: Preview = {
   decorators,
   globalTypes,
-  parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/
-      }
-    },
-    backgrounds: { default: sbDefaultBg.title, values: sbBackgrounds }
-  }
+  parameters: { backgrounds: { default: sbDefaultBg.name, values: sbBackgrounds } }
 }
 
 export default preview
