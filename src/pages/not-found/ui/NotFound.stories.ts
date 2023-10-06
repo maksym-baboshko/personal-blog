@@ -1,12 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { withFullscreen } from '@shared/lib/storybook'
+
 import { NotFound } from './NotFound'
 
 const meta = {
   title: 'pages/NotFound',
   component: NotFound,
   parameters: { layout: 'fullscreen' },
-  tags: ['autodocs']
+  decorators: [withFullscreen]
 } satisfies Meta<typeof NotFound>
 
 export default meta

@@ -17,7 +17,7 @@
   "stylelint.validate": ["css", "scss"],
   "stylelint.enable": true,
   "jest.autoRevealOutput": "on-run",
-  "jest.jestCommandLine": "npm run test:unit --",
+  "jest.jestCommandLine": "npm run test:unit:client --",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.rulers": [100],

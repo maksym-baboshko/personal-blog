@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { withFullscreen } from '@shared/lib/storybook'
+
 import { PageError } from './PageError'
 
 const meta = {
   title: 'widgets/PageError',
   component: PageError,
-  parameters: {
-    layout: 'fullscreen'
-  },
-  tags: ['autodocs']
+  parameters: { layout: 'fullscreen' },
+  decorators: [withFullscreen]
 } satisfies Meta<typeof PageError>
 
 export default meta

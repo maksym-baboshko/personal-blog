@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { withFullscreen } from '@shared/lib/storybook'
+
 import { Sidebar } from './Sidebar'
 
 const meta = {
   title: 'widgets/Sidebar',
   component: Sidebar,
-  parameters: {
-    layout: 'fullscreen'
-  },
-  tags: ['autodocs']
+  parameters: { layout: 'fullscreen' },
+  decorators: [withFullscreen]
 } satisfies Meta<typeof Sidebar>
 
 export default meta

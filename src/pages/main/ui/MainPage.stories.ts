@@ -1,12 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { withFullscreen } from '@shared/lib/storybook'
+
 import MainPage from './MainPage'
 
 const meta = {
   title: 'pages/MainPage',
   component: MainPage,
   parameters: { layout: 'fullscreen' },
-  tags: ['autodocs']
+  decorators: [withFullscreen]
 } satisfies Meta<typeof MainPage>
 
 export default meta
