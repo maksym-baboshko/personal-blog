@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { getTranslatedCaption } from '@shared/lib/storybook'
+import { getTranslatedCaption, withFullscreen } from '@shared/lib/storybook'
 import { Button } from '@shared/ui/Button'
 
 import { Modal } from './Modal'
@@ -11,8 +11,8 @@ import { Modal } from './Modal'
 const meta = {
   title: 'shared/Modal',
   component: Modal,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs']
+  parameters: { layout: 'fullscreen' },
+  decorators: [withFullscreen]
 } satisfies Meta<typeof Modal>
 
 export default meta
