@@ -5,14 +5,15 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Button } from '@shared/ui/Button'
-import { getTranslatedCaption } from '@shared/lib/storybook'
+import { getTranslatedCaption, withFullscreen } from '@shared/lib/storybook'
 
 import { AuthModal } from './AuthModal'
 
 const meta = {
   title: 'features/AuthByEmail',
   component: AuthModal,
-  parameters: { layout: 'centered' }
+  parameters: { layout: 'fullscreen' },
+  decorators: [withFullscreen]
 } satisfies Meta<typeof AuthModal>
 
 export default meta
