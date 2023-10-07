@@ -12,12 +12,15 @@
     "scope": "typescript, typescriptreact",
     "body": [
       "import cn from 'classnames'",
+      "import { useTranslation } from 'react-i18next'",
       "",
       "import { type ${TM_FILENAME_BASE}FC } from './${TM_FILENAME_BASE}.types'",
       "",
       "import cls from './${TM_FILENAME_BASE}.module.scss'",
       "",
       "export const ${TM_FILENAME_BASE}: ${TM_FILENAME_BASE}FC = (props) => {",
+      "  const { t } = useTranslation('common')",
+      "",
       "  return (",
       "    <div className={cn(cls.wrapper)}>",
       "      $1",
@@ -54,5 +57,35 @@
       "})",
       ""
     ]
+  },
+  "customReduxSlice": {
+    "prefix": "rs",
+    "description": "Template for redux slice",
+    "scope": "typescript, typescriptreact",
+    "body": [
+      "import { createSlice } from '@reduxjs/toolkit'",
+      "",
+      "import { type StateSchema } from '../types'",
+      "",
+      "const initialState: StateSchema = {",
+      "  ",
+      "}",
+      "",
+      "const ${TM_FILENAME_BASE} = createSlice({",
+      "  name: '${1:entity}',",
+      "  initialState,",
+      "  reducers: {}",
+      "})",
+      "",
+      "export const { actions: ${1:entity}Actions } = ${TM_FILENAME_BASE}",
+      "export const { reducer: ${1:entity}Reducer } = ${TM_FILENAME_BASE}",
+      ""
+    ]
+  },
+  "customReduxSlice": {
+    "prefix": "rsexd",
+    "description": "Re-exports redux entity actions and reducer",
+    "scope": "typescript, typescriptreact",
+    "body": ["export { ${1:entity}Reducer, ${1:entity}Actions } from './${1:entity}Slice'"]
   }
 }

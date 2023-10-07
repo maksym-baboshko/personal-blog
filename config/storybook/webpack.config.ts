@@ -25,15 +25,15 @@ export default ({ config }: { config: Configuration }): Configuration => {
     __PROJECT__: JSON.stringify('storybook')
   }
 
-  if (config.resolve !== undefined) {
+  if (config.resolve) {
     config.resolve.alias = { ...config.resolve.alias, ...buildAlias(options) }
   }
 
-  if (config.plugins !== undefined) {
+  if (config.plugins) {
     config.plugins.push(new DefinePlugin(globalConstants))
   }
 
-  if (config.module?.rules !== undefined) {
+  if (config.module?.rules) {
     config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
       // eslint-disable-next-line @typescript-eslint/prefer-includes
       if (/svg/.test(rule.test as string)) return { ...rule, exclude: /\.svg$/i }

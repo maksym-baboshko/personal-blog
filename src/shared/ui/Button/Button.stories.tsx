@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { renderWithLocalization } from '@shared/lib/storybook'
-import ArrowIcon from '@shared/assets/icons/arrow-bottom.svg'
+import ArrowIcon from '@shared/assets/icons/arrow.svg'
 
 import { Button } from './Button'
 

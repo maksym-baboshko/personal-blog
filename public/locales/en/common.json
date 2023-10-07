@@ -1,10 +1,21 @@
 {
   "main": "Main",
-  "about": "About us",
+  "about": "About me",
   "page_not_found": "Ooops! Page not found",
   "error_boundary": "Oops! Something went wrong!",
   "refresh_page": "Refresh page",
   "language": "Language",
   "theme": "Theme",
-  "login": "Sign in"
+  "login": "Sign in",
+  "auth_form": {
+    "email": "E-mail",
+    "password": "Password",
+    "submit": "Sign in",
+    "login": {
+      "title": "I'm happy to see you! Sign in"
+    }
+  },
+  "posts": "Posts",
+  "profile": "Profile",
+  "settings": "Settings"
 }

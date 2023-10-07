@@ -27,7 +27,7 @@
 }
 
 .md {
-  padding: 8px 18px;
+  padding: 10px 18px;
   border-radius: 8px;
   font-size: var(--font-size-m);
   line-height: var(--font-line-m);
@@ -79,6 +79,31 @@
   &.xs:focus-visible,
   &.sm:focus-visible {
     box-shadow:
+      0 0 0 2px var(--bg-primary),
+      0 0 0 5px var(--border-primary);
+  }
+
+  &.md:focus-visible {
+    box-shadow:
+      0 0 0 3px var(--bg-primary),
+      0 0 0 6px var(--border-primary);
+  }
+
+  &.lg:focus-visible,
+  &.xl:focus-visible {
+    box-shadow:
+      0 0 0 4px var(--bg-primary),
+      0 0 0 7px var(--border-primary);
+  }
+}
+
+.outlined {
+  border: 1px solid var(--btn-bg-primary);
+  color: var(--btn-bg-primary);
+
+  &.xs:focus-visible,
+  &.sm:focus-visible {
+    box-shadow:
       0 0 0 3px var(--bg-primary),
       0 0 0 6px var(--border-primary);
   }
@@ -112,30 +137,5 @@
   &.lg:focus-visible,
   &.xl:focus-visible {
     box-shadow: 0 0 0 4px var(--btn-primary-focus);
-  }
-}
-
-.outlined {
-  border: 1px solid var(--btn-bg-primary);
-  color: var(--btn-bg-primary);
-
-  &.xs:focus-visible,
-  &.sm:focus-visible {
-    box-shadow:
-      0 0 0 3px var(--bg-primary),
-      0 0 0 6px var(--border-primary);
-  }
-
-  &.md:focus-visible {
-    box-shadow:
-      0 0 0 4px var(--bg-primary),
-      0 0 0 7px var(--border-primary);
-  }
-
-  &.lg:focus-visible,
-  &.xl:focus-visible {
-    box-shadow:
-      0 0 0 5px var(--bg-primary),
-      0 0 0 8px var(--border-primary);
   }
 }

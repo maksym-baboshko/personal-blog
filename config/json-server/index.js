@@ -35,7 +35,7 @@ server.use(delayRequests)
 server.post('/profile', upload.single('avatar'), function (req, res, next) {
   const { file } = req
 
-  if (file?.filename !== undefined) {
+  if (file?.filename) {
     res.json({ fileName: file.filename })
     next()
   } else {

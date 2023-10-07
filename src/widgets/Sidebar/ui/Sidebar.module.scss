@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 0 30px;
+  padding: 60px 0 30px;
   width: var(--sidebar-width);
   min-height: 100%;
   background: var(--bg-secondary);
@@ -31,7 +31,7 @@
 
   & .item-text {
     overflow: hidden;
-    text-wrap: nowrap;
+    white-space: nowrap;
     transform: translateX(14px);
     max-width: 200px;
     opacity: 1;
@@ -65,7 +65,8 @@
 .arrow-btn {
   transform: rotate(-180deg);
   transition: transform 0.35s;
-  margin-top: 22px;
+  margin-top: 56px;
+  padding-left: 7px;
 }
 
 .collapsed .arrow-btn {
@@ -81,7 +82,7 @@
   content: '';
   display: block;
   width: 100%;
-  height: 2px;
+  height: 1px;
   border-radius: 5px;
   background: var(--border-primary);
   position: absolute;

@@ -8,22 +8,31 @@ import { type ModalFC } from './Modal.types'
 
 import cls from './Modal.module.scss'
 
-const CLOSE_ANIMATION_DELAY = 300
+const CLOSE_ANIMATION_DELAY = 400
 
 export const Modal: ModalFC = (props) => {
   const { children, className, isOpen, onClose } = props
 
   const [isClosing, setIsClosing] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
+
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const classes = cn(cls.modal, { [cls.opened]: isOpen, [cls.closing]: isClosing }, className)
+  const classes = cn(
+    cls.modal,
+    {
+      [cls.opened]: isMounted,
+      [cls.closing]: isClosing
+    },
+    className
+  )
 
   const handleContentClick = (e: MouseEvent<HTMLDivElement>): void => {
     e.stopPropagation()
   }
 
   const handleClose = useCallback((): void => {
-    if (onClose !== undefined) {
+    if (onClose) {
       setIsClosing(true)
 
       timerRef.current = setTimeout(() => {
@@ -44,19 +53,23 @@ export const Modal: ModalFC = (props) => {
   )
 
   useEffect(() => {
-    if (isOpen ?? false) {
-      window.addEventListener('keydown', handleKeydown)
-    }
+    if (!isOpen) return
+
+    setIsMounted(true)
+    window.addEventListener('keydown', handleKeydown)
 
     return () => {
       window.removeEventListener('keydown', handleKeydown)
+      setIsMounted(false)
 
-      if (timerRef.current !== null) {
+      if (timerRef.current) {
         clearTimeout(timerRef.current)
         timerRef.current = null
       }
     }
   }, [isOpen, handleKeydown])
+
+  if (!isOpen) return null
 
   return (
     <Portal>

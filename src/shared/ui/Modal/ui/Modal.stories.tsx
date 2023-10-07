@@ -32,7 +32,6 @@ const buttonCaptions = {
 }
 
 export const Default: Story = {
-  args: {},
   render: (args, ctx) => {
     const [hasModal, setHasModal] = useState(false)
     const modalTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -47,7 +46,7 @@ export const Default: Story = {
       }, 0)
 
       return () => {
-        if (modalTimerRef.current !== null) {
+        if (modalTimerRef.current) {
           clearTimeout(modalTimerRef.current)
           modalTimerRef.current = null
         }
@@ -60,7 +59,7 @@ export const Default: Story = {
           {getTranslatedCaption(ctx.globals.locale, buttonCaptions)}
         </Button>
 
-        <Modal {...args} isOpen={hasModal} onClose={toggleModal}>
+        <Modal isOpen={hasModal} onClose={toggleModal} {...args}>
           {getTranslatedCaption(ctx.globals.locale, modalCaptions)}
         </Modal>
       </>

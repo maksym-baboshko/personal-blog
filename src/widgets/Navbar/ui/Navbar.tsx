@@ -1,36 +1,39 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 
 import cn from 'classnames'
 import { useTranslation } from 'react-i18next'
 
-import { Modal } from '@shared/ui/Modal'
 import { Button } from '@shared/ui/Button'
+import { AuthModal } from '@features/AuthByEmail'
 
 import { type NavbarFC } from './Navbar.types'
 
 import cls from './Navbar.module.scss'
 
 export const Navbar: NavbarFC = ({ className }) => {
-  const [hasAuthModal, setHasAuthModal] = useState(false)
+  const [showAuthModal, setShowAuthModal] = useState(false)
+  const loginBtnRef = useRef<HTMLButtonElement>(null)
+
   const { t } = useTranslation('common')
 
-  const toggleAuthModal = useCallback(() => {
-    setHasAuthModal((hasAuthModal) => !hasAuthModal)
+  const closeAuthModal = useCallback(() => {
+    setShowAuthModal(false)
+    loginBtnRef.current?.focus()
+  }, [])
+
+  const openAuthModal = useCallback(() => {
+    setShowAuthModal(true)
   }, [])
 
   return (
     <div className={cn(cls.navbar, className)}>
-      <div className={cls.links}>
-        <Button onClick={toggleAuthModal} variant="outlined" size="sm">
+      <div className={cls.wrapper}>
+        <Button onClick={openAuthModal} ref={loginBtnRef} variant="outlined" size="sm">
           {t('login')}
         </Button>
-
-        <Modal isOpen={hasAuthModal} onClose={toggleAuthModal}>
-          {
-            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex cum beatae libero at. Quos, magnam maiores praesentium sit cum mollitia.'
-          }
-        </Modal>
       </div>
+
+      <AuthModal isOpen={showAuthModal} onClose={closeAuthModal} />
     </div>
   )
 }

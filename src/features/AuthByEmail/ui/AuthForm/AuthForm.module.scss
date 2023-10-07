@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  padding: 16px 20px 24px;
+}
+
+.title {
+  font: var(--font-l);
+  font-weight: 600;
+  margin: 0 0 32px 10px;
+}
+
+.input {
+  margin-bottom: 14px;
+  width: 100%;
+}
+
+.submit-btn {
+  margin: 20px 0 0;
+}

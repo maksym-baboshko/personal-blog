@@ -6,7 +6,7 @@ export const useLocalStorage = <T>(key: string, initialValue: T): [T, SetValue<T
   const readValue = useCallback((): T => {
     try {
       const item = localStorage.getItem(key)
-      return item !== null ? (JSON.parse(item) as T) : initialValue
+      return item ? (JSON.parse(item) as T) : initialValue
     } catch (error) {
       return initialValue
     }

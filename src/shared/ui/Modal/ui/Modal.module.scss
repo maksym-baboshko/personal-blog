@@ -9,11 +9,17 @@
 .overlay {
   width: 100%;
   height: 100%;
-  background: var(--overlay-color);
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--overlay-color);
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
   opacity: 0;
+  transition:
+    0.4s opacity,
+    0.4s backdrop-filter,
+    0.4s -webkit-backdrop-filter;
 }
 
 .content {
@@ -21,13 +27,11 @@
   border-radius: 12px;
   background: var(--bg-primary);
   max-width: 50%;
-
-  // Animation
+  transform: translateY(-30%);
+  opacity: 0;
   transition:
     0.4s transform,
-    0.5s opacity;
-  transform: translateY(-400%);
-  opacity: 0;
+    0.4s opacity;
 }
 
 .opened {
@@ -36,29 +40,26 @@
   z-index: var(--modal-z-index);
 
   .content {
-    // Animation
     transform: translateY(0);
     opacity: 1;
   }
 
   .overlay {
     opacity: 1;
-    transition: 0.3s opacity;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 }
 
 .closing {
   .content {
-    // Animation
-    transition:
-      0.3s transform,
-      0.3s opacity;
-    transform: scale(0.2);
+    transform: translateY(-10%);
     opacity: 0;
   }
 
   .overlay {
-    transition: 0.3s opacity;
+    backdrop-filter: blur(0);
+    -webkit-backdrop-filter: blur(0);
     opacity: 0;
   }
 }
