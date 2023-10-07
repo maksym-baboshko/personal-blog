@@ -16,7 +16,8 @@
     "check:formatting": "prettier --check ./src",
     "fix:ts": "eslint . --ext .ts,.tsx --fix",
     "fix:css": "stylelint '**/*.scss' --fix",
-    "fix:formatting": "prettier --write ./src"
+    "fix:formatting": "prettier --write ./src",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.6",
@@ -93,6 +94,7 @@
     "webpack": "^5.88.2",
     "webpack-bundle-analyzer": "^4.9.1",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^4.15.1",
+    "husky": "^8.0.0"
   }
 }
