@@ -1,13 +1,28 @@
-export interface User {
-  email: string
+import { type tRequestStatus } from '@shared/types'
+
+export interface UserProfile {
   id: number
+  email: string
+  fname: string
+  lname: string
+  avatar?: string
+  roles?: string[]
+  config?: Record<string, any>
+  permissions?: Record<string, boolean>
 }
 
-interface AuthData {
-  accessToken: string
-  user: User
+export interface UserAuthData {
+  jwt: string | null
+  profile: UserProfile | null
 }
 
-export interface UserSchema {
-  authData?: AuthData
+export interface UserInitializationError {
+  status: number
+  message: string | unknown
+}
+
+export interface UserSchema extends UserAuthData {
+  isAuthorized: boolean
+  initializationStatus: tRequestStatus
+  initializationError: string | UserInitializationError | null
 }

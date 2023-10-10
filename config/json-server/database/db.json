@@ -2,7 +2,9 @@
   "users": [
     {
       "email": "max.baboshko@gmail.com",
-      "password": "$2a$10$ycyJ9arm8Ny06mLnIqAM4.1t2thysdZS97ECIbFhL4L6I/yTihNhK",
+      "password": "$2a$10$qea2wqtrhNqQvQX/rIAoNuYJHM4/z.P0hnmswhl61B1D2G9UlXzau",
+      "fname": "Maksym",
+      "lname": "Baboshko",
       "id": 1
     }
   ],

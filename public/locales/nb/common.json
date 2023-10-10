@@ -17,5 +17,6 @@
   },
   "posts": "Innlegg",
   "profile": "Profil",
-  "settings": "Innstillinger"
+  "settings": "Innstillinger",
+  "logout": "Logg ut"
 }

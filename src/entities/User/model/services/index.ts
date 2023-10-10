@@ -1,0 +1,1 @@
+export { initUserProfile } from './initUserProfile'

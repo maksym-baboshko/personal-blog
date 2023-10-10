@@ -1,5 +1,5 @@
-import { type Args } from '@storybook/types'
-import { type StoryContext } from '@storybook/react'
+import { type ArgsStoryFn, type Args } from '@storybook/types'
+import { type ReactRenderer, type StoryContext } from '@storybook/react'
 
 import { locales, supportedLngs } from '@shared/constants/i18n'
 
@@ -20,9 +20,8 @@ export const getTranslatedCaption = (locale: string, captions: TranslatedCaption
 export const renderWithLocalization = (
   Component: React.ComponentType<any>,
   captions: TranslatedCaptions
-): any => {
-  // eslint-disable-next-line react/display-name
-  return (args: Args, ctx: StoryContext) => {
+): ArgsStoryFn<ReactRenderer, any> => {
+  return function renderWithLocalization(args: Args, ctx: StoryContext) {
     return <Component {...args}>{getTranslatedCaption(ctx.globals.locale, captions)}</Component>
   }
 }

@@ -1,1 +1,1 @@
-export { createReduxStore, type RootState, type AppDispatch } from './store'
+export { createReduxStore, type AppDispatch } from './store'

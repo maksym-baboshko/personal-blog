@@ -82,7 +82,7 @@
       ""
     ]
   },
-  "customReduxSlice": {
+  "customReducerReexport": {
     "prefix": "rsexd",
     "description": "Re-exports redux entity actions and reducer",
     "scope": "typescript, typescriptreact",

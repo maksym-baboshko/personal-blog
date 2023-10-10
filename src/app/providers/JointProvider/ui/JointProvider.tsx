@@ -1,4 +1,4 @@
-import { StrictMode, Suspense } from 'react'
+import { Suspense } from 'react'
 
 import { BrowserRouter } from 'react-router-dom'
 
@@ -10,16 +10,14 @@ import { type JointProviderFC } from './JointProvider.types'
 
 export const JointProvider: JointProviderFC = ({ children }) => {
   return (
-    <StrictMode>
-      <StoreProvider>
-        <BrowserRouter>
-          <ThemeProvider>
-            <ErrorBoundary>
-              <Suspense fallback={null}>{children}</Suspense>
-            </ErrorBoundary>
-          </ThemeProvider>
-        </BrowserRouter>
-      </StoreProvider>
-    </StrictMode>
+    <StoreProvider>
+      <BrowserRouter>
+        <ThemeProvider>
+          <ErrorBoundary>
+            <Suspense fallback={null}>{children}</Suspense>
+          </ErrorBoundary>
+        </ThemeProvider>
+      </BrowserRouter>
+    </StoreProvider>
   )
 }

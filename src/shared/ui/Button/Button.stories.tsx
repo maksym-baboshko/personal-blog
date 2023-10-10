@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { renderWithLocalization } from '@shared/lib/storybook'
 import ArrowIcon from '@shared/assets/icons/arrow.svg'
+import { appThemes } from '@shared/constants/appTheme'
+import { renderWithLocalization } from '@shared/lib/storybook'
 
 import { Button } from './Button'
 
@@ -48,11 +49,21 @@ export const Icon: Story = {
     isIcon: true,
     variant: 'light'
   },
-  render: (args) => {
+  render: (args, ctx) => {
+    const iconColor = appThemes.find((t) => t.value === ctx.globals.themes)?.contrastColor
+
     return (
       <Button {...args}>
-        <ArrowIcon />
+        <ArrowIcon fill={iconColor} />
       </Button>
     )
+  }
+}
+
+export const Disabled: Story = {
+  args: {
+    variant: 'solid',
+    children: 'Button',
+    disabled: true
   }
 }

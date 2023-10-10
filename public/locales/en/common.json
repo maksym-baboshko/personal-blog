@@ -17,5 +17,6 @@
   },
   "posts": "Posts",
   "profile": "Profile",
-  "settings": "Settings"
+  "settings": "Settings",
+  "logout": "Sign out"
 }

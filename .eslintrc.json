@@ -39,9 +39,12 @@
     "react/prop-types": "off",
     "no-console": "warn",
     "react-hooks/exhaustive-deps": "error",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    //TODO: Turn on, when the issue according to the rule will be fixed: https://github.com/typescript-eslint/typescript-eslint/issues/4998
+    // "@typescript-eslint/no-invalid-void-type": ["error", { "allowInGenericTypeArguments": true }],
+    "@typescript-eslint/no-invalid-void-type": "off",
     "@typescript-eslint/no-misused-promises": ["error", { "checksVoidReturn": false }],
     "promise/param-names": [
       "error",

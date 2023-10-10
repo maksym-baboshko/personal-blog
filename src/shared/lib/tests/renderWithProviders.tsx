@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react'
 
 import { I18nextProvider } from 'react-i18next'
+import { type DeepPartial } from '@reduxjs/toolkit'
 import { render, type RenderResult } from '@testing-library/react'
 import { MemoryRouter, type MemoryRouterProps } from 'react-router-dom'
 
@@ -9,7 +10,7 @@ import { i18nForTests } from '@app/config/i18n/i18nForTests'
 import { StoreProvider } from '@app/providers/StoreProvider'
 
 interface RenderWithProvidersOptions extends MemoryRouterProps {
-  initialState?: StateSchema
+  initialState?: DeepPartial<StateSchema>
 }
 
 export const renderWithProviders = (

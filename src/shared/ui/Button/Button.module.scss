@@ -10,6 +10,11 @@
   &:focus-visible {
     transition: all 0.3s ease;
   }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
 }
 
 .xs {
@@ -76,6 +81,10 @@
   background-color: var(--btn-bg-primary);
   color: var(--btn-text-primary);
 
+  &.icon svg {
+    fill: var(--btn-text-primary);
+  }
+
   &.xs:focus-visible,
   &.sm:focus-visible {
     box-shadow:
@@ -100,6 +109,10 @@
 .outlined {
   border: 1px solid var(--btn-bg-primary);
   color: var(--btn-bg-primary);
+
+  &.icon svg {
+    fill: var(--btn-bg-primary);
+  }
 
   &.xs:focus-visible,
   &.sm:focus-visible {

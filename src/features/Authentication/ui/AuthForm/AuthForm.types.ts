@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 
 interface AuthFormProps {
-  className?: string
+  onSuccess?: () => void
 }
 
 export type AuthFormFC = FC<AuthFormProps>

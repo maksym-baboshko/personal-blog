@@ -1,3 +1,4 @@
+const cors = require('cors')
 const path = require('path')
 const multer = require('multer')
 const auth = require('json-server-auth')
@@ -6,7 +7,7 @@ const jsonServer = require('json-server')
 const PORT = 8000
 const ROUTER_PREFIX = '/api'
 const resourcePermits = {
-  users: 400,
+  users: 440,
   posts: 644
 }
 
@@ -22,6 +23,18 @@ const router = jsonServer.router(dbPath)
 const middlewares = jsonServer.defaults()
 const upload = multer({ dest: 'uploads/', limits: { fileSize: 10 * 1024 * 1024 } })
 const permissions = auth.rewriter(permissionsConfig)
+
+//* CORS setup
+server.use(
+  cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+    preflightContinue: false,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE'
+  })
+)
+
+server.options('*', cors())
 
 //* Delay requests
 const delayRequests = async (req, res, next) => {

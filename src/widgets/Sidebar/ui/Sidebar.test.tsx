@@ -5,14 +5,15 @@ import { renderWithProviders } from '@shared/lib/tests'
 import { Sidebar } from './Sidebar'
 
 describe('Sidebar', () => {
-  it('should render', () => {
+  beforeEach(() => {
     renderWithProviders(<Sidebar />)
+  })
+
+  it('should render', () => {
     expect(screen.getByTestId('sidebar')).toBeInTheDocument()
   })
 
   it('should toggle sidebar', () => {
-    renderWithProviders(<Sidebar />)
-
     const toggleBtn = screen.getByTestId('sidebar-toggle')
 
     fireEvent.click(toggleBtn) // expand

@@ -8,7 +8,7 @@ import cls from './Button.module.scss'
 
 export const Button = memo(
   forwardRef<HTMLButtonElement, ButtonProps>(function Button(props, ref) {
-    const { children, className, variant = 'light', size = 'md', isIcon, ...restProps } = props
+    const { isIcon, children, className, size = 'md', variant = 'light', ...restProps } = props
 
     const classes = cn(
       cls.button,

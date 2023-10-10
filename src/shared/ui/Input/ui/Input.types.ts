@@ -22,8 +22,6 @@ enum InputAutoComplete {
 
 export interface InputProps extends HTMLInputProps {
   className?: string
-  value?: string
-  onChange?: (value: string) => void
   size?: EnumAsUnion<typeof InputSize>
   autoComplete?: EnumAsUnion<typeof InputAutoComplete>
 }

@@ -1,23 +1,30 @@
-import { type ReducersMapObject, configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 
+import { api } from '@shared/api/rtk'
 import { userReducer } from '@entities/User'
 import { counterReducer } from '@entities/Counter'
+import { authReducer } from '@features/Authentication'
 import { type StateSchema } from '@shared/types'
 
-export const createReduxStore = (initialState?: StateSchema): ReturnType<typeof configureStore> => {
-  const rootReducer: ReducersMapObject<StateSchema> = {
+import { authInterceptor } from './middleware'
+
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+export const createReduxStore = (initialState?: StateSchema) => {
+  const rootReducer = {
+    auth: authReducer,
     user: userReducer,
-    counter: counterReducer
+    counter: counterReducer,
+    [api.reducerPath]: api.reducer
   }
 
-  return configureStore<StateSchema>({
+  return configureStore({
     devTools: __IS_DEV__,
+    reducer: rootReducer,
     preloadedState: initialState,
-    reducer: rootReducer
+    middleware: (getDefaultMiddleware) => {
+      return getDefaultMiddleware().concat(authInterceptor, api.middleware)
+    }
   })
 }
 
-export const store = createReduxStore()
-
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']

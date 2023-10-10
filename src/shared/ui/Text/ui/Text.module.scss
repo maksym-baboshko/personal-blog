@@ -1,0 +1,24 @@
+.default {
+  .heading {
+    font: var(--font-l);
+    color: var(--text-primary);
+  }
+
+  .text {
+    font: var(--font-m);
+    color: var(--text-secondary);
+  }
+}
+
+.danger {
+  .heading {
+    font: var(--font-l);
+    color: var(--danger-light);
+  }
+
+  .text {
+    font: var(--font-m);
+    color: var(--danger-dark);
+    filter: brightness(1) contrast(1.2) saturate(1.05);
+  }
+}

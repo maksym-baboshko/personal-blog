@@ -9,7 +9,7 @@ const config: Config = {
   transform: { '^.+\\.svg$': 'jest-transformer-svg' },
   verbose: false,
   clearMocks: true,
-  globals: { __IS_DEV__: true },
+  globals: { __IS_DEV__: true, __API__: 'https://stub-api.com' },
   moduleNameMapper: {
     '^@app/(.*)$': '<rootDir>/src/app/$1',
     '^@pages/(.*)$': '<rootDir>/src/pages/$1',

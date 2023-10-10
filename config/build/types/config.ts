@@ -18,6 +18,7 @@ export type BuildPluginsFunc = (options: BuildOptions) => WebpackPluginInstance[
 export interface BuildEnv {
   mode: BuildMode
   port: number
+  apiURL: string
 }
 
 export interface BuildPaths {
@@ -32,4 +33,5 @@ export interface BuildOptions {
   paths: BuildPaths
   isDev: boolean
   port: number
+  apiURL: string
 }

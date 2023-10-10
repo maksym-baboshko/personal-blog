@@ -16,12 +16,13 @@ export default ({ config }: { config: Configuration }): Configuration => {
     },
     mode: 'development',
     isDev: true,
-    port: 3000
+    port: 3000,
+    apiURL: 'https://stub-api.com'
   }
 
   const globalConstants = {
     __IS_DEV__: JSON.stringify(options.isDev),
-    __API__: JSON.stringify('https://testapi.com'),
+    __API__: JSON.stringify('https://stub-api.com'),
     __PROJECT__: JSON.stringify('storybook')
   }
 
