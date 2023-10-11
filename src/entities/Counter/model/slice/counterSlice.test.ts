@@ -13,6 +13,7 @@ describe('counterSlice', () => {
 
   it('should handle increment', () => {
     const state: DeepPartial<CounterSchema> = { value: 42 }
+
     expect(counterReducer(state as CounterSchema, counterActions.increment())).toEqual({
       value: 43
     })
@@ -20,6 +21,7 @@ describe('counterSlice', () => {
 
   it('should handle decrement', () => {
     const state: DeepPartial<CounterSchema> = { value: 42 }
+
     expect(counterReducer(state as CounterSchema, counterActions.decrement())).toEqual({
       value: 41
     })

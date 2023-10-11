@@ -21,8 +21,12 @@ const permissionsConfig = Object.entries(resourcePermits).reduce((acc, [key, val
 const server = jsonServer.create()
 const router = jsonServer.router(dbPath)
 const middlewares = jsonServer.defaults()
-const upload = multer({ dest: 'uploads/', limits: { fileSize: 10 * 1024 * 1024 } })
 const permissions = auth.rewriter(permissionsConfig)
+
+const upload = multer({
+  dest: path.join(__dirname, 'uploads'),
+  limits: { fileSize: 10 * 1024 * 1024 }
+})
 
 //* CORS setup
 server.use(

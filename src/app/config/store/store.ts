@@ -1,14 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import { type AppAsyncReducers, type RootState } from '@shared/types'
 import { userReducer } from '@entities/User'
 import { counterReducer } from '@entities/Counter'
 import { apiMiddleware, apiPath, apiReducer } from '@shared/api/rtk'
+import { type AppAsyncReducers, type RootState } from '@shared/types'
 
 import { authInterceptor } from './middleware'
 import { createReducerManager } from './reducerManager'
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const createReduxStore = (initialState?: RootState, asyncReducers?: AppAsyncReducers) => {
   const reducerManager = createReducerManager<RootState>({
     ...asyncReducers,

@@ -7,7 +7,7 @@ import { LS_JWT_KEY } from '@shared/constants/localStorage'
 
 import { type AuthResponse, type UserCredentials } from '../../types'
 
-export const authByEmail = createAsyncThunk<void, UserCredentials, { rejectValue: string }>(
+export const authByEmail = createAsyncThunk<AuthResponse, UserCredentials, { rejectValue: string }>(
   'auth/authByEmail',
   async (creds, { rejectWithValue, dispatch }) => {
     try {
@@ -17,6 +17,8 @@ export const authByEmail = createAsyncThunk<void, UserCredentials, { rejectValue
 
       dispatch(userActions.setUserCredentials({ profile: data.user, jwt: data.accessToken }))
       localStorage.setItem(LS_JWT_KEY, data.accessToken)
+
+      return data
     } catch (err) {
       const error: AxiosError<string> = err
 
