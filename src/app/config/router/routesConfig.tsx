@@ -1,12 +1,33 @@
+import {
+  AppRoutes,
+  getMainRoute,
+  getAboutRoute,
+  getPostsRoute,
+  getProfileRoute,
+  getSettingsRoute,
+  getNotFoundRoute
+} from '@shared/constants/router'
 import { MainPage } from '@pages/main'
 import { AboutPage } from '@pages/about'
+import { ProfilePage } from '@pages/profile'
 import { NotFoundPage } from '@pages/not-found'
 import { type AppRoutesConfig } from '@shared/types'
-import { AppRoutes, getMainRoute, getAboutRoute, getNotFoundRoute } from '@shared/constants/router'
 
 export const routesConfig: Record<AppRoutes, AppRoutesConfig> = {
   [AppRoutes.MAIN]: {
     path: getMainRoute(),
+    element: <MainPage />
+  },
+  [AppRoutes.POSTS]: {
+    path: getPostsRoute(),
+    element: <MainPage />
+  },
+  [AppRoutes.PROFILE]: {
+    path: getProfileRoute(),
+    element: <ProfilePage />
+  },
+  [AppRoutes.SETTINGS]: {
+    path: getSettingsRoute(),
     element: <MainPage />
   },
   [AppRoutes.ABOUT]: {

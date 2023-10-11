@@ -13,7 +13,7 @@ export const AuthModal: AuthModalFC = (props) => {
   return (
     <Modal contentClassName={cls.content} {...props}>
       <Suspense fallback={<Loader />}>
-        <AuthForm />
+        <AuthForm onSuccess={props.onClose} />
       </Suspense>
     </Modal>
   )

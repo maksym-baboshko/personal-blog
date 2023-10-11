@@ -5,6 +5,13 @@
       "password": "$2a$10$qea2wqtrhNqQvQX/rIAoNuYJHM4/z.P0hnmswhl61B1D2G9UlXzau",
       "fname": "Maksym",
       "lname": "Baboshko",
+      "age": 27,
+      "originCountry": "Ukraine",
+      "currentCountry": "Norway",
+      "originCity": "Kharkiv",
+      "currentCity": "Bergen",
+      "avatar": "https://i.pravatar.cc/300?img=3",
+      "gender": "male",
       "id": 1
     }
   ],

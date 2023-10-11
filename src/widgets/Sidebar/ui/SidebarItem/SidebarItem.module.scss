@@ -1,0 +1,26 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 4px 18px;
+
+  & .item-text {
+    overflow: hidden;
+    white-space: nowrap;
+    transform: translateX(14px);
+    max-width: 200px;
+    opacity: 1;
+    transition: all 0.3s;
+  }
+
+  &.collapsed .item-text {
+    transform: translateX(0);
+    max-width: 0;
+    opacity: 0;
+  }
+}
+
+.item-icon {
+  fill: var(--text-primary);
+}

@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react'
+import { memo, useCallback, useRef, useState } from 'react'
 
 import cn from 'classnames'
 import { useTranslation } from 'react-i18next'
@@ -12,7 +12,7 @@ import { type NavbarFC } from './Navbar.types'
 
 import cls from './Navbar.module.scss'
 
-export const Navbar: NavbarFC = ({ className }) => {
+export const Navbar: NavbarFC = memo(function Navbar({ className }) {
   const userInitialStatus = useAppSelector(getUserInitialStatus)
   const isUserAuthorized = useAppSelector(getUserAuthStatus)
   const isUserInitializing = userInitialStatus === 'loading'
@@ -34,7 +34,6 @@ export const Navbar: NavbarFC = ({ className }) => {
 
   const logOut = useCallback(() => {
     dispatch(userActions.logOut())
-    setShowAuthModal(false)
   }, [dispatch])
 
   return (
@@ -56,4 +55,4 @@ export const Navbar: NavbarFC = ({ className }) => {
       </div>
     </div>
   )
-}
+})

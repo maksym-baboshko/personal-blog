@@ -1,10 +1,12 @@
+import { memo } from 'react'
+
 import cn from 'classnames'
 
 import { type TextFC } from './Text.types'
 
 import cls from './Text.module.scss'
 
-export const Text: TextFC = ({ className, heading, text, color = 'default' }) => {
+export const Text: TextFC = memo(function Text({ className, heading, text, color = 'default' }) {
   const classes = cn(cls.wrapper, cls[color], className)
 
   return (
@@ -13,4 +15,4 @@ export const Text: TextFC = ({ className, heading, text, color = 'default' }) =>
       {text && <p className={cls.text}>{text}</p>}
     </div>
   )
-}
+})

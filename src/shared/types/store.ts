@@ -9,6 +9,7 @@ import { type UserReducer } from '@entities/User'
 import { type CounterReducer } from '@entities/Counter'
 import { type AuthReducer } from '@features/Authentication'
 import { type RequestStatus } from '@shared/constants/store'
+import { type UserProfileReducer } from '@entities/UserProfile'
 import { type apiPath, type apiReducer } from '@shared/api/rtk'
 
 import { type EnumAsUnion } from './enum-as-union'
@@ -20,6 +21,7 @@ export interface RootState {
 
   //* Async reducers
   auth?: AuthReducer
+  userProfile?: UserProfileReducer
 }
 
 export type tSelector<T> = (state: RootState) => T

@@ -14,16 +14,19 @@ export const useLocalStorage = <T>(key: string, initialValue: T): [T, SetValue<T
 
   const [storedValue, setStoredValue] = useState<T>(readValue())
 
-  const setValue = (newValue: SetStateAction<T>): void => {
-    try {
-      const valueToStore = newValue instanceof Function ? newValue(storedValue) : newValue
-      setStoredValue(valueToStore)
-      localStorage.setItem(key, JSON.stringify(valueToStore))
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(`Failed setting the key: "${key}" in the storage`, error)
-    }
-  }
+  const setValue = useCallback(
+    (newValue: SetStateAction<T>): void => {
+      try {
+        const valueToStore = newValue instanceof Function ? newValue(storedValue) : newValue
+        setStoredValue(valueToStore)
+        localStorage.setItem(key, JSON.stringify(valueToStore))
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(`Failed setting the key: "${key}" in the storage`, error)
+      }
+    },
+    [key, storedValue]
+  )
 
   useEffect(() => {
     setStoredValue(readValue())

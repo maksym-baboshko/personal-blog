@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react'
+import { memo, useCallback, useEffect } from 'react'
 
 import { useTranslation } from 'react-i18next'
 import { useForm, type SubmitHandler } from 'react-hook-form'
@@ -20,7 +20,7 @@ import cls from './AuthForm.module.scss'
 
 const initialReducers: AppReducers = { auth: authReducer }
 
-const AuthForm: AuthFormFC = memo(function AuthForm() {
+const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
   const { register, handleSubmit } = useForm<UserCredentials>()
 
   const { t } = useTranslation('common')
@@ -31,9 +31,16 @@ const AuthForm: AuthFormFC = memo(function AuthForm() {
 
   useLazyReducers(initialReducers)
 
-  const submitHandler: SubmitHandler<UserCredentials> = (data) => {
-    void dispatch(authByEmail(data))
-  }
+  const submitHandler: SubmitHandler<UserCredentials> = useCallback(
+    async (data) => {
+      const result = await dispatch(authByEmail(data))
+
+      if (result.meta.requestStatus === 'fulfilled' && onSuccess) {
+        onSuccess()
+      }
+    },
+    [dispatch, onSuccess]
+  )
 
   useEffect(() => {
     return () => {

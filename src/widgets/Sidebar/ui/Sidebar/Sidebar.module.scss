@@ -1,0 +1,25 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 0 30px;
+  width: var(--sidebar-width);
+  min-height: 100%;
+  background: var(--bg-secondary);
+  position: relative;
+  transition:
+    width 0.3s,
+    background 0.4s;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+
+.collapsed {
+  width: var(--collapsed-sidebar-width);
+}
