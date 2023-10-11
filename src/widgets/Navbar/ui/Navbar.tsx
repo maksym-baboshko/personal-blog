@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 import { Button } from '@shared/ui/Button'
 import { AuthModal } from '@features/Authentication'
-import { useTypedDispatch, useTypedSelector } from '@shared/hooks'
+import { useAppDispatch, useAppSelector } from '@shared/hooks'
 import { getUserAuthStatus, getUserInitialStatus, userActions } from '@entities/User'
 
 import { type NavbarFC } from './Navbar.types'
@@ -13,10 +13,10 @@ import { type NavbarFC } from './Navbar.types'
 import cls from './Navbar.module.scss'
 
 export const Navbar: NavbarFC = ({ className }) => {
-  const userInitialStatus = useTypedSelector(getUserInitialStatus)
-  const isUserAuthorized = useTypedSelector(getUserAuthStatus)
+  const userInitialStatus = useAppSelector(getUserInitialStatus)
+  const isUserAuthorized = useAppSelector(getUserAuthStatus)
   const isUserInitializing = userInitialStatus === 'loading'
-  const dispatch = useTypedDispatch()
+  const dispatch = useAppDispatch()
 
   const [showAuthModal, setShowAuthModal] = useState(false)
   const loginBtnRef = useRef<HTMLButtonElement>(null)

@@ -1,1 +1,1 @@
-export { AuthForm } from './AuthForm'
+export { AuthFormAsync as AuthForm } from './AuthForm.async'

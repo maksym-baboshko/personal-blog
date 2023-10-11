@@ -1,3 +1,3 @@
 export { useTheme } from './useTheme'
 export { useLocalStorage } from './useLocalStorage'
-export { useTypedDispatch, useTypedSelector } from './store'
+export { useAppStore, useLazyReducers, useAppDispatch, useAppSelector } from './store'

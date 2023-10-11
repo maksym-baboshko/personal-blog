@@ -1,5 +1,7 @@
 import { type tRequestStatus } from '@shared/types'
 
+import { type userReducer } from '../slice'
+
 export interface UserProfile {
   id: number
   email: string
@@ -26,3 +28,5 @@ export interface UserSchema extends UserAuthData {
   initializationStatus: tRequestStatus
   initializationError: string | UserInitializationError | null
 }
+
+export type UserReducer = ReturnType<typeof userReducer>

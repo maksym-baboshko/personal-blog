@@ -1,3 +1,4 @@
 export { AuthModal } from './ui/AuthModal'
-export { authReducer } from './model/slice'
-export type { UserCredentials, AuthSchema } from './model/types'
+export type { UserCredentials, AuthSchema, AuthReducer } from './model/types'
+
+export { authReducer as mockAuthReducer } from './model/slice'

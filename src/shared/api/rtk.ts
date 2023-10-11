@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react'
 
-import { type StateSchema } from '@shared/types'
+import { type RootState } from '@shared/types'
 
 const baseQuery = fetchBaseQuery({
   baseUrl: __API__,
   credentials: 'include',
   prepareHeaders: (headers, { getState }) => {
-    const token = (getState() as StateSchema).user.jwt
+    const token = (getState() as RootState).user.jwt
 
     if (token) {
       headers.set('authorization', `Bearer ${token}`)
@@ -24,3 +24,6 @@ export const api = createApi({
   tagTypes: ['UserProfile'],
   endpoints: (builder) => ({})
 })
+
+export const { reducerPath: apiPath, reducer: apiReducer, middleware: apiMiddleware } = api
+export type APIReducer = ReturnType<typeof apiReducer>

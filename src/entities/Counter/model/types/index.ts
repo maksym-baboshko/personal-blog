@@ -1,1 +1,1 @@
-export type { CounterSchema } from './counterSchema'
+export type { CounterSchema, CounterReducer } from './counter'

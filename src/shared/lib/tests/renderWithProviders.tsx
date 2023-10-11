@@ -5,12 +5,12 @@ import { type DeepPartial } from '@reduxjs/toolkit'
 import { render, type RenderResult } from '@testing-library/react'
 import { MemoryRouter, type MemoryRouterProps } from 'react-router-dom'
 
-import { type StateSchema } from '@shared/types'
+import { type RootState } from '@shared/types'
 import { i18nForTests } from '@app/config/i18n/i18nForTests'
 import { StoreProvider } from '@app/providers/StoreProvider'
 
 interface RenderWithProvidersOptions extends MemoryRouterProps {
-  initialState?: DeepPartial<StateSchema>
+  initialState?: DeepPartial<RootState>
 }
 
 export const renderWithProviders = (

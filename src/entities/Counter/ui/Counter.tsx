@@ -1,14 +1,14 @@
 import { type FC } from 'react'
 
 import { Button } from '@shared/ui/Button'
-import { useTypedDispatch, useTypedSelector } from '@shared/hooks'
+import { useAppDispatch, useAppSelector } from '@shared/hooks'
 
 import { counterActions } from '../model/slice'
 import { getCounterValue } from '../model/selectors'
 
 export const Counter: FC = () => {
-  const counterValue = useTypedSelector(getCounterValue)
-  const dispatch = useTypedDispatch()
+  const counterValue = useAppSelector(getCounterValue)
+  const dispatch = useAppDispatch()
 
   const increment = (): void => {
     dispatch(counterActions.increment())

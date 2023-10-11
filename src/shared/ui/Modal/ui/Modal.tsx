@@ -11,7 +11,7 @@ import cls from './Modal.module.scss'
 const CLOSE_ANIMATION_DELAY = 400
 
 export const Modal: ModalFC = (props) => {
-  const { children, className, isOpen, onClose } = props
+  const { children, className, contentClassName, isOpen, onClose } = props
 
   const [isClosing, setIsClosing] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
@@ -75,7 +75,7 @@ export const Modal: ModalFC = (props) => {
     <Portal>
       <div className={classes}>
         <div onClick={handleClose} className={cls.overlay}>
-          <div className={cls.content} onClick={handleContentClick}>
+          <div className={cn(cls.content, contentClassName)} onClick={handleContentClick}>
             {children}
           </div>
         </div>

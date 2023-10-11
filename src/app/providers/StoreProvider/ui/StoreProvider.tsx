@@ -1,12 +1,12 @@
 import { Provider } from 'react-redux'
 
-import { type StateSchema } from '@shared/types'
-import { createReduxStore } from '@app/config/store'
+import { type RootState } from '@shared/types'
+import { createReduxStore, store } from '@app/config/store'
 
 import { type StoreProviderFC } from './StoreProvider.types'
 
-export const StoreProvider: StoreProviderFC = ({ children, initialState }) => {
-  const store = createReduxStore(initialState as StateSchema | undefined)
+export const StoreProvider: StoreProviderFC = ({ children, initialState, asyncReducers }) => {
+  const mockStore = createReduxStore(initialState as RootState, asyncReducers)
 
-  return <Provider store={store}>{children}</Provider>
+  return <Provider store={initialState ? mockStore : store}>{children}</Provider>
 }

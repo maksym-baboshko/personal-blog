@@ -6,28 +6,33 @@ import { useForm, type SubmitHandler } from 'react-hook-form'
 import { Text } from '@shared/ui/Text'
 import { Input } from '@shared/ui/Input'
 import { Button } from '@shared/ui/Button'
-import { useTypedDispatch, useTypedSelector } from '@shared/hooks'
+import { type AppReducers } from '@shared/types'
+import { useAppDispatch, useAppSelector, useLazyReducers } from '@shared/hooks'
 
-import { authActions } from '../../model/slice'
 import { authByEmail } from '../../model/services'
 import { type UserCredentials } from '../../model/types'
+import { authActions, authReducer } from '../../model/slice'
 import { getAuthError, getAuthStatus } from '../../model/selectors'
 
 import { type AuthFormFC } from './AuthForm.types'
 
 import cls from './AuthForm.module.scss'
 
-export const AuthForm: AuthFormFC = memo(function AuthForm() {
-  const { register, handleSubmit } = useForm<UserCredentials>()
+const initialReducers: AppReducers = { auth: authReducer }
 
-  const authStatus = useTypedSelector(getAuthStatus)
-  const authError = useTypedSelector(getAuthError)
-  const dispatch = useTypedDispatch()
+const AuthForm: AuthFormFC = memo(function AuthForm() {
+  const { register, handleSubmit } = useForm<UserCredentials>()
 
   const { t } = useTranslation('common')
 
-  const submitHandler: SubmitHandler<UserCredentials> = async (data) => {
-    await dispatch(authByEmail(data))
+  const authStatus = useAppSelector(getAuthStatus)
+  const authError = useAppSelector(getAuthError)
+  const dispatch = useAppDispatch()
+
+  useLazyReducers(initialReducers)
+
+  const submitHandler: SubmitHandler<UserCredentials> = (data) => {
+    void dispatch(authByEmail(data))
   }
 
   useEffect(() => {
@@ -87,3 +92,5 @@ export const AuthForm: AuthFormFC = memo(function AuthForm() {
     </form>
   )
 })
+
+export default AuthForm

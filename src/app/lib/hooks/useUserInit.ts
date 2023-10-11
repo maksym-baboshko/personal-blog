@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 
-import { useTypedDispatch, useTypedSelector } from '@shared/hooks'
+import { useAppDispatch, useAppSelector } from '@shared/hooks'
 import { getUserAuthStatus, initUserProfile } from '@entities/User'
 
 export const useUserInit = (): void => {
-  const isUserAuthorized = useTypedSelector(getUserAuthStatus)
-  const dispatch = useTypedDispatch()
+  const isUserAuthorized = useAppSelector(getUserAuthStatus)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     if (!isUserAuthorized) {

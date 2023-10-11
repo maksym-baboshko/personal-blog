@@ -1,1 +1,7 @@
-export type { UserProfile, UserAuthData, UserSchema, UserInitializationError } from './user'
+export type {
+  UserSchema,
+  UserProfile,
+  UserReducer,
+  UserAuthData,
+  UserInitializationError
+} from './user'

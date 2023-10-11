@@ -3,14 +3,14 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import decodeJWT, { type JwtPayload } from 'jwt-decode'
 
 import { $api } from '@shared/api/axios'
-import { type StateSchema } from '@shared/types'
+import { type RootState } from '@shared/types'
 
 import { type UserInitializationError, type UserProfile } from '../../types'
 
 export const initUserProfile = createAsyncThunk<
   UserProfile,
   void,
-  { rejectValue: UserInitializationError; state: StateSchema }
+  { rejectValue: UserInitializationError; state: RootState }
 >(
   'user/initUserProfile',
   async (_, { rejectWithValue, dispatch, getState }) => {

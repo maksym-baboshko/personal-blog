@@ -20,9 +20,10 @@ export const buildPlugins: BuildPluginsFunc = ({ paths, isDev, apiURL }) => {
     })
   ]
 
+  plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }))
+
   if (isDev) {
     plugins.push(new ReactRefreshWebpackPlugin({}))
-    plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }))
   }
 
   return plugins
