@@ -4,9 +4,9 @@ import decodeJWT, { type JwtPayload } from 'jwt-decode'
 
 import { type ThunkConfig } from '@shared/types'
 
-import { type UserInitialError, type UserProfile } from '../../types'
+import { type UserInitialError, type IUserProfile } from '../../types'
 
-export const initUserProfile = createAsyncThunk<UserProfile, void, ThunkConfig<UserInitialError>>(
+export const initUserProfile = createAsyncThunk<IUserProfile, void, ThunkConfig<UserInitialError>>(
   'user/initUserProfile',
   async (_, { rejectWithValue, getState, extra }) => {
     const { api } = extra

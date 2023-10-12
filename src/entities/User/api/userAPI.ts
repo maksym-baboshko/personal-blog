@@ -1,10 +1,10 @@
 import { api } from '@shared/api/rtk'
 
-import { type UserProfile } from '../model/types'
+import { type IUserProfile } from '../model/types'
 
 export const userAPI = api.injectEndpoints({
   endpoints: (build) => ({
-    getUserProfileById: build.query<UserProfile, number>({
+    getUserProfileById: build.query<IUserProfile, number>({
       query: (userId) => ({ url: `users/${userId}` }),
       providesTags: ['UserProfile']
     })

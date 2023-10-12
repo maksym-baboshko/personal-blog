@@ -4,7 +4,7 @@ import { type tRequestStatus } from '@shared/types'
 import { LS_JWT_KEY } from '@shared/constants/localStorage'
 
 import { initUserProfile } from '../services'
-import { type UserSchema, type UserProfile, type UserAuthData } from '../types'
+import { type UserSchema, type IUserProfile, type UserAuthData } from '../types'
 
 const jwt = localStorage.getItem(LS_JWT_KEY)
 const initializationStatus: tRequestStatus = jwt ? 'loading' : 'idle'
@@ -38,12 +38,15 @@ const userSlice = createSlice({
       state.initializationStatus = 'loading'
       state.initializationError = null
     })
-    builder.addCase(initUserProfile.fulfilled, (state, { payload }: PayloadAction<UserProfile>) => {
-      state.profile = payload
-      state.isAuthorized = true
-      state.initializationStatus = 'success'
-      state.initializationError = null
-    })
+    builder.addCase(
+      initUserProfile.fulfilled,
+      (state, { payload }: PayloadAction<IUserProfile>) => {
+        state.profile = payload
+        state.isAuthorized = true
+        state.initializationStatus = 'success'
+        state.initializationError = null
+      }
+    )
     builder.addCase(initUserProfile.rejected, (state, { error, payload }) => {
       state.initializationStatus = 'error'
 
