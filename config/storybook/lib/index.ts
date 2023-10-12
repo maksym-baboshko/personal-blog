@@ -1,6 +1,15 @@
+import { withThemeByClassName } from '@storybook/addon-themes'
+import { type Decorator } from '@storybook/react'
+
+import { sbThemeConfig } from '@shared/lib/storybook'
+
 import { withRouter } from './decorators/with-router'
 import { withI18next } from './decorators/with-i18next'
 
 export { globalTypes } from './preview/globalTypes'
 
-export const decorators = [withRouter, withI18next]
+export const decorators: Decorator[] = [
+  withRouter,
+  withI18next,
+  withThemeByClassName(sbThemeConfig)
+]

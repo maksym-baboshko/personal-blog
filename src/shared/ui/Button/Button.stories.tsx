@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import ArrowIcon from '@shared/assets/icons/arrow.svg'
 import { appThemes } from '@shared/constants/appTheme'
-import { renderWithLocalization } from '@shared/lib/storybook'
+import { getTranslatedCaption } from '@shared/lib/storybook'
 
 import { Button } from './Button'
 
@@ -24,10 +24,12 @@ const captions = {
 }
 
 export const Solid: Story = {
-  render: renderWithLocalization(Button, captions),
   args: {
     variant: 'solid',
     children: 'Button'
+  },
+  render: (args, ctx) => {
+    return <Button {...args}>{getTranslatedCaption(ctx.globals.locale, captions)}</Button>
   }
 }
 
@@ -50,7 +52,7 @@ export const Icon: Story = {
     variant: 'light'
   },
   render: (args, ctx) => {
-    const iconColor = appThemes.find((t) => t.value === ctx.globals.themes)?.contrastColor
+    const iconColor = appThemes.find((t) => t.key === ctx.globals.themes)?.contrastColor
 
     return (
       <Button {...args}>

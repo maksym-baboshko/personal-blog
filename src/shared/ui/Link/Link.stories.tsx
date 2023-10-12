@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { renderWithLocalization } from '@shared/lib/storybook'
+import { getTranslatedCaption } from '@shared/lib/storybook'
 
 import { Link } from './Link'
 
@@ -23,10 +23,12 @@ const captions = {
 }
 
 export const Primary: Story = {
-  render: renderWithLocalization(Link, captions),
   args: {
     color: 'primary',
     children: 'Link'
+  },
+  render: (args, ctx) => {
+    return <Link {...args}>{getTranslatedCaption(ctx.globals.locale, captions)}</Link>
   }
 }
 

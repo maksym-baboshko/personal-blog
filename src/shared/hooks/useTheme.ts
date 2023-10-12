@@ -14,9 +14,9 @@ export const useTheme = (): Result => {
   const { theme, setTheme } = useContext(ThemeContext)
 
   const getNextTheme = useCallback((): { nextThemeIdx: number; nextTheme: AppTheme } => {
-    const currentThemeIdx = appThemes.findIndex(({ value }) => value === theme)
+    const currentThemeIdx = appThemes.findIndex((t) => t.key === theme)
     const nextThemeIdx = (currentThemeIdx + 1) % appThemes.length
-    const nextTheme = appThemes[nextThemeIdx].value
+    const nextTheme = appThemes[nextThemeIdx].key
 
     return { nextThemeIdx, nextTheme }
   }, [theme])

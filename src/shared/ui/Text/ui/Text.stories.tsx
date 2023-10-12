@@ -7,8 +7,7 @@ import { Text } from './Text'
 const meta = {
   title: 'shared/Text',
   component: Text,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs']
+  parameters: { layout: 'centered' }
 } satisfies Meta<typeof Text>
 
 export default meta
@@ -49,14 +48,5 @@ export const TextOnly: Story = {
 }
 
 export const Error: Story = {
-  args: { color: 'danger' },
-  render: (args, ctx) => {
-    return (
-      <Text
-        heading={getTranslatedCaption(ctx.globals.locale, headingCaptions)}
-        text={getTranslatedCaption(ctx.globals.locale, textCaptions)}
-        {...args}
-      />
-    )
-  }
+  args: { heading: 'Error', text: 'Something went wrong', color: 'danger' }
 }

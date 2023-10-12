@@ -5,8 +5,7 @@ import { LanguageSwitcher } from './LanguageSwitcher'
 const meta = {
   title: 'features/LanguageSwitcher',
   component: LanguageSwitcher,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs']
+  parameters: { layout: 'centered' }
 } satisfies Meta<typeof LanguageSwitcher>
 
 export default meta
