@@ -8,5 +8,6 @@ export type {
   AppReducers,
   AppAsyncReducers,
   tSelector,
-  tRequestStatus
+  tRequestStatus,
+  ThunkConfig
 } from './store'

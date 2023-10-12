@@ -24,7 +24,7 @@ export interface UserAuthData {
   profile: UserProfile | null
 }
 
-export interface UserInitializationError {
+export interface UserInitialError {
   status: number
   message: string | unknown
 }
@@ -32,7 +32,7 @@ export interface UserInitializationError {
 export interface UserSchema extends UserAuthData {
   isAuthorized: boolean
   initializationStatus: tRequestStatus
-  initializationError: string | UserInitializationError | null
+  initializationError: string | UserInitialError | null
 }
 
 export type UserReducer = ReturnType<typeof userReducer>

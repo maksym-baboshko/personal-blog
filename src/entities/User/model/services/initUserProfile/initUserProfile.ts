@@ -2,18 +2,15 @@ import { type AxiosError } from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import decodeJWT, { type JwtPayload } from 'jwt-decode'
 
-import { $api } from '@shared/api/axios'
-import { type RootState } from '@shared/types'
+import { type ThunkConfig } from '@shared/types'
 
-import { type UserInitializationError, type UserProfile } from '../../types'
+import { type UserInitialError, type UserProfile } from '../../types'
 
-export const initUserProfile = createAsyncThunk<
-  UserProfile,
-  void,
-  { rejectValue: UserInitializationError; state: RootState }
->(
+export const initUserProfile = createAsyncThunk<UserProfile, void, ThunkConfig<UserInitialError>>(
   'user/initUserProfile',
-  async (_, { rejectWithValue, dispatch, getState }) => {
+  async (_, { rejectWithValue, getState, extra }) => {
+    const { api } = extra
+
     try {
       const jwt = getState().user.jwt
 
@@ -26,7 +23,7 @@ export const initUserProfile = createAsyncThunk<
 
       // TODO: Replace with RTK query
       //* const response = await dispatch(getUserProfileByIdQuery(userId)).unwrap()
-      const { data } = await $api.get(`/users/${userId}`)
+      const { data } = await api.get(`/users/${userId}`)
 
       return data
     } catch (err) {

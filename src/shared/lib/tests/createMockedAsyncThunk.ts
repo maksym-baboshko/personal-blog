@@ -13,14 +13,13 @@ export const createMockedAsyncThunk = <Return, Arg, RejectedValue>(
 
   const getState = jest.fn(() => state as RootState)
   const dispatch = jest.fn()
-  const navigate = jest.fn()
 
   const callAction = async (arg: Arg) => {
     const action = actionCreator(arg)
-    const extra = { api, navigate }
+    const extra = { api }
 
     return await action(dispatch, getState, extra)
   }
 
-  return { dispatch, getState, navigate, api, callAction }
+  return { dispatch, getState, api, callAction }
 }

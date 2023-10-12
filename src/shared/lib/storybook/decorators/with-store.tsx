@@ -3,12 +3,10 @@ import { type DeepPartial } from '@reduxjs/toolkit'
 
 import { mockAuthReducer } from '@features/Authentication'
 import { StoreProvider } from '@app/providers/StoreProvider'
-import { mockUserProfileReducer } from '@entities/UserProfile'
 import { type AppAsyncReducers, type RootState } from '@shared/types'
 
 const defaultAsyncReducers: AppAsyncReducers = {
-  auth: mockAuthReducer,
-  userProfile: mockUserProfileReducer
+  auth: mockAuthReducer
 }
 
 type WithStoreFunc = (state: DeepPartial<RootState>, asyncReducers?: AppAsyncReducers) => Decorator

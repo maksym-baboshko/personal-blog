@@ -15,4 +15,4 @@ declare module '*.svg' {
 declare const __IS_DEV__: boolean
 declare const __API__: string
 
-type OptionalRecord<K extends string | number | symbol, V> = { [P in K]?: V }
+type Prettify<T> = { [P in keyof T]: T[P] }

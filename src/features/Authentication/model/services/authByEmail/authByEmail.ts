@@ -1,17 +1,19 @@
 import { type AxiosError } from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-import { $api } from '@shared/api/axios'
 import { userActions } from '@entities/User'
+import { type ThunkConfig } from '@shared/types'
 import { LS_JWT_KEY } from '@shared/constants/localStorage'
 
 import { type AuthResponse, type UserCredentials } from '../../types'
 
-export const authByEmail = createAsyncThunk<AuthResponse, UserCredentials, { rejectValue: string }>(
+export const authByEmail = createAsyncThunk<AuthResponse, UserCredentials, ThunkConfig>(
   'auth/authByEmail',
-  async (creds, { rejectWithValue, dispatch }) => {
+  async (creds, { rejectWithValue, dispatch, extra }) => {
+    const { api } = extra
+
     try {
-      const { data } = await $api.post<AuthResponse>('/signin', creds)
+      const { data } = await api.post<AuthResponse>('/signin', creds)
 
       if (!data) throw new Error('Something went wrong')
 

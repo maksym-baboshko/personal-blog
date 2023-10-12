@@ -9,8 +9,8 @@ import { type UserReducer } from '@entities/User'
 import { type CounterReducer } from '@entities/Counter'
 import { type AuthReducer } from '@features/Authentication'
 import { type RequestStatus } from '@shared/constants/store'
-import { type UserProfileReducer } from '@entities/UserProfile'
 import { type apiPath, type apiReducer } from '@shared/api/rtk'
+import { type ThunkExtraArg } from '@app/config/store'
 
 import { type EnumAsUnion } from './enum-as-union'
 
@@ -21,11 +21,16 @@ export interface RootState {
 
   //* Async reducers
   auth?: AuthReducer
-  userProfile?: UserProfileReducer
 }
 
 export type tSelector<T> = (state: RootState) => T
 export type tRequestStatus = EnumAsUnion<typeof RequestStatus>
+
+export interface ThunkConfig<E = string> {
+  rejectValue: E
+  extra: ThunkExtraArg
+  state: RootState
+}
 
 export type RootStateKey = keyof RootState
 export type AppReducers = { [name in RootStateKey]?: Reducer<NonNullable<RootState[name]>> }
