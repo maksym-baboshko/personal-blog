@@ -6,7 +6,7 @@ import { useForm, type SubmitHandler } from 'react-hook-form'
 import { Text } from '@shared/ui/Text'
 import { Input } from '@shared/ui/Input'
 import { Button } from '@shared/ui/Button'
-import { type AppReducers } from '@shared/types'
+import { type AsyncReducers } from '@shared/types'
 import { useAppDispatch, useAppSelector, useLazyReducers } from '@shared/hooks'
 
 import { authByEmail } from '../../model/services'
@@ -18,7 +18,7 @@ import { type AuthFormFC } from './AuthForm.types'
 
 import cls from './AuthForm.module.scss'
 
-const initialReducers: AppReducers = { auth: authReducer }
+const initialReducers: AsyncReducers = { auth: authReducer }
 
 const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
   const { register, handleSubmit } = useForm<UserCredentials>()

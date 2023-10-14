@@ -1,5 +1,5 @@
 import path from 'path'
-import { DefinePlugin, type Configuration, type RuleSetRule } from 'webpack'
+import { DefinePlugin, type Configuration } from 'webpack'
 
 import { type BuildOptions } from '../build/types'
 import { buildAlias, buildSVGLoader } from '../build/lib'
@@ -35,10 +35,14 @@ export default ({ config }: { config: Configuration }): Configuration => {
   }
 
   if (config.module?.rules) {
-    config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
-      // eslint-disable-next-line @typescript-eslint/prefer-includes
-      if (/svg/.test(rule.test as string)) return { ...rule, exclude: /\.svg$/i }
-      else return rule
+    config.module.rules = config.module.rules.map((rule) => {
+      if (typeof rule !== 'object') return rule
+
+      if (/svg/.test(rule?.test as string)) {
+        return { ...rule, exclude: /\.svg$/i }
+      } else {
+        return rule
+      }
     })
 
     config.module.rules.push(buildSVGLoader())

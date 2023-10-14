@@ -5,9 +5,9 @@ export type {
   RootState,
   RootStateKey,
   OnlyOptionalKeys,
-  ReducerManager,
   AppReducers,
-  AppAsyncReducers,
+  AsyncReducers,
+  ReducerManager,
   tSelector,
   tRequestStatus,
   ThunkConfig

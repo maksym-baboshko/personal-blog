@@ -4,15 +4,15 @@ import { $api } from '@shared/api/axios'
 import { userReducer } from '@entities/User'
 import { counterReducer } from '@entities/Counter'
 import { apiMiddleware, apiPath, apiReducer } from '@shared/api/rtk'
-import { type AppAsyncReducers, type RootState } from '@shared/types'
+import { type AppReducers, type AsyncReducers, type RootState } from '@shared/types'
 
 import { authInterceptor } from './middleware'
-import { createReducerManager } from './reducerManager'
 import { type ThunkExtraArg } from './store.types'
+import { createReducerManager } from './reducerManager'
 
-export const createReduxStore = (initialState?: RootState, asyncReducers?: AppAsyncReducers) => {
+export const createReduxStore = (initialState?: RootState, asyncReducers?: AsyncReducers) => {
   const reducerManager = createReducerManager<RootState>({
-    ...asyncReducers,
+    ...(asyncReducers as AppReducers),
     user: userReducer,
     counter: counterReducer,
     [apiPath]: apiReducer
@@ -24,13 +24,13 @@ export const createReduxStore = (initialState?: RootState, asyncReducers?: AppAs
     devTools: __IS_DEV__,
     reducer: reducerManager.reducer,
     preloadedState: initialState,
+    enhancers: [reducerManager.enhancer],
     middleware: (getDefaultMiddleware) => {
       return getDefaultMiddleware({ thunk: { extraArgument } }).concat(
         authInterceptor,
         apiMiddleware
       )
-    },
-    enhancers: [reducerManager.enhancer]
+    }
   })
 
   return store

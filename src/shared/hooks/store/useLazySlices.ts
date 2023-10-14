@@ -1,8 +1,10 @@
 import { useEffect } from 'react'
 
+import { type Reducer } from '@reduxjs/toolkit'
+
 import {
   type RootState,
-  type AppReducers,
+  type AsyncReducers,
   type RootStateKey,
   type OnlyOptionalKeys
 } from '@shared/types'
@@ -10,7 +12,7 @@ import {
 import { useAppStore } from './useAppStore'
 import { useAppDispatch } from './useAppDispatch'
 
-export const useLazyReducers = (reducers: AppReducers, destroyAfterUnmount = true): void => {
+export const useLazyReducers = (reducers: AsyncReducers, destroyAfterUnmount = true): void => {
   const dispatch = useAppDispatch()
   const store = useAppStore()
 
@@ -21,7 +23,10 @@ export const useLazyReducers = (reducers: AppReducers, destroyAfterUnmount = tru
       const mountedReducer = mountedReducers[name as RootStateKey]
 
       if (!mountedReducer) {
-        store.reducerManager.add(name as RootStateKey, reducer)
+        store.reducerManager.add(
+          name as RootStateKey,
+          reducer as Reducer<Exclude<RootState[RootStateKey], undefined>>
+        )
         dispatch({ type: `${name}/lazyReducer/initialized` })
       }
     })

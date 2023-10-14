@@ -22,7 +22,7 @@ export const authByEmail = createAsyncThunk<AuthResponse, UserCredentials, Thunk
 
       return data
     } catch (err) {
-      const error: AxiosError<string> = err
+      const error = err as AxiosError<string>
 
       if (!error.response) throw err
 

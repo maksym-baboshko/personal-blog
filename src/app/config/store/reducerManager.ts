@@ -60,5 +60,6 @@ export const createReducerManager = <State>(initialReducers: ReducersMapObject<S
         }
       }
   }
+
   return reducerManager
 }

@@ -6,6 +6,10 @@
   padding: 10px 16px;
   outline: none;
 
+  &.full-width {
+    width: 100%;
+  }
+
   &:focus-visible {
     transition: all 0.3s ease;
   }

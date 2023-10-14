@@ -27,8 +27,10 @@ export const initUserProfile = createAsyncThunk<IUserProfile, void, ThunkConfig<
 
       return data
     } catch (err) {
-      const error: AxiosError = err
+      const error = err as AxiosError
+
       if (!error.response) throw err
+
       return rejectWithValue({ status: error.response.status, message: error.response.data })
     }
   },

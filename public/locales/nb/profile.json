@@ -1,3 +1,32 @@
 {
-  "title": "Profil"
+  "title": "Profil",
+  "edit": "Redigere",
+  "countries": {
+    "ua": "Ukraina",
+    "no": "Norge",
+    "us": "USA",
+    "uk": "Storbritannia"
+  },
+  "cities": {
+    "kiev": "Kyiv",
+    "kharkiv": "Kharkiv",
+    "lviv": "Lviv",
+    "odessa": "Odessa",
+    "bergen": "Bergen",
+    "oslo": "Oslo",
+    "new_york": "New York",
+    "boston": "Boston",
+    "london": "London",
+    "liverpool": "Liverpool"
+  },
+  "sex": {
+    "male": "Mann",
+    "female": "Kvinne"
+  },
+  "fields": {
+    "first_name": "Ditt navn",
+    "last_name": "Ditt etternavn",
+    "age": "Din alder",
+    "gender": "Din kjønn"
+  }
 }

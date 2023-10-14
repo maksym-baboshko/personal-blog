@@ -2,8 +2,6 @@ import { type InputHTMLAttributes } from 'react'
 
 import { type EnumAsUnion } from '@shared/types'
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'size'>
-
 enum InputSize {
   SM = 'sm',
   MD = 'md',
@@ -17,11 +15,15 @@ enum InputAutoComplete {
   FAMILY_NAME = 'family-name',
   EMAIL = 'email',
   NEW_PASSWORD = 'new-password',
-  CURRENT_PASSWORD = 'current-password'
+  CURRENT_PASSWORD = 'current-password',
+  SEX = 'sex'
 }
+
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>
 
 export interface InputProps extends HTMLInputProps {
   className?: string
   size?: EnumAsUnion<typeof InputSize>
   autoComplete?: EnumAsUnion<typeof InputAutoComplete>
+  fullWidth?: boolean
 }

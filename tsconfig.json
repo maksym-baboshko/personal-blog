@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
+    "strict": true,
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "es5",
@@ -15,9 +16,6 @@
     "esModuleInterop": true,
     "strictNullChecks": true
   },
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
-  }
+  "exclude": ["node_modules", "dist"],
+  "ts-node": { "compilerOptions": { "module": "CommonJS" } }
 }
