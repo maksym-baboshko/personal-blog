@@ -4,10 +4,10 @@ import { type Reducer } from '@reduxjs/toolkit'
 
 import {
   type RootState,
-  type AsyncReducers,
   type RootStateKey,
+  type AsyncReducers,
   type OnlyOptionalKeys
-} from '@shared/types'
+} from '@shared/types/store'
 
 import { useAppStore } from './useAppStore'
 import { useAppDispatch } from './useAppDispatch'

@@ -1,6 +1,6 @@
 import { type DeepPartial } from '@reduxjs/toolkit'
 
-import { type RootState } from '@shared/types'
+import { type RootState } from '@shared/types/store'
 
 import { getAuthStatus } from './getAuthStatus'
 

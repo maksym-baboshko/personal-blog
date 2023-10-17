@@ -5,7 +5,7 @@ import { type DeepPartial } from '@reduxjs/toolkit'
 import { render, type RenderResult } from '@testing-library/react'
 import { MemoryRouter, type MemoryRouterProps } from 'react-router-dom'
 
-import { type RootState } from '@shared/types'
+import { type RootState } from '@shared/types/store'
 import { i18nForTests } from '@app/config/i18n/i18nForTests'
 import { StoreProvider } from '@app/providers/StoreProvider'
 

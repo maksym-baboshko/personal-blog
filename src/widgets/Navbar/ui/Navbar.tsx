@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 import { Button } from '@shared/ui/Button'
 import { AuthModal } from '@features/Authentication'
-import { useAppDispatch, useAppSelector } from '@shared/hooks'
+import { useAppDispatch, useAppSelector } from '@shared/hooks/store'
 import { getUserAuthStatus, getUserInitialStatus, userActions } from '@entities/User'
 
 import { type NavbarFC } from './Navbar.types'

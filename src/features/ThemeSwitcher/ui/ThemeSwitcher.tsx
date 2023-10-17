@@ -2,8 +2,8 @@ import cn from 'classnames'
 import { useTranslation } from 'react-i18next'
 
 import { Button } from '@shared/ui/Button'
-import { useTheme } from '@shared/hooks'
-import { appThemes } from '@shared/constants/appTheme'
+import { useTheme } from '@shared/hooks/ui'
+import { appThemes } from '@shared/constants/theme'
 
 import { type ThemeSwitcherFC } from './ThemeSwitcher.types'
 

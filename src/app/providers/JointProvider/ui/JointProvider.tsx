@@ -2,9 +2,9 @@ import { Suspense } from 'react'
 
 import { BrowserRouter } from 'react-router-dom'
 
-import { ThemeProvider } from '@app/providers/ThemeProvider'
-import { ErrorBoundary } from '@app/providers/ErrorBoundary'
-import { StoreProvider } from '@app/providers/StoreProvider'
+import { ThemeProvider } from '../../ThemeProvider'
+import { ErrorBoundary } from '../../ErrorBoundary'
+import { StoreProvider } from '../../StoreProvider'
 
 import { type JointProviderFC } from './JointProvider.types'
 

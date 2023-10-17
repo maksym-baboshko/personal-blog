@@ -1,16 +1,16 @@
 import { type FC } from 'react'
 
-import { AppRouter } from '@app/router'
 import { Navbar } from '@widgets/Navbar'
 import { Sidebar } from '@widgets/Sidebar'
 
-import { useUserInit } from './lib/hooks'
+import { useLoadState } from './hooks'
+import { AppRouter } from './providers/AppRouter'
 
-import '@app/config/i18n'
+import './config/i18n'
 import './styles/index.scss'
 
 const App: FC = () => {
-  useUserInit()
+  useLoadState()
 
   return (
     <div id="app">

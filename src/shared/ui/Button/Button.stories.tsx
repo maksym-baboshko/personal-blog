@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import ArrowIcon from '@shared/assets/icons/arrow.svg'
-import { appThemes } from '@shared/constants/appTheme'
+import { appThemes } from '@shared/constants/theme'
 import { getTranslatedCaption } from '@shared/lib/storybook'
 
 import { Button } from './Button'

@@ -1,7 +1,8 @@
 import { Provider } from 'react-redux'
 
-import { type RootState } from '@shared/types'
-import { createReduxStore, store } from '@app/config/store'
+import { type RootState } from '@shared/types/store'
+
+import { createReduxStore, store } from '../../../config/store'
 
 import { type StoreProviderFC } from './StoreProvider.types'
 

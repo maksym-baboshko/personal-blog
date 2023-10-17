@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 
+import { useLocalStorage } from '@shared/hooks/common'
 import { LS_SIDEBAR_KEY } from '@shared/constants/localStorage'
-import { useLocalStorage } from '@shared/hooks'
 
 interface ToggleSidebar {
   isCollapsed: boolean

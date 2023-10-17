@@ -1,5 +1,5 @@
-import { type tSelector } from '@shared/types'
+import { type tSelector } from '@shared/types/store'
 
-import { type IUserProfile } from '../../types'
+import { type User } from '../../types'
 
-export const getUserProfile: tSelector<IUserProfile | null> = (state) => state.user.profile
+export const getUserProfile: tSelector<User | null> = (state) => state.user.profile

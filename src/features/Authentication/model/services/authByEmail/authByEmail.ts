@@ -2,7 +2,7 @@ import { type AxiosError } from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { userActions } from '@entities/User'
-import { type ThunkConfig } from '@shared/types'
+import { type ThunkConfig } from '@shared/types/store'
 import { LS_JWT_KEY } from '@shared/constants/localStorage'
 
 import { type AuthResponse, type UserCredentials } from '../../types'
@@ -17,7 +17,7 @@ export const authByEmail = createAsyncThunk<AuthResponse, UserCredentials, Thunk
 
       if (!data) throw new Error('Something went wrong')
 
-      dispatch(userActions.setUserCredentials({ profile: data.user, jwt: data.accessToken }))
+      dispatch(userActions.setUserCredentials({ profile: data.user, token: data.accessToken }))
       localStorage.setItem(LS_JWT_KEY, data.accessToken)
 
       return data

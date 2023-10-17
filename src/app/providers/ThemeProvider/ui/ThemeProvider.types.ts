@@ -1,6 +1,6 @@
 import { type FC, type ReactNode } from 'react'
 
-import { type AppTheme } from '@shared/constants/appTheme'
+import { type AppTheme } from '@shared/constants/theme'
 
 interface ThemeProviderProps {
   children: ReactNode

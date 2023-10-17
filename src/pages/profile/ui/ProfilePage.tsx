@@ -1,13 +1,9 @@
 import { memo, type FC } from 'react'
 
-import { UserProfile } from '@entities/User'
+import { Profile } from '@entities/Profile'
 
 const ProfilePage: FC = memo(function ProfilePage() {
-  return (
-    <div>
-      <UserProfile />
-    </div>
-  )
+  return <Profile />
 })
 
 export default ProfilePage

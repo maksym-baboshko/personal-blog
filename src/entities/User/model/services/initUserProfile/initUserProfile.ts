@@ -2,21 +2,21 @@ import { type AxiosError } from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import decodeJWT, { type JwtPayload } from 'jwt-decode'
 
-import { type ThunkConfig } from '@shared/types'
+import { type ThunkConfig } from '@shared/types/store'
 
-import { type UserInitialError, type IUserProfile } from '../../types'
+import { type UserInitialError, type User } from '../../types'
 
-export const initUserProfile = createAsyncThunk<IUserProfile, void, ThunkConfig<UserInitialError>>(
+export const initUserProfile = createAsyncThunk<User, void, ThunkConfig<UserInitialError>>(
   'user/initUserProfile',
   async (_, { rejectWithValue, getState, extra }) => {
     const { api } = extra
 
     try {
-      const jwt = getState().user.jwt
+      const token = getState().user.token
 
-      if (!jwt) throw new Error("There's no JWT in the storage")
+      if (!token) throw new Error("There's no JWT in the storage")
 
-      const parsedJWT = decodeJWT<JwtPayload>(jwt)
+      const parsedJWT = decodeJWT<JwtPayload>(token)
       const userId = parsedJWT.sub ? Number(parsedJWT.sub) : null
 
       if (!userId) throw new Error("The JWT isn't valid")
@@ -36,9 +36,9 @@ export const initUserProfile = createAsyncThunk<IUserProfile, void, ThunkConfig<
   },
   {
     condition: (_, { getState }) => {
-      const jwt = getState().user.jwt
+      const token = getState().user.token
 
-      if (!jwt) return false
+      if (!token) return false
     }
   }
 )

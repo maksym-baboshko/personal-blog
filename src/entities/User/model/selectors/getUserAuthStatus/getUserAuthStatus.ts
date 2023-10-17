@@ -1,3 +1,3 @@
-import { type tSelector } from '@shared/types'
+import { type tSelector } from '@shared/types/store'
 
 export const getUserAuthStatus: tSelector<boolean> = (state) => state.user.isAuthorized

@@ -1,8 +1,8 @@
-import { type tRequestStatus } from '@shared/types'
+import { type tRequestStatus } from '@shared/types/store'
 
 import { type userReducer } from '../slice'
 
-export interface IUserProfile {
+export interface User {
   id: number
   email: string
   fname: string
@@ -20,8 +20,8 @@ export interface IUserProfile {
 }
 
 export interface UserAuthData {
-  jwt: string | null
-  profile: IUserProfile | null
+  token: string | null
+  profile: User | null
 }
 
 export interface UserInitialError {

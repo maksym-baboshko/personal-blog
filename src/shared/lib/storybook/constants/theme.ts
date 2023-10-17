@@ -1,6 +1,6 @@
 import { type ClassNameStrategyConfiguration } from '@storybook/addon-themes'
 
-import { appThemes } from '@shared/constants/appTheme'
+import { appThemes } from '@shared/constants/theme'
 
 export const sbThemeConfig: ClassNameStrategyConfiguration = {
   themes: appThemes.reduce<Record<string, string>>((acc, theme) => {

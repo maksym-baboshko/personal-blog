@@ -1,7 +1,5 @@
 import { type InputHTMLAttributes } from 'react'
 
-import { type EnumAsUnion } from '@shared/types'
-
 enum InputSize {
   SM = 'sm',
   MD = 'md',

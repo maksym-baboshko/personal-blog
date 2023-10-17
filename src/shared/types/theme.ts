@@ -1,10 +1,10 @@
-import { type AppTheme } from '@shared/constants/appTheme'
+import { type AppTheme } from '@shared/constants/theme'
 
 export interface ThemeConfig {
   name: string
   key: AppTheme
   color: string
   contrastColor: string
-  icon: string
+  backgroundColor: string
   default?: boolean
 }

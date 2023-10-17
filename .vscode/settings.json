@@ -25,5 +25,15 @@
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
   },
-  "cSpell.words": ["aprikot", "autodocs", "creds", "fname", "lname", "Lngs", "signin", "testid"]
+  "cSpell.words": [
+    "aprikot",
+    "autodocs",
+    "creds",
+    "fname",
+    "lname",
+    "Lngs",
+    "reduxjs",
+    "signin",
+    "testid"
+  ]
 }

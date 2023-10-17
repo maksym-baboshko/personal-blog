@@ -1,7 +1,5 @@
 import { type ButtonHTMLAttributes } from 'react'
 
-import { type EnumAsUnion } from '@shared/types'
-
 enum ButtonVariant {
   SOLID = 'solid',
   OUTLINED = 'outlined',

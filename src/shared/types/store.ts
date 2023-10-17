@@ -5,19 +5,15 @@ import {
   type ReducersMapObject
 } from '@reduxjs/toolkit'
 
+import { type api } from '@shared/api/root'
 import { type UserReducer } from '@entities/User'
 import { type ThunkExtraArg } from '@app/config/store'
-import { type CounterReducer } from '@entities/Counter'
 import { type AuthReducer } from '@features/Authentication'
 import { type RequestStatus } from '@shared/constants/store'
-import { type apiPath, type apiReducer } from '@shared/api/rtk'
-
-import { type EnumAsUnion } from './enum-as-union'
 
 export interface RootState {
   user: UserReducer
-  counter: CounterReducer
-  [apiPath]: ReturnType<typeof apiReducer>
+  [api.reducerPath]: ReturnType<typeof api.reducer>
 
   //* Async reducers
   auth?: AuthReducer

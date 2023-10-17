@@ -1,4 +1,4 @@
-import { type tRequestStatus } from '@shared/types'
+import { type tRequestStatus } from '@shared/types/store'
 
 import { type authReducer } from '../slice'
 

@@ -1,6 +1,6 @@
 import { type DeepPartial, type AsyncThunkAction } from '@reduxjs/toolkit'
 
-import { type RootState } from '@shared/types'
+import { type RootState } from '@shared/types/store'
 import { $api } from '@shared/api/axios'
 
 type ActionCreator<R, A, RJV> = (arg: A) => AsyncThunkAction<R, A, { rejectValue: RJV }>

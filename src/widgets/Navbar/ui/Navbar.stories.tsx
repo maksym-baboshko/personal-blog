@@ -20,7 +20,7 @@ export const Default: Story = {
     withStore({
       user: {
         profile: null,
-        jwt: null,
+        token: null,
         isAuthorized: false,
         initializationStatus: 'idle',
         initializationError: null
@@ -42,7 +42,7 @@ export const LoggedIn: Story = {
         isAuthorized: true,
         initializationStatus: 'success',
         initializationError: null,
-        jwt: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1heC5iYWJvc2hrb0BnbWFpbC5jb20iLCJpYXQiOjE2OTY5NTY0NDUsImV4cCI6MTY5Njk2MDA0NSwic3ViIjoiMSJ9.vCPmHTf-dZbjPtYRwFdji_2JvFVjM2OfER7ZquRNsTo'
+        token: 'jwt'
       }
     })
   ]

@@ -1,7 +1,5 @@
 import { type FC } from 'react'
 
-import { type EnumAsUnion } from '@shared/types'
-
 enum TextColor {
   DEFAULT = 'default',
   DANGER = 'danger'

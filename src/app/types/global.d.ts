@@ -15,4 +15,15 @@ declare module '*.svg' {
 declare const __IS_DEV__: boolean
 declare const __API__: string
 
+type StringValues<T> = {
+  [K in keyof T]: T[K] extends string ? T[K] : never
+}[keyof T]
+
+type NumberValues<T> = {
+  [K in keyof T]: T[K] extends number ? T[K] : never
+}[keyof T]
+
+//* Usage : type EnumValues = EnumAsUnion<typeof anEnum>
+type EnumAsUnion<T> = `${StringValues<T>}` | NumberValues<T>
+
 type Prettify<T> = { [P in keyof T]: T[P] }
