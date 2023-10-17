@@ -19,7 +19,7 @@ export const Default: Story = {
   decorators: [
     withStore({
       user: {
-        profile: null,
+        data: null,
         token: null,
         isAuthorized: false,
         initializationStatus: 'idle',
@@ -33,7 +33,7 @@ export const LoggedIn: Story = {
   decorators: [
     withStore({
       user: {
-        profile: {
+        data: {
           email: 'max.baboshko@gmail.com',
           fname: 'Maksym',
           lname: 'Baboshko',

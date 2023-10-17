@@ -28,7 +28,7 @@ describe('authByEmail', () => {
 
   it('should dispatch setUserCredentials action with correct payload', async () => {
     thunk.api.post.mockResolvedValue({ data: responseData })
-    const authData = { profile: responseData.user, token: responseData.accessToken }
+    const authData = { data: responseData.user, token: responseData.accessToken }
 
     await thunk.callAction(creds)
 

@@ -10,8 +10,8 @@ const token = localStorage.getItem(LS_JWT_KEY)
 const initializationStatus: tRequestStatus = token ? 'loading' : 'idle'
 
 const initialState: UserSchema = {
-  profile: null,
   isAuthorized: false,
+  data: null,
   initializationStatus,
   initializationError: null,
   token
@@ -23,7 +23,7 @@ const userSlice = createSlice({
   reducers: {
     setUserCredentials(state, { payload }: PayloadAction<UserAuthData>) {
       state.token = payload.token
-      state.profile = payload.profile
+      state.data = payload.data
       state.isAuthorized = true
       state.initializationStatus = 'success'
       state.initializationError = null
@@ -39,7 +39,7 @@ const userSlice = createSlice({
       state.initializationError = null
     })
     builder.addCase(initUserProfile.fulfilled, (state, { payload }: PayloadAction<User>) => {
-      state.profile = payload
+      state.data = payload
       state.isAuthorized = true
       state.initializationStatus = 'success'
       state.initializationError = null

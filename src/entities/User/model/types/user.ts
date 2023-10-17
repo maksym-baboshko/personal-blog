@@ -21,7 +21,7 @@ export interface User {
 
 export interface UserAuthData {
   token: string | null
-  profile: User | null
+  data: User | null
 }
 
 export interface UserInitialError {
