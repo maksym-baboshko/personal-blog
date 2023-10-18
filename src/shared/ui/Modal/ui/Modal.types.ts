@@ -5,6 +5,7 @@ interface ModalProps {
   contentClassName?: string
   children?: ReactNode
   isOpen?: boolean
+  isClosingRemotely?: boolean
   onClose?: () => void
 }
 

@@ -40,12 +40,9 @@ export const Navbar: NavbarFC = memo(function Navbar({ className }) {
     <div className={cn(cls.navbar, className)}>
       <div className={cls.wrapper}>
         {!isUserAuthorized && !isUserInitializing && (
-          <>
-            <Button onClick={openAuthModal} ref={loginBtnRef} variant="outlined" size="sm">
-              {t('login')}
-            </Button>
-            <AuthModal isOpen={showAuthModal} onClose={closeAuthModal} />
-          </>
+          <Button onClick={openAuthModal} ref={loginBtnRef} variant="outlined" size="sm">
+            {t('login')}
+          </Button>
         )}
         {isUserAuthorized && (
           <Button onClick={logOut} variant="outlined" size="sm">
@@ -53,6 +50,8 @@ export const Navbar: NavbarFC = memo(function Navbar({ className }) {
           </Button>
         )}
       </div>
+
+      <AuthModal isOpen={showAuthModal} onClose={closeAuthModal} />
     </div>
   )
 })

@@ -18,7 +18,7 @@ import { type AuthFormFC } from './AuthForm.types'
 import cls from './AuthForm.module.scss'
 
 const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
-  const [login, { isSuccess, isLoading, error }] = useLoginMutation()
+  const [login, { isLoading, error }] = useLoginMutation()
   const { register, handleSubmit } = useForm<UserCredentials>()
   const { t } = useTranslation('common')
   const dispatch = useAppDispatch()
@@ -29,10 +29,12 @@ const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
     async (credentials) => {
       const res = await login(credentials)
 
-      if ('data' in res) dispatch(userActions.setUserCredentials(res.data))
-      if (isSuccess && onSuccess) onSuccess()
+      if ('data' in res) {
+        onSuccess && onSuccess()
+        dispatch(userActions.setUserCredentials(res.data))
+      }
     },
-    [isSuccess, onSuccess, login, dispatch]
+    [onSuccess, login, dispatch]
   )
 
   return (

@@ -1,1 +1,1 @@
-export { Modal } from './ui/Modal'
+export { Modal, CLOSE_ANIMATION_DELAY } from './ui/Modal'

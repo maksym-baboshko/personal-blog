@@ -8,10 +8,10 @@ import { type ModalFC } from './Modal.types'
 
 import cls from './Modal.module.scss'
 
-const CLOSE_ANIMATION_DELAY = 400
+export const CLOSE_ANIMATION_DELAY = 400
 
 export const Modal: ModalFC = (props) => {
-  const { children, className, contentClassName, isOpen, onClose } = props
+  const { children, className, contentClassName, isOpen, onClose, isClosingRemotely } = props
 
   const [isClosing, setIsClosing] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
@@ -22,7 +22,7 @@ export const Modal: ModalFC = (props) => {
     cls.modal,
     {
       [cls.opened]: isMounted,
-      [cls.closing]: isClosing
+      [cls.closing]: isClosing || isClosingRemotely
     },
     className
   )
