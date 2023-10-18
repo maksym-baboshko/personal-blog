@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { withFullscreen, withStore } from '@shared/lib/storybook'
+import { userData, withFullscreen, withStore } from '@shared/lib/storybook'
 
 import { Navbar } from './Navbar'
 
@@ -21,9 +21,7 @@ export const Default: Story = {
       user: {
         data: null,
         token: null,
-        isAuthorized: false,
-        initializationStatus: 'idle',
-        initializationError: null
+        isAuthenticated: false
       }
     })
   ]
@@ -33,16 +31,9 @@ export const LoggedIn: Story = {
   decorators: [
     withStore({
       user: {
-        data: {
-          email: 'max.baboshko@gmail.com',
-          fname: 'Maksym',
-          lname: 'Baboshko',
-          id: 1
-        },
-        isAuthorized: true,
-        initializationStatus: 'success',
-        initializationError: null,
-        token: 'jwt'
+        data: userData,
+        token: 'jwt',
+        isAuthenticated: true
       }
     })
   ]

@@ -9,7 +9,8 @@ const authApi = api.injectEndpoints({
         url: '/signin',
         method: 'POST',
         body: credentials
-      })
+      }),
+      extraOptions: { maxRetries: 0 }
     })
   })
 })

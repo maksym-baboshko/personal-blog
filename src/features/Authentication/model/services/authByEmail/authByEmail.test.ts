@@ -26,14 +26,13 @@ describe('authByEmail', () => {
     expect(actionResult.meta.requestStatus).toBe('fulfilled')
   })
 
-  it('should dispatch setUserCredentials action with correct payload', async () => {
+  it('should dispatch setUserCreds action with correct payload', async () => {
     thunk.api.post.mockResolvedValue({ data: responseData })
-    const authData = { data: responseData.user, token: responseData.accessToken }
 
     await thunk.callAction(creds)
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(3)
-    expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setUserCredentials(authData))
+    expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setUserCreds(responseData))
   })
 
   it('should set JWT token in local storage', async () => {

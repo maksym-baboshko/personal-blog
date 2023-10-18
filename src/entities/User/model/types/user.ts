@@ -30,7 +30,7 @@ export interface UserInitialError {
 }
 
 export interface UserSchema extends UserAuthData {
-  isAuthorized: boolean
+  isAuthenticated: boolean
   initializationStatus: tRequestStatus
   initializationError: string | UserInitialError | null
 }

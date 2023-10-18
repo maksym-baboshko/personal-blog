@@ -17,7 +17,7 @@ export const authByEmail = createAsyncThunk<AuthResponse, UserCredentials, Thunk
 
       if (!data) throw new Error('Something went wrong')
 
-      dispatch(userActions.setUserCredentials({ data: data.user, token: data.accessToken }))
+      dispatch(userActions.setUserCreds(data))
       localStorage.setItem(LS_JWT_KEY, data.accessToken)
 
       return data

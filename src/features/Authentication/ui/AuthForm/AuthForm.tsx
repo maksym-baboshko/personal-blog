@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react'
+import { memo, useCallback, useMemo } from 'react'
 
 import { useTranslation } from 'react-i18next'
 import { useForm, type SubmitHandler } from 'react-hook-form'
@@ -6,49 +6,34 @@ import { useForm, type SubmitHandler } from 'react-hook-form'
 import { Text } from '@shared/ui/Text'
 import { Input } from '@shared/ui/Input'
 import { Button } from '@shared/ui/Button'
-import { type AsyncReducers } from '@shared/types/store'
-import { useAppDispatch, useAppSelector, useLazyReducers } from '@shared/hooks/store'
+import { userActions } from '@entities/User'
+import { getErrorMessage } from '@shared/lib/api'
+import { useLoginMutation } from '@shared/api/auth'
+import { useAppDispatch } from '@shared/hooks/store'
 
-import { authByEmail } from '../../model/services'
 import { type UserCredentials } from '../../model/types'
-import { authActions, authReducer } from '../../model/slice'
-import { getAuthError, getAuthStatus } from '../../model/selectors'
 
 import { type AuthFormFC } from './AuthForm.types'
 
 import cls from './AuthForm.module.scss'
 
-const initialReducers: AsyncReducers = { auth: authReducer }
-
 const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
+  const [login, { isSuccess, isLoading, error }] = useLoginMutation()
   const { register, handleSubmit } = useForm<UserCredentials>()
-
   const { t } = useTranslation('common')
-
-  const authStatus = useAppSelector(getAuthStatus)
-  const authError = useAppSelector(getAuthError)
   const dispatch = useAppDispatch()
 
-  useLazyReducers(initialReducers)
+  const authErrMsg = useMemo(() => getErrorMessage(error), [error])
 
   const submitHandler: SubmitHandler<UserCredentials> = useCallback(
-    async (data) => {
-      const result = await dispatch(authByEmail(data))
+    async (credentials) => {
+      const res = await login(credentials)
 
-      if (result.meta.requestStatus === 'fulfilled' && onSuccess) {
-        onSuccess()
-      }
+      if ('data' in res) dispatch(userActions.setUserCredentials(res.data))
+      if (isSuccess && onSuccess) onSuccess()
     },
-    [dispatch, onSuccess]
+    [isSuccess, onSuccess, login, dispatch]
   )
-
-  useEffect(() => {
-    return () => {
-      if (authStatus === 'error') {
-        dispatch(authActions.reset())
-      }
-    }
-  }, [dispatch, authStatus])
 
   return (
     <form className={cls.form} onSubmit={handleSubmit(submitHandler)}>
@@ -85,14 +70,14 @@ const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
         />
       </div>
 
-      {authError && <Text color="danger" text={authError} className={cls.error} />}
+      {authErrMsg && <Text color="danger" text={authErrMsg} className={cls.error} />}
 
       <Button
         className={cls['submit-btn']}
         type="submit"
         variant="solid"
         size="md"
-        disabled={authStatus === 'loading'}
+        disabled={isLoading}
       >
         {t('auth_form.submit')}
       </Button>

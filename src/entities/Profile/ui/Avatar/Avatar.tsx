@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react'
 
 import { useTheme } from '@shared/hooks/ui'
-import { getDefaultAvatar } from '@shared/lib/common/getDefaultAvatar'
+import { getDefaultAvatar } from '@shared/lib/common'
 
 import { type AvatarFC } from './Avatar.types'
 

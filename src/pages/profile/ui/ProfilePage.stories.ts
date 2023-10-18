@@ -8,7 +8,7 @@ const meta = {
   title: 'pages/ProfilePage',
   component: ProfilePage,
   parameters: { layout: 'fullscreen' },
-  decorators: [withFullscreen, withStore({})]
+  decorators: [withFullscreen, withStore()]
 } satisfies Meta<typeof ProfilePage>
 
 export default meta
