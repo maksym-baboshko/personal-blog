@@ -11,7 +11,8 @@ import { MainPage } from '@pages/main'
 import { AboutPage } from '@pages/about'
 import { ProfilePage } from '@pages/profile'
 import { NotFoundPage } from '@pages/not-found'
-import { type AppRoutesConfig } from '@shared/types/router'
+
+import { type AppRoutesConfig } from './types'
 
 export const routesConfig: Record<AppRoutes, AppRoutesConfig> = {
   [AppRoutes.MAIN]: {

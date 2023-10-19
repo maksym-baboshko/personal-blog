@@ -1,15 +1,10 @@
-import { useEffect } from 'react'
+import { useUserId } from '@shared/hooks/common'
+import { useGetUserQuery } from '@shared/api/user'
 
-import { getUserAuthStatus, initUserProfile } from '@entities/User'
-import { useAppDispatch, useAppSelector } from '@shared/hooks/store'
+const REFETCH_INTERVAL = 60000 * 15 // 15 minutes
 
 export const useLoadUser = (): void => {
-  const isUserAuthorized = useAppSelector(getUserAuthStatus)
-  const dispatch = useAppDispatch()
+  const userId = useUserId()
 
-  useEffect(() => {
-    if (!isUserAuthorized) {
-      void dispatch(initUserProfile())
-    }
-  }, [dispatch, isUserAuthorized])
+  useGetUserQuery(userId, { skip: !userId, pollingInterval: REFETCH_INTERVAL })
 }

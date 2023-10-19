@@ -1,5 +1,3 @@
-import { type ThemeConfig } from '@shared/types/theme'
-
 export enum AppTheme {
   LIGHT = 'light-theme',
   DARK = 'dark-theme',
@@ -11,7 +9,8 @@ export const lightTheme = {
   key: AppTheme.LIGHT,
   color: '#f7f6f6',
   backgroundColor: '#dddddd',
-  contrastColor: '#191b22'
+  contrastColor: '#191b22',
+  default: false
 }
 
 export const darkTheme = {
@@ -28,7 +27,8 @@ export const aprikotTheme = {
   key: AppTheme.APRIKOT,
   color: '#ffd8b1',
   backgroundColor: '#f5c288',
-  contrastColor: '#523006'
+  contrastColor: '#523006',
+  default: false
 }
 
-export const appThemes: ThemeConfig[] = [lightTheme, darkTheme, aprikotTheme]
+export const appThemes = [lightTheme, darkTheme, aprikotTheme]

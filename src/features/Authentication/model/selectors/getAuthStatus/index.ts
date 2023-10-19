@@ -1,1 +1,0 @@
-export { getAuthStatus } from './getAuthStatus'

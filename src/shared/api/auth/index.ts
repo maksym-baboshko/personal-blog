@@ -1,19 +1,3 @@
-import { api } from '../root'
+export { login, useLoginMutation } from './auth'
 
-import { type AuthResponse, type UserCredentials } from './types'
-
-const authApi = api.injectEndpoints({
-  endpoints: (build) => ({
-    login: build.mutation<AuthResponse, UserCredentials>({
-      query: (credentials) => ({
-        url: '/signin',
-        method: 'POST',
-        body: credentials
-      }),
-      extraOptions: { maxRetries: 0 }
-    })
-  })
-})
-
-export const { login } = authApi.endpoints
-export const { useLoginMutation } = authApi
+export type { AuthResponse, UserCredentials } from './types'

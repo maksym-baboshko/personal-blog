@@ -1,1 +1,0 @@
-export { getAuthError } from './getAuthError'

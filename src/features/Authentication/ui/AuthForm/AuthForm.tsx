@@ -8,18 +8,16 @@ import { Input } from '@shared/ui/Input'
 import { Button } from '@shared/ui/Button'
 import { userActions } from '@entities/User'
 import { getErrorMessage } from '@shared/lib/api'
-import { useLoginMutation } from '@shared/api/auth'
 import { useAppDispatch } from '@shared/hooks/store'
-
-import { type UserCredentials } from '../../model/types'
+import { useLoginMutation, type UserCredentials } from '@shared/api/auth'
 
 import { type AuthFormFC } from './AuthForm.types'
 
 import cls from './AuthForm.module.scss'
 
 const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
-  const [login, { isLoading, error }] = useLoginMutation()
   const { register, handleSubmit } = useForm<UserCredentials>()
+  const [login, { isLoading, error }] = useLoginMutation()
   const { t } = useTranslation('common')
   const dispatch = useAppDispatch()
 

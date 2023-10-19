@@ -1,0 +1,1 @@
+export { getNextLang } from './getNextLang'

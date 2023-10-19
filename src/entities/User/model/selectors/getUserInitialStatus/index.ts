@@ -1,1 +1,0 @@
-export { getUserInitialStatus } from './getUserInitialStatus'

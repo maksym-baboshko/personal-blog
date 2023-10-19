@@ -1,11 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import { api } from '@shared/api/root'
-import { $api } from '@shared/api/axios'
 import { userReducer } from '@entities/User'
 import { type AppReducers, type AsyncReducers, type RootState } from '@shared/types/store'
 
-import { type ThunkExtraArg } from './store.types'
 import { authInterceptor } from './store.middlewares'
 import { createReducerManager } from './lib/reducerManager'
 
@@ -16,7 +14,6 @@ export const createReduxStore = (initialState?: RootState, asyncReducers?: Async
     [api.reducerPath]: api.reducer
   })
 
-  const extraArgument: ThunkExtraArg = { api: $api }
   const middlewares = [authInterceptor, api.middleware]
 
   const store = configureStore({
@@ -24,9 +21,7 @@ export const createReduxStore = (initialState?: RootState, asyncReducers?: Async
     reducer: reducerManager.reducer,
     preloadedState: initialState,
     enhancers: [reducerManager.enhancer],
-    middleware: (getDefaultMiddleware) => {
-      return getDefaultMiddleware({ thunk: { extraArgument } }).concat(middlewares)
-    }
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(middlewares)
   })
 
   return store

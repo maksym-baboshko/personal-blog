@@ -6,32 +6,22 @@ import {
 } from '@reduxjs/toolkit'
 
 import { type api } from '@shared/api/root'
-import { type UserReducer } from '@entities/User'
-import { type ThunkExtraArg } from '@app/config/store'
-import { type AuthReducer } from '@features/Authentication'
-import { type RequestStatus } from '@shared/constants/store'
+import { type userReducer } from '@entities/User'
 
 export interface RootState {
-  user: UserReducer
+  user: ReturnType<typeof userReducer>
   [api.reducerPath]: ReturnType<typeof api.reducer>
 
   //* Async reducers
-  auth?: AuthReducer
 }
 
 export type tSelector<T> = (state: RootState) => T
-export type tRequestStatus = EnumAsUnion<typeof RequestStatus>
-
-export interface ThunkConfig<E = string> {
-  rejectValue: E
-  extra: ThunkExtraArg
-  state: RootState
-}
 
 // AppReducers
 export type RootStateKey = keyof RootState
 export type AppReducers = ReducersMapObject<RootState>
-export type OptionalReducers = { [name in RootStateKey]?: Reducer<NonNullable<RootState[name]>> }
+
+type OptionalReducers = { [name in RootStateKey]?: Reducer<NonNullable<RootState[name]>> }
 export type AsyncReducers = Pick<OptionalReducers, OnlyOptionalKeys<RootState>>
 
 export type OnlyOptionalKeys<State> = keyof {

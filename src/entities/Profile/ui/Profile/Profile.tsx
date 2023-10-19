@@ -4,18 +4,14 @@ import { useTranslation } from 'react-i18next'
 import { Text } from '@shared/ui/Text'
 import { Input } from '@shared/ui/Input'
 import { Button } from '@shared/ui/Button'
-import { getUserProfile } from '@entities/User'
-import { useAppSelector } from '@shared/hooks/store'
-
-import { Avatar } from '../Avatar'
+import { Avatar } from '@shared/ui/Avatar'
 
 import { type ProfileFC } from './Profile.types'
 
 import cls from './Profile.module.scss'
 
-export const Profile: ProfileFC = () => {
-  const user = useAppSelector(getUserProfile)
-  const readonly = false
+export const Profile: ProfileFC = (props) => {
+  const { user, readonly } = props
 
   const { t } = useTranslation('profile')
 
@@ -30,7 +26,7 @@ export const Profile: ProfileFC = () => {
         </div>
 
         <form className={cls.form}>
-          <Avatar avatar={user?.avatar} />
+          <Avatar avatarURL={user?.avatar} />
 
           <div className={cls.info}>
             <div className={cls['input-field']}>
