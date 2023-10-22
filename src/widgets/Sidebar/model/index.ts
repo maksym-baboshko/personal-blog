@@ -1,1 +1,1 @@
-export { sidebarItems, type ISidebarItem } from './items'
+export { sidebarItems, type ISidebarItem } from './sidebarItems'

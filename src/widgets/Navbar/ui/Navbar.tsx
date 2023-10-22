@@ -6,8 +6,8 @@ import { useTranslation } from 'react-i18next'
 import { Button } from '@shared/ui/Button'
 import { useUserId } from '@shared/hooks/common'
 import { AuthModal } from '@features/Authentication'
-import { useGetUserQueryState } from '@shared/api/user'
 import { useAppDispatch, useAppSelector } from '@shared/hooks/store'
+import { useGetAuthenticatedUserQueryState } from '@shared/api/user'
 import { userActions, selectAuthenticationStatus } from '@entities/User'
 
 import { type NavbarFC } from './Navbar.types'
@@ -18,7 +18,7 @@ export const Navbar: NavbarFC = memo(function Navbar({ className }) {
   const userId = useUserId()
 
   const isUserAuthenticated = useAppSelector(selectAuthenticationStatus)
-  const { isLoading: isUserLoading } = useGetUserQueryState(userId)
+  const { isLoading: isUserLoading } = useGetAuthenticatedUserQueryState(userId)
   const [showAuthModal, setShowAuthModal] = useState(false)
   const loginBtnRef = useRef<HTMLButtonElement>(null)
   const { t } = useTranslation('common')

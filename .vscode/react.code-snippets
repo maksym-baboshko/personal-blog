@@ -65,9 +65,9 @@
     "body": [
       "import { createSlice } from '@reduxjs/toolkit'",
       "",
-      "import { type RootState } from '../types'",
+      "import { type StateSchema } from '../types'",
       "",
-      "const initialState: RootState = {",
+      "const initialState: StateSchema = {",
       "  ",
       "}",
       "",

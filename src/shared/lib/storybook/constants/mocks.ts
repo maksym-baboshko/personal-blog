@@ -1,5 +1,6 @@
 export const userData = {
   email: 'max.baboshko@gmail.com',
+  username: 'exy',
   fname: 'Maksym',
   lname: 'Baboshko',
   age: 27,
@@ -9,5 +10,6 @@ export const userData = {
   currentCity: 'bergen',
   avatar: 'https://gravatar.com/userimage/241269867/66620849b7e75974c6a38f734c1ad54d.jpeg?size=256',
   gender: 'male',
+  isPrivate: false,
   id: 1
 }

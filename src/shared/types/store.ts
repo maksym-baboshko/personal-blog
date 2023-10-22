@@ -7,8 +7,10 @@ import {
 
 import { type api } from '@shared/api/root'
 import { type userReducer } from '@entities/User'
+import { type appReducer } from '@app/config/store'
 
 export interface RootState {
+  app: ReturnType<typeof appReducer>
   user: ReturnType<typeof userReducer>
   [api.reducerPath]: ReturnType<typeof api.reducer>
 
@@ -17,7 +19,6 @@ export interface RootState {
 
 export type tSelector<T> = (state: RootState) => T
 
-// AppReducers
 export type RootStateKey = keyof RootState
 export type AppReducers = ReducersMapObject<RootState>
 

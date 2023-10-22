@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
-import { getUser } from '@shared/api/user'
+import { type User } from '@shared/api/user'
 import { type AuthResponse } from '@shared/api/auth/types'
 import { LS_JWT_KEY } from '@shared/constants/localStorage'
 
@@ -24,16 +24,14 @@ const userSlice = createSlice({
       state.token = payload.accessToken
       localStorage.setItem(LS_JWT_KEY, payload.accessToken)
     },
+    setUser: (state, { payload }: PayloadAction<User>) => {
+      state.data = payload
+      state.isAuthenticated = true
+    },
     logOut() {
       localStorage.removeItem(LS_JWT_KEY)
       return { ...initialState, token: null }
     }
-  },
-  extraReducers: ({ addMatcher }) => {
-    addMatcher(getUser.matchFulfilled, (state, action) => {
-      state.data = action.payload
-      state.isAuthenticated = true
-    })
   }
 })
 

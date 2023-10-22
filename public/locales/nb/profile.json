@@ -1,6 +1,10 @@
 {
   "title": "Profil",
   "edit": "Redigere",
+  "cancel": "Avbryt",
+  "save": "Lagre",
+  "loading_error": "Kunne ikke laste profilen.",
+  "loading_error_profile_not_found": "Denne profilen eksisterer ikke.",
   "countries": {
     "ua": "Ukraina",
     "no": "Norge",
@@ -24,9 +28,9 @@
     "female": "Kvinne"
   },
   "fields": {
-    "first_name": "Ditt navn",
-    "last_name": "Ditt etternavn",
-    "age": "Din alder",
-    "gender": "Din kjønn"
+    "first_name": "Navn",
+    "last_name": "Etternavn",
+    "age": "Alder",
+    "gender": "Kjønn"
   }
 }

@@ -7,7 +7,7 @@ const jsonServer = require('json-server')
 const PORT = 8000
 const ROUTER_PREFIX = '/api'
 const resourcePermits = {
-  users: 440,
+  users: 660,
   posts: 644
 }
 

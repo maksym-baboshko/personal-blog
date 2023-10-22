@@ -10,6 +10,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
   const options: BuildOptions = {
     paths: {
       src: path.resolve(rootDir, 'src'),
+      public: path.resolve(rootDir, '/'),
       dist: path.resolve(rootDir, 'dist'),
       entry: path.resolve(rootDir, 'src', 'main.tsx'),
       html: path.resolve(rootDir, 'public', 'index.html')

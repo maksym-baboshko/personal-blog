@@ -1,8 +1,10 @@
 export interface User {
   id: number
   email: string
+  username: string
   fname: string
   lname: string
+  isPrivate: boolean
   age?: number
   gender?: string
   avatar?: string

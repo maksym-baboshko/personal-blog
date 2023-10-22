@@ -1,10 +1,25 @@
+import { useEffect } from 'react'
+
+import { userActions } from '@entities/User'
 import { useUserId } from '@shared/hooks/common'
-import { useGetUserQuery } from '@shared/api/user'
+import { useAppDispatch } from '@shared/hooks/store'
+import { useGetAuthenticatedUserQuery } from '@shared/api/user'
+import { DEFAULT_REFETCH_INTERVAL } from '@shared/constants/common'
 
-const REFETCH_INTERVAL = 60000 * 15 // 15 minutes
-
-export const useLoadUser = (): void => {
+export const useLoadUser = () => {
+  const dispatch = useAppDispatch()
   const userId = useUserId()
 
-  useGetUserQuery(userId, { skip: !userId, pollingInterval: REFETCH_INTERVAL })
+  const { data, isLoading } = useGetAuthenticatedUserQuery(userId, {
+    skip: !userId,
+    pollingInterval: DEFAULT_REFETCH_INTERVAL
+  })
+
+  useEffect(() => {
+    if (!data) return
+
+    dispatch(userActions.setUser(data))
+  }, [dispatch, data])
+
+  return { isLoading }
 }

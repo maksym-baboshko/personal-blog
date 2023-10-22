@@ -13,10 +13,11 @@ const getApiBaseURL = (mode: BuildMode, apiUrl?: string): string => {
 
 export default (env: BuildEnv): Configuration => {
   const paths: BuildPaths = {
-    entry: path.resolve(__dirname, 'src', 'main.tsx'),
+    src: path.resolve(__dirname, 'src'),
+    public: path.resolve(__dirname, '/'),
     dist: path.resolve(__dirname, 'dist'),
-    html: path.resolve(__dirname, 'public', 'index.html'),
-    src: path.resolve(__dirname, 'src')
+    entry: path.resolve(__dirname, 'src', 'main.tsx'),
+    html: path.resolve(__dirname, 'public', 'index.html')
   }
 
   const port = env.port ?? 3000

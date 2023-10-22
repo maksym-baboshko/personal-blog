@@ -24,7 +24,7 @@ export const routesConfig: Record<AppRoutes, AppRoutesConfig> = {
     element: <MainPage />
   },
   [AppRoutes.PROFILE]: {
-    path: getProfileRoute(),
+    path: getProfileRoute(':id'),
     element: <ProfilePage />
   },
   [AppRoutes.SETTINGS]: {

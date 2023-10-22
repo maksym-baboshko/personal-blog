@@ -4,7 +4,7 @@ export enum AppTheme {
   APRIKOT = 'aprikot-theme'
 }
 
-export const lightTheme = {
+const lightTheme = {
   name: 'Light',
   key: AppTheme.LIGHT,
   color: '#f7f6f6',
@@ -13,7 +13,7 @@ export const lightTheme = {
   default: false
 }
 
-export const darkTheme = {
+const darkTheme = {
   name: 'Dark',
   key: AppTheme.DARK,
   color: '#191b22',
@@ -22,7 +22,7 @@ export const darkTheme = {
   default: true
 }
 
-export const aprikotTheme = {
+const aprikotTheme = {
   name: 'Aprikot',
   key: AppTheme.APRIKOT,
   color: '#ffd8b1',

@@ -1,6 +1,10 @@
 {
   "title": "Profile",
   "edit": "Edit",
+  "cancel": "Cancel",
+  "save": "Save",
+  "loading_error": "Failed to load profile.",
+  "loading_error_profile_not_found": "This profile does not exist.",
   "countries": {
     "ua": "Ukraine",
     "no": "Norway",

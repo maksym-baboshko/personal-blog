@@ -17,6 +17,8 @@ enum LinkUnderline {
 export interface LinkProps extends RouterLinkProps {
   color?: EnumAsUnion<typeof LinkColor>
   underline?: EnumAsUnion<typeof LinkUnderline>
+  isNavLink?: boolean
+  activeLinkCN?: string
 }
 
 export type LinkFC = FC<LinkProps>

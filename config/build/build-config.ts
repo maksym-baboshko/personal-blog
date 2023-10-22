@@ -13,7 +13,8 @@ export const buildConfig: BuildConfigFunc = (options) => {
     output: {
       filename: '[name].[contenthash].js',
       path: paths.dist,
-      clean: true
+      clean: true,
+      publicPath: paths.public
     },
     plugins: buildPlugins(options),
     module: { rules: buildLoaders(options) },

@@ -9,7 +9,7 @@ import SettingsIcon from '@shared/assets/icons/settings.svg'
 
 export interface ISidebarItem {
   path: string
-  textKey: string
+  textKey: 'main' | 'posts' | 'profile' | 'settings' | 'about'
   icon: FC<SVGAttributes<SVGElement>>
 }
 

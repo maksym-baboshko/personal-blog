@@ -17,6 +17,7 @@ export const SidebarItem: SidebarItemFC = memo(function SidebarItem({ item, isSi
   return (
     <Link
       to={path}
+      isNavLink
       underline="hover"
       className={cn(cls.item, { [cls.collapsed]: isSidebarCollapsed })}
     >

@@ -1,0 +1,1 @@
+export { selectAppInitialStatus } from './selectAppInitialStatus'

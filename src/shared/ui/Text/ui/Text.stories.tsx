@@ -26,7 +26,7 @@ const textCaptions = {
   nb: 'Tekst'
 }
 
-export const Heading: Story = {
+export const Both: Story = {
   args: {},
   render: (args, ctx) => {
     return (
@@ -37,6 +37,10 @@ export const Heading: Story = {
       />
     )
   }
+}
+
+export const Centred: Story = {
+  args: { heading: 'Heading', text: 'Text', textAlign: 'center' }
 }
 
 export const HeadingOnly: Story = {

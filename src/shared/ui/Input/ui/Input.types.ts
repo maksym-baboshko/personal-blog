@@ -6,7 +6,7 @@ enum InputSize {
   LG = 'lg'
 }
 
-enum InputAutoComplete {
+export enum InputAutoComplete {
   OFF = 'off',
   FULL_NAME = 'name',
   GIVEN_NAME = 'given-name',

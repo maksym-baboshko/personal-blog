@@ -6,8 +6,16 @@ import { type TextFC } from './Text.types'
 
 import cls from './Text.module.scss'
 
-export const Text: TextFC = memo(function Text({ className, heading, text, color = 'default' }) {
-  const classes = cn(cls.wrapper, cls[color], className)
+export const Text: TextFC = memo(function Text(props) {
+  const { className, heading, text, textAlign = 'left', color = 'default', fullPage } = props
+
+  const classes = cn(
+    cls.wrapper,
+    cls[color],
+    cls[`align-${textAlign}`],
+    { [cls['full-page']]: fullPage },
+    className
+  )
 
   return (
     <div className={classes}>

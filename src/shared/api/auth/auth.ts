@@ -15,5 +15,4 @@ const authApi = api.injectEndpoints({
   })
 })
 
-export const { login } = authApi.endpoints
 export const { useLoginMutation } = authApi

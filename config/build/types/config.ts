@@ -22,10 +22,11 @@ export interface BuildEnv {
 }
 
 export interface BuildPaths {
-  entry: string
+  src: string
   dist: string
   html: string
-  src: string
+  entry: string
+  public: string
 }
 
 export interface BuildOptions {
