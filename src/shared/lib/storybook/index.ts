@@ -1,5 +1,5 @@
+export { userData } from './constants/mocks'
 export { sbThemeConfig } from './constants/theme'
-export { withFullscreen, withStore } from './decorators'
 export { getTranslatedCaption, sbLocales, sbDefaultLocale } from './constants/locales'
 
-export { userData } from './constants/mocks'
+export { withFullscreen, withStore, withRouter } from './decorators'

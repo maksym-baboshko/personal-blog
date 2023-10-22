@@ -8,7 +8,7 @@ export const userData = {
   currentCountry: 'no',
   originCity: 'kharkiv',
   currentCity: 'bergen',
-  avatar: 'https://gravatar.com/userimage/241269867/66620849b7e75974c6a38f734c1ad54d.jpeg?size=256',
+  avatar: 'https://i.pravatar.cc/150?img=7',
   gender: 'male',
   isPrivate: false,
   id: 1

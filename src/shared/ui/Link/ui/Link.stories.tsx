@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { getTranslatedCaption } from '@shared/lib/storybook'
+import { getTranslatedCaption, withRouter } from '@shared/lib/storybook'
 
 import { Link } from './Link'
 
@@ -9,7 +9,8 @@ const meta = {
   component: Link,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],
-  args: { to: '#' }
+  args: { to: '#' },
+  decorators: [withRouter()]
 } satisfies Meta<typeof Link>
 
 export default meta
