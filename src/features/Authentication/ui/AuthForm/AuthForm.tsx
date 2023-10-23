@@ -29,7 +29,7 @@ const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
 
       if ('data' in res) {
         onSuccess && onSuccess()
-        dispatch(userActions.setUserCredentials(res.data))
+        dispatch(userActions.authWithCredentials(res.data))
       }
     },
     [onSuccess, login, dispatch]

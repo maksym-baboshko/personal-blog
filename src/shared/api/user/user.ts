@@ -7,14 +7,10 @@ import { type User } from './types'
 
 const userApi = api.injectEndpoints({
   endpoints: (build) => ({
-    getAuthenticatedUser: build.query<User, number | string | undefined>({
-      query: (userId) => ({ url: `users/${userId}` }),
-      providesTags: ['AuthenticatedUser'],
-      extraOptions: { maxRetries: 0 }
-    }),
     getUser: build.query<User, number | string | undefined>({
-      query: (userId) => ({ url: `users/${userId}` }),
-      providesTags: ['User']
+      query: (userId) => `users/${userId}`,
+      providesTags: ['User'],
+      extraOptions: { maxRetries: 0 }
     }),
     updateUser: build.mutation<User, Partial<User>>({
       query: (user) => ({
@@ -22,24 +18,23 @@ const userApi = api.injectEndpoints({
         method: 'PATCH',
         body: user
       }),
+      extraOptions: { maxRetries: 0 },
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled }) {
         const userBeforeUpdate = (getState() as RootState).user.data
-
-        dispatch(userActions.setUser(arg as User))
+        dispatch(userActions.updateData(arg as User))
 
         try {
           await queryFulfilled
         } catch {
-          dispatch(userActions.setUser(userBeforeUpdate as User))
+          dispatch(userActions.updateData(userBeforeUpdate as User))
         }
-      },
-      extraOptions: { maxRetries: 0 }
+      }
     })
   })
 })
 
 export const {
-  getAuthenticatedUser: { useQueryState: useGetAuthenticatedUserQueryState }
+  getUser: { useQueryState: useGetUserQueryState }
 } = userApi.endpoints
 
-export const { useGetAuthenticatedUserQuery, useUpdateUserMutation, useGetUserQuery } = userApi
+export const { useGetUserQuery, useUpdateUserMutation } = userApi

@@ -1,4 +1,6 @@
-export const userData = {
+import { type User } from '@shared/api/user'
+
+export const userData: User = {
   email: 'max.baboshko@gmail.com',
   username: 'exy',
   fname: 'Maksym',

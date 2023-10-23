@@ -16,7 +16,7 @@ export const ProfileEditingForm: ProfileEditingFormFC = (user) => {
 
   return (
     <form className={cls['profile-form']}>
-      <Avatar avatarURL={user.avatar} className={cls.avatar} />
+      <Avatar src={user.avatar} className={cls.avatar} size="lg" />
 
       <div className={cls['info-fields']}>
         {profileFields.map((field) => {

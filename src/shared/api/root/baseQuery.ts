@@ -5,7 +5,6 @@ import { type RootState } from '@shared/types/store'
 
 const baseQuery = fetchBaseQuery({
   baseUrl: __API__,
-  credentials: 'include',
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).user.token
 

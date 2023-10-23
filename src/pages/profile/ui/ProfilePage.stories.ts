@@ -12,7 +12,7 @@ const meta = {
   decorators: [
     withFullscreen,
     withRouter({ initialEntries: [getProfileRoute(1)], routePath: getProfileRoute(':id') }),
-    withStore({ app: { isInitialized: true, status: 'initialized' }, user: { data: userData } })
+    withStore({ user: { data: userData } })
   ]
 } satisfies Meta<typeof ProfilePage>
 

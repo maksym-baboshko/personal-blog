@@ -5,6 +5,6 @@ import { baseQueryWithRetry } from './baseQuery'
 export const api = createApi({
   reducerPath: 'api',
   baseQuery: baseQueryWithRetry,
-  tagTypes: ['AuthenticatedUser', 'User'],
+  tagTypes: ['User'],
   endpoints: (builder) => ({})
 })

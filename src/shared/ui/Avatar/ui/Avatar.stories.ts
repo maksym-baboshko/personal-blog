@@ -14,9 +14,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { avatarURL: undefined }
+  args: { src: undefined }
 }
 
 export const Photo: Story = {
-  args: { avatarURL: 'https://i.pravatar.cc/150?img=7' }
+  args: { src: 'https://i.pravatar.cc/150?img=7' }
 }

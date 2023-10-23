@@ -18,13 +18,13 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUserCredentials: (state, { payload }: PayloadAction<AuthResponse>) => {
+    authWithCredentials: (state, { payload }: PayloadAction<AuthResponse>) => {
       state.data = payload.user
       state.isAuthenticated = true
       state.token = payload.accessToken
       localStorage.setItem(LS_JWT_KEY, payload.accessToken)
     },
-    setUser: (state, { payload }: PayloadAction<User>) => {
+    updateData: (state, { payload }: PayloadAction<User>) => {
       state.data = payload
       state.isAuthenticated = true
     },

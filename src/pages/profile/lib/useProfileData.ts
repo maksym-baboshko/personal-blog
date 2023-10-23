@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next'
 import { selectUserData } from '@entities/User'
 import { useGetUserQuery } from '@shared/api/user'
 import { useAppSelector } from '@shared/hooks/store'
-import { selectAppInitialStatus } from '@app/config/store'
 import { getErrorMessage, isFetchBaseQueryError } from '@shared/lib/api'
 
 export const useProfileData = () => {
@@ -15,9 +14,6 @@ export const useProfileData = () => {
   const { id } = useParams()
   const currentUserId = Number(id)
 
-  const appInitializationStatus = useAppSelector(selectAppInitialStatus)
-  const isAppInitializing = appInitializationStatus === 'initializing'
-
   const authenticatedUser = useAppSelector(selectUserData)
   const authenticatedUserId = authenticatedUser?.id
   const isAuthenticatedUser = currentUserId === authenticatedUserId
@@ -25,8 +21,8 @@ export const useProfileData = () => {
   const {
     data: currentUser = null,
     error: currentUserError,
-    isFetching: isCurrentUserLoading
-  } = useGetUserQuery(currentUserId, { skip: isAppInitializing || isAuthenticatedUser })
+    isLoading: isCurrentUserLoading
+  } = useGetUserQuery(currentUserId, { skip: isAuthenticatedUser })
 
   const errorMsg = useMemo(() => {
     if (isFetchBaseQueryError(currentUserError) && currentUserError.status === 404) {
@@ -39,7 +35,7 @@ export const useProfileData = () => {
   return {
     user: isAuthenticatedUser ? authenticatedUser : currentUser,
     error: errorMsg,
-    isLoading: isCurrentUserLoading || isAppInitializing,
+    isLoading: isCurrentUserLoading,
     readonly: !isAuthenticatedUser
   }
 }

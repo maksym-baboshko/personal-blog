@@ -1,8 +1,15 @@
-import { type FC } from 'react'
+import { type ImgHTMLAttributes, type FC } from 'react'
 
-interface AvatarProps {
+enum AvatarSize {
+  XS = 'xs',
+  SM = 'sm',
+  MD = 'md',
+  LG = 'lg'
+}
+
+interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string
-  avatarURL: string | undefined
+  size?: EnumAsUnion<typeof AvatarSize>
 }
 
 export type AvatarFC = FC<AvatarProps>

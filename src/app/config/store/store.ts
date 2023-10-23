@@ -4,13 +4,11 @@ import { api } from '@shared/api/root'
 import { userReducer } from '@entities/User'
 import { type AppReducers, type AsyncReducers, type RootState } from '@shared/types/store'
 
-import { appReducer } from './model'
 import { createReducerManager } from './lib/reducerManager'
 
 export const createReduxStore = (initialState?: RootState, asyncReducers?: AsyncReducers) => {
   const reducerManager = createReducerManager<RootState>({
     ...(asyncReducers as AppReducers),
-    app: appReducer,
     user: userReducer,
     [api.reducerPath]: api.reducer
   })

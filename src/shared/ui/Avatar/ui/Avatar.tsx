@@ -10,14 +10,15 @@ import { type AvatarFC } from './Avatar.types'
 
 import cls from './Avatar.module.scss'
 
-export const Avatar: AvatarFC = memo(function Avatar({ avatarURL, className }) {
+export const Avatar: AvatarFC = memo(function Avatar(props) {
+  const { className, src, size = 'md', alt, ...imgProps } = props
   const { theme } = useTheme()
 
-  const avatar = useMemo(() => avatarURL ?? getDefaultAvatar(theme), [theme, avatarURL])
+  const avatar = useMemo(() => src ?? getDefaultAvatar(theme), [theme, src])
 
   return (
-    <div className={cn(cls.avatar, className)}>
-      <img src={avatar} alt="Avatar" />
+    <div className={cn(cls.avatar, { [cls[size]]: size }, className)}>
+      <img src={avatar} alt={alt ?? 'Avatar'} {...imgProps} />
     </div>
   )
 })

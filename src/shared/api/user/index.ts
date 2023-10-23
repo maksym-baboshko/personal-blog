@@ -1,8 +1,3 @@
-export {
-  useGetUserQuery,
-  useUpdateUserMutation,
-  useGetAuthenticatedUserQuery,
-  useGetAuthenticatedUserQueryState
-} from './user'
+export { useGetUserQuery, useGetUserQueryState, useUpdateUserMutation } from './user'
 
 export type { User } from './types'
