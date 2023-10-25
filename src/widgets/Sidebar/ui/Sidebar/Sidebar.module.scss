@@ -1,7 +1,3 @@
-#sidebar {
-  background: var(--bg-secondary);
-}
-
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -9,9 +5,12 @@
   justify-content: space-between;
   min-height: 100%;
   padding: 60px 0 30px;
+  background: var(--bg-secondary);
   width: var(--sidebar-width);
   position: relative;
-  transition: width 0.3s;
+  transition:
+    width 0.3s,
+    background 0.5s ease-in-out;
 }
 
 .collapsed {

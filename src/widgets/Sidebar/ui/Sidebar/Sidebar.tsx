@@ -14,14 +14,13 @@ export const Sidebar: SidebarFC = memo(function Sidebar({ className }) {
   const { isCollapsed, onToggle } = useToggleSidebar()
 
   return (
-    <div id="sidebar">
-      <div
-        className={cn(cls.sidebar, { [cls.collapsed]: isCollapsed }, className)}
-        data-testid="sidebar"
-      >
-        <SidebarItems isSidebarCollapsed={isCollapsed} />
-        <SidebarFooter toggleSidebar={onToggle} isSidebarCollapsed={isCollapsed} />
-      </div>
+    <div
+      id="sidebar"
+      className={cn(cls.sidebar, { [cls.collapsed]: isCollapsed }, className)}
+      data-testid="sidebar"
+    >
+      <SidebarItems isSidebarCollapsed={isCollapsed} />
+      <SidebarFooter toggleSidebar={onToggle} isSidebarCollapsed={isCollapsed} />
     </div>
   )
 })
