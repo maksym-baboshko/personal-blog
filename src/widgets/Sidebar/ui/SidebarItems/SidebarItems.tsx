@@ -1,5 +1,4 @@
-import { selectUserId } from '@entities/User'
-import { useAppSelector } from '@shared/hooks/store'
+import { useUserId } from '@shared/hooks/common'
 import { getProfileRoute } from '@shared/constants/router'
 
 import { SidebarItem } from '../SidebarItem'
@@ -10,7 +9,7 @@ import { type SidebarItemsFC } from './SidebarItems.types'
 import cls from './SidebarItems.module.scss'
 
 export const SidebarItems: SidebarItemsFC = ({ isSidebarCollapsed }) => {
-  const userId = useAppSelector(selectUserId)
+  const { userId } = useUserId()
 
   return (
     <div className={cls.items}>

@@ -1,6 +1,12 @@
 import { type SVGAttributes, type FC } from 'react'
 
-import { routesConfig } from '@app/config/router'
+import {
+  getAppRoute,
+  getAboutRoute,
+  getPostsRoute,
+  getProfileRoute,
+  getSettingsRoute
+} from '@shared/constants/router'
 import Logo from '@shared/assets/icons/logo.svg'
 import PostsIcon from '@shared/assets/icons/posts.svg'
 import AboutIcon from '@shared/assets/icons/about.svg'
@@ -15,27 +21,27 @@ export interface ISidebarItem {
 
 export const sidebarItems: ISidebarItem[] = [
   {
-    path: routesConfig.main.path,
+    path: getAppRoute(),
     textKey: 'main',
     icon: () => <Logo />
   },
   {
-    path: routesConfig.posts.path,
+    path: getPostsRoute(),
     textKey: 'posts',
     icon: () => <PostsIcon />
   },
   {
-    path: routesConfig.profile.path,
+    path: getProfileRoute(':id'),
     textKey: 'profile',
     icon: () => <ProfileIcon />
   },
   {
-    path: routesConfig.settings.path,
+    path: getSettingsRoute(),
     textKey: 'settings',
     icon: () => <SettingsIcon />
   },
   {
-    path: routesConfig.about.path,
+    path: getAboutRoute(),
     textKey: 'about',
     icon: () => <AboutIcon />
   }

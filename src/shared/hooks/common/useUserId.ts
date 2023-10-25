@@ -2,15 +2,19 @@ import { useMemo } from 'react'
 
 import decodeJWT, { type JwtPayload } from 'jwt-decode'
 
-import { LS_JWT_KEY } from '../../constants/localStorage'
+import { selectUserToken } from '@entities/User'
+
+import { useAppSelector } from '../store'
 
 export const useUserId = () => {
-  const jwt = localStorage.getItem(LS_JWT_KEY)
+  const token = useAppSelector(selectUserToken)
 
-  return useMemo(() => {
-    if (!jwt) return
+  const userId = useMemo(() => {
+    if (!token) return
 
-    const parsedJWT = decodeJWT<JwtPayload>(jwt)
+    const parsedJWT = decodeJWT<JwtPayload>(token)
     return parsedJWT?.sub ? Number(parsedJWT.sub) : undefined
-  }, [jwt])
+  }, [token])
+
+  return { userId, token }
 }

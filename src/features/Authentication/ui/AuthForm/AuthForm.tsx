@@ -2,11 +2,13 @@ import { memo, useCallback, useMemo } from 'react'
 
 import { useTranslation } from 'react-i18next'
 import { useForm, type SubmitHandler } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
 import { Text } from '@shared/ui/Text'
 import { Input } from '@shared/ui/Input'
 import { Button } from '@shared/ui/Button'
 import { userActions } from '@entities/User'
+import { useAuth } from '@shared/hooks/common'
 import { getErrorMessage } from '@shared/lib/api'
 import { useAppDispatch } from '@shared/hooks/store'
 import { useLoginMutation, type UserCredentials } from '@shared/api/auth'
@@ -21,6 +23,9 @@ const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
   const { t } = useTranslation('common')
   const dispatch = useAppDispatch()
 
+  const { from } = useAuth()
+  const navigate = useNavigate()
+
   const authErrMsg = useMemo(() => getErrorMessage(error), [error])
 
   const submitHandler: SubmitHandler<UserCredentials> = useCallback(
@@ -30,9 +35,10 @@ const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
       if ('data' in res) {
         onSuccess && onSuccess()
         dispatch(userActions.authWithCredentials(res.data))
+        navigate(from, { replace: true })
       }
     },
-    [onSuccess, login, dispatch]
+    [from, navigate, dispatch, onSuccess, login]
   )
 
   return (

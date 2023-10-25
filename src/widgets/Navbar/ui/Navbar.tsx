@@ -4,20 +4,18 @@ import cn from 'classnames'
 import { useTranslation } from 'react-i18next'
 
 import { Button } from '@shared/ui/Button'
-import { useUserId } from '@shared/hooks/common'
+import { userActions } from '@entities/User'
+import { useAuthState } from '@shared/hooks/common'
 import { AuthModal } from '@features/Authentication'
+import { useAppDispatch } from '@shared/hooks/store'
 import { useGetUserQueryState } from '@shared/api/user'
-import { useAppDispatch, useAppSelector } from '@shared/hooks/store'
-import { userActions, selectAuthenticationStatus } from '@entities/User'
 
 import { type NavbarFC } from './Navbar.types'
 
 import cls from './Navbar.module.scss'
 
 export const Navbar: NavbarFC = memo(function Navbar({ className }) {
-  const userId = useUserId()
-
-  const isUserAuthenticated = useAppSelector(selectAuthenticationStatus)
+  const { userId, isUserLoggedIn, isUserLoggedOut, isUserAuthenticating } = useAuthState()
   const { isLoading: isUserLoading } = useGetUserQueryState(userId)
   const [showAuthModal, setShowAuthModal] = useState(false)
   const loginBtnRef = useRef<HTMLButtonElement>(null)
@@ -38,17 +36,17 @@ export const Navbar: NavbarFC = memo(function Navbar({ className }) {
   }, [dispatch])
 
   return (
-    <div className={cn(cls.navbar, className)}>
+    <div id="app-navbar" className={cn(cls.navbar, className)}>
       <div className={cls.wrapper}>
-        {!isUserAuthenticated && !isUserLoading && (
+        {isUserLoggedOut && !isUserLoading && (
           <Button onClick={openAuthModal} ref={loginBtnRef} variant="outlined" size="sm">
             {t('login')}
           </Button>
         )}
-        {(isUserAuthenticated || isUserLoading) && (
+        {(isUserLoggedIn || isUserLoading) && (
           <Button
             onClick={logOut}
-            disabled={!isUserAuthenticated && isUserLoading}
+            disabled={isUserAuthenticating && isUserLoading}
             variant="outlined"
             size="sm"
           >

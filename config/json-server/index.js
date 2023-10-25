@@ -7,8 +7,9 @@ const jsonServer = require('json-server')
 const PORT = 8000
 const ROUTER_PREFIX = '/api'
 const resourcePermits = {
-  users: 664,
-  posts: 644
+  // users: 664, //* User must be logged to write the resource. Everyone can read the resource.
+  users: 660, //* User must be logged to write or read the resource.
+  posts: 644 //* User must own the resource to write the resource. Everyone can read the resource.
 }
 
 const dbPath = path.join(__dirname, 'database', 'db.json')

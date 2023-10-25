@@ -19,6 +19,9 @@ export interface LinkProps extends RouterLinkProps {
   underline?: EnumAsUnion<typeof LinkUnderline>
   isNavLink?: boolean
   activeLinkCN?: string
+  disabled?: boolean
+  exact?: boolean
+  end?: boolean
 }
 
 export type LinkFC = FC<LinkProps>

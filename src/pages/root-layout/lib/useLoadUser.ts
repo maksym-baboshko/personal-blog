@@ -1,16 +1,14 @@
 import { useEffect } from 'react'
 
-import { useUserId } from '@shared/hooks/common'
+import { userActions } from '@entities/User'
 import { useGetUserQuery } from '@shared/api/user'
+import { useAuthState } from '@shared/hooks/common'
+import { useAppDispatch } from '@shared/hooks/store'
 import { DEFAULT_REFETCH_INTERVAL } from '@shared/constants/common'
-import { useAppDispatch, useAppSelector } from '@shared/hooks/store'
-import { selectAuthenticationStatus, userActions } from '@entities/User'
 
 export const useLoadUser = () => {
   const dispatch = useAppDispatch()
-  const userId = useUserId()
-
-  const isUserLoggedOut = !useAppSelector(selectAuthenticationStatus) && !userId
+  const { userId, isUserLoggedOut } = useAuthState()
 
   const { data, isLoading } = useGetUserQuery(userId, {
     skip: isUserLoggedOut,

@@ -9,21 +9,30 @@ import cls from './Link.module.scss'
 
 export const Link: LinkFC = memo(function Link(props) {
   const {
+    end,
+    exact,
     children,
+    disabled,
     className,
+    isNavLink,
     color = '',
     underline = 'none',
-    isNavLink,
     activeLinkCN = cls.active,
     ...restProps
   } = props
 
-  const classes = cn(cls.link, cls[`underline-${underline}`], { [cls[color]]: color }, className)
+  const classes = cn(
+    cls.link,
+    cls[`underline-${underline}`],
+    { [cls[color]]: color, [cls.disabled]: disabled },
+    className
+  )
 
   return (
     <>
       {isNavLink && (
         <RouterNavLink
+          end={exact ?? end}
           className={({ isActive }) => cn(classes, { [activeLinkCN]: isActive })}
           {...restProps}
         >

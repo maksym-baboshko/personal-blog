@@ -1,5 +1,6 @@
 export { userReducer, userActions } from './slice/userSlice'
 
-export { selectUserId } from './selectors/selectUserId/selectUserId'
-export { selectUserData } from './selectors/selectUserData/selectUserData'
-export { selectAuthenticationStatus } from './selectors/selectAuthenticationStatus/selectAuthenticationStatus'
+export { selectUserId } from './selectors/selectUserId'
+export { selectUserData } from './selectors/selectUserData'
+export { selectUserToken } from './selectors/selectUserToken'
+export { selectAuthenticationStatus } from './selectors/selectAuthenticationStatus'

@@ -13,16 +13,16 @@ export const useProfileData = () => {
 
   const { id } = useParams()
   const currentUserId = Number(id)
-
   const authenticatedUser = useAppSelector(selectUserData)
   const authenticatedUserId = authenticatedUser?.id
-  const isAuthenticatedUser = currentUserId === authenticatedUserId
+
+  const IsAuthenticatedUserProfile = currentUserId === authenticatedUserId
 
   const {
     data: currentUser = null,
     error: currentUserError,
     isLoading: isCurrentUserLoading
-  } = useGetUserQuery(currentUserId, { skip: isAuthenticatedUser })
+  } = useGetUserQuery(currentUserId, { skip: IsAuthenticatedUserProfile })
 
   const errorMsg = useMemo(() => {
     if (isFetchBaseQueryError(currentUserError) && currentUserError.status === 404) {
@@ -33,9 +33,9 @@ export const useProfileData = () => {
   }, [t, currentUserError])
 
   return {
-    user: isAuthenticatedUser ? authenticatedUser : currentUser,
+    user: IsAuthenticatedUserProfile ? authenticatedUser : currentUser,
     error: errorMsg,
     isLoading: isCurrentUserLoading,
-    readonly: !isAuthenticatedUser
+    readonly: !IsAuthenticatedUserProfile
   }
 }

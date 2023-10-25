@@ -11,7 +11,7 @@
   }
 
   &:focus-visible {
-    transition: all 0.3s ease;
+    transition: box-shadow 0.3s ease;
   }
 
   &.sm:focus-visible {

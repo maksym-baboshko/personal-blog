@@ -15,6 +15,7 @@ export const Sidebar: SidebarFC = memo(function Sidebar({ className }) {
 
   return (
     <div
+      id="app-sidebar"
       className={cn(cls.sidebar, { [cls.collapsed]: isCollapsed }, className)}
       data-testid="sidebar"
     >
