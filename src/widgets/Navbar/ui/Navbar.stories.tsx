@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { userData, withFullscreen, withStore } from '@shared/lib/storybook'
+import { mockedUser, withFullscreen, withRouter, withStore } from '@shared/lib/storybook'
+import { getAppRoute } from '@shared/constants/router'
 
 import { Navbar } from './Navbar'
 
@@ -8,7 +9,10 @@ const meta = {
   title: 'widgets/Navbar',
   component: Navbar,
   parameters: { layout: 'fullscreen' },
-  decorators: [withFullscreen]
+  decorators: [
+    withFullscreen,
+    withRouter({ initialEntries: [getAppRoute()], routePath: getAppRoute() })
+  ]
 } satisfies Meta<typeof Navbar>
 
 export default meta
@@ -28,13 +32,5 @@ export const Default: Story = {
 }
 
 export const LoggedIn: Story = {
-  decorators: [
-    withStore({
-      user: {
-        data: userData,
-        token: 'jwt',
-        isAuthenticated: true
-      }
-    })
-  ]
+  decorators: [withStore({ user: mockedUser })]
 }

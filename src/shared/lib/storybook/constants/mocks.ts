@@ -1,6 +1,6 @@
 import { type User } from '@shared/api/user'
 
-export const userData: User = {
+const userData: User = {
   email: 'max.baboshko@gmail.com',
   username: 'exy',
   fname: 'Maksym',
@@ -14,4 +14,11 @@ export const userData: User = {
   gender: 'male',
   isPrivate: false,
   id: 1
+}
+
+export const mockedUser = {
+  data: userData,
+  token:
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1heC5iYWJvc2hrb0BnbWFpbC5jb20iLCJpYXQiOjE2OTY4OTc3ODYsImV4cCI6MTY5NjkwMTM4Niwic3ViIjoiMSJ9.XYMkuqZs56iuNUeDMeY7hksd_wibHssSlOfPvwudNuk',
+  isAuthenticated: true
 }
