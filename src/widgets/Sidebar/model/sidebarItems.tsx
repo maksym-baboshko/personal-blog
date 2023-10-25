@@ -1,10 +1,10 @@
 import { type SVGAttributes, type FC } from 'react'
 
 import {
-  getAppRoute,
   getAboutRoute,
   getPostsRoute,
   getProfileRoute,
+  getRootRoute,
   getSettingsRoute
 } from '@shared/constants/router'
 import Logo from '@shared/assets/icons/logo.svg'
@@ -21,7 +21,7 @@ export interface ISidebarItem {
 
 export const sidebarItems: ISidebarItem[] = [
   {
-    path: getAppRoute(),
+    path: getRootRoute(),
     textKey: 'main',
     icon: () => <Logo />
   },

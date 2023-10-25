@@ -8,12 +8,26 @@ import cls from './Button.module.scss'
 
 export const Button = memo(
   forwardRef<HTMLButtonElement, ButtonProps>(function Button(props, ref) {
-    const { isIcon, children, className, size = 'md', variant = 'light', ...restProps } = props
+    const {
+      isIcon,
+      children,
+      className,
+      size = 'md',
+      variant = 'light',
+      color = 'primary',
+      appearance = 'rectangle',
+      ...restProps
+    } = props
 
     const classes = cn(
       cls.button,
       cls[size],
-      { [cls[variant]]: variant, [cls.icon]: isIcon },
+      {
+        [cls.icon]: isIcon,
+        [cls[color]]: color,
+        [cls[variant]]: variant,
+        [cls[appearance]]: appearance
+      },
       className
     )
 

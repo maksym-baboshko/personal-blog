@@ -12,3 +12,12 @@
   display: flex;
   align-items: center;
 }
+
+.actions {
+  display: flex;
+  gap: 18px;
+}
+
+.lang-switcher {
+  font: var(--font-xs);
+}

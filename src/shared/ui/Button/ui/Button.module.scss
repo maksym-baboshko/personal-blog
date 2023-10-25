@@ -22,6 +22,12 @@
   border-radius: 5px;
   font-size: var(--font-size-xs);
   line-height: var(--font-line-xs);
+
+  &.square {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+  }
 }
 
 .sm {
@@ -29,6 +35,12 @@
   border-radius: 6px;
   font-size: var(--font-size-s);
   line-height: var(--font-line-s);
+
+  &.square {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+  }
 }
 
 .md {
@@ -110,6 +122,11 @@
   outline: 1px solid var(--btn-bg-primary);
   outline-offset: -1px;
   color: var(--btn-bg-primary);
+
+  &.default {
+    color: var(--text-primary);
+    outline-color: var(--text-primary);
+  }
 
   &.icon svg {
     fill: var(--btn-bg-primary);

@@ -21,6 +21,10 @@
   stroke: var(--border-primary);
 }
 
+.lang-switcher {
+  margin: 0 8px;
+}
+
 .switchers::before {
   content: '';
   display: block;

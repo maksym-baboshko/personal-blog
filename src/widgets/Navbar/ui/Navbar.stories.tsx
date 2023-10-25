@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { getRootRoute } from '@shared/constants/router'
 import { mockedUser, withFullscreen, withRouter, withStore } from '@shared/lib/storybook'
-import { getAppRoute } from '@shared/constants/router'
 
 import { Navbar } from './Navbar'
 
@@ -11,7 +11,7 @@ const meta = {
   parameters: { layout: 'fullscreen' },
   decorators: [
     withFullscreen,
-    withRouter({ initialEntries: [getAppRoute()], routePath: getAppRoute() })
+    withRouter({ initialEntries: [getRootRoute()], routePath: getRootRoute() })
   ]
 } satisfies Meta<typeof Navbar>
 

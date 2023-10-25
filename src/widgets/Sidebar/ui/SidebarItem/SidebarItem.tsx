@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 import { Link } from '@shared/ui/Link'
 import { useAuthState } from '@shared/hooks/common'
-import { getAppRoute } from '@shared/constants/router'
+import { getRootRoute } from '@shared/constants/router'
 
 import { type SidebarItemFC } from './SidebarItem.types'
 
@@ -22,7 +22,7 @@ export const SidebarItem: SidebarItemFC = memo(function SidebarItem({ item, isSi
       to={path}
       isNavLink
       underline="hover"
-      exact={path === getAppRoute()}
+      exact={path === getRootRoute()}
       disabled={isUserAuthenticating}
       className={cn(cls.item, { [cls.collapsed]: isSidebarCollapsed })}
     >

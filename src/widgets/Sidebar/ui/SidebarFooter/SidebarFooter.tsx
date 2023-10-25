@@ -11,10 +11,9 @@ import { type SidebarFooterFC } from './SidebarFooter.types'
 
 import cls from './SidebarFooter.module.scss'
 
-export const SidebarFooter: SidebarFooterFC = memo(function SidebarFooter({
-  toggleSidebar,
-  isSidebarCollapsed
-}) {
+export const SidebarFooter: SidebarFooterFC = memo(function SidebarFooter(props) {
+  const { toggleSidebar, isSidebarCollapsed } = props
+
   return (
     <div className={cn(cls['sidebar-footer'], { [cls.collapsed]: isSidebarCollapsed })}>
       <Button
@@ -27,7 +26,7 @@ export const SidebarFooter: SidebarFooterFC = memo(function SidebarFooter({
       </Button>
 
       <div className={cls.switchers}>
-        <LanguageSwitcher />
+        <LanguageSwitcher className={cls['lang-switcher']} />
         <ThemeSwitcher />
       </div>
     </div>

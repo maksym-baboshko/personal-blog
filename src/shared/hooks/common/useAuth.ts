@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom'
 
-import { getAppRoute, getRootRoute } from '@shared/constants/router'
+import { getRootRoute } from '@shared/constants/router'
 
 import { useAuthState } from './useAuthState'
 
@@ -9,7 +9,7 @@ export const useAuth = () => {
   const root = getRootRoute()
   const location = useLocation()
 
-  const from = location.state?.from?.pathname ?? getAppRoute()
+  const from = location.state?.from?.pathname ?? root
   const { isUserAuthenticating, isUserLoggedIn } = useAuthState()
 
   if (!isUserLoggedIn && !isUserAuthenticating) isAccessDenied = true

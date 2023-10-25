@@ -1,8 +1,9 @@
 import { useCallback, useContext, useMemo } from 'react'
 
-import { ThemeContext } from '@shared/context'
 import { LS_THEME_KEY } from '@shared/constants/localStorage'
 import { type AppTheme, appThemes } from '@shared/constants/theme'
+
+import { ThemeContext } from '../../context'
 
 interface Result {
   theme: AppTheme

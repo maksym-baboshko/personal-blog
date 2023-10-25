@@ -1,0 +1,16 @@
+.content {
+  display: flex;
+  background: var(--bg-secondary);
+  min-height: calc(100vh - var(--navbar-height));
+}
+
+.page {
+  background: var(--bg-primary);
+  border-top-left-radius: 36px;
+  padding: 20px 30px;
+  flex: 1;
+
+  &.denied {
+    border-top-right-radius: 36px;
+  }
+}

@@ -12,15 +12,9 @@ body {
   background: var(--bg-primary);
 }
 
-#content-wrapper {
-  display: flex;
-  background: var(--bg-secondary);
-  min-height: calc(100vh - var(--navbar-height));
-}
-
-#page-wrapper {
-  background: var(--bg-primary);
-  border-top-left-radius: 36px;
-  padding: 20px 30px;
-  flex: 1;
+#content,
+#page,
+#navbar,
+#sidebar {
+  transition: background 0.5s ease-in-out;
 }

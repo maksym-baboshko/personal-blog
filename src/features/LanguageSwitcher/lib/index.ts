@@ -1,1 +1,1 @@
-export { getNextLang } from './getNextLang'
+export { useLangSwitcher } from './useLangSwitcher'

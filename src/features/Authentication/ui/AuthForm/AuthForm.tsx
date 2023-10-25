@@ -1,48 +1,25 @@
-import { memo, useCallback, useMemo } from 'react'
+import { memo } from 'react'
 
+import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { useForm, type SubmitHandler } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
 
 import { Text } from '@shared/ui/Text'
 import { Input } from '@shared/ui/Input'
 import { Button } from '@shared/ui/Button'
-import { userActions } from '@entities/User'
-import { useAuth } from '@shared/hooks/common'
-import { getErrorMessage } from '@shared/lib/api'
-import { useAppDispatch } from '@shared/hooks/store'
-import { useLoginMutation, type UserCredentials } from '@shared/api/auth'
+import { useLogin } from '@features/Authentication/lib'
+import { type UserCredentials } from '@shared/api/auth'
 
 import { type AuthFormFC } from './AuthForm.types'
 
 import cls from './AuthForm.module.scss'
 
 const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
+  const { loginHandler, isAuthenticating, authErrMsg } = useLogin(onSuccess)
   const { register, handleSubmit } = useForm<UserCredentials>()
-  const [login, { isLoading, error }] = useLoginMutation()
   const { t } = useTranslation('common')
-  const dispatch = useAppDispatch()
-
-  const { from } = useAuth()
-  const navigate = useNavigate()
-
-  const authErrMsg = useMemo(() => getErrorMessage(error), [error])
-
-  const submitHandler: SubmitHandler<UserCredentials> = useCallback(
-    async (credentials) => {
-      const res = await login(credentials)
-
-      if ('data' in res) {
-        onSuccess && onSuccess()
-        dispatch(userActions.authWithCredentials(res.data))
-        navigate(from, { replace: true })
-      }
-    },
-    [from, navigate, dispatch, onSuccess, login]
-  )
 
   return (
-    <form className={cls.form} onSubmit={handleSubmit(submitHandler)}>
+    <form className={cls.form} onSubmit={handleSubmit(loginHandler)}>
       <h2 className={cls.title}>{t('auth_form.login.title')}</h2>
 
       <div className={cls['input-field']}>
@@ -83,7 +60,7 @@ const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
         type="submit"
         variant="solid"
         size="md"
-        disabled={isLoading}
+        disabled={isAuthenticating}
       >
         {t('auth_form.submit')}
       </Button>

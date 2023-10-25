@@ -11,8 +11,8 @@ import { type ProfileEditingFormFC } from './ProfileEditingForm.types'
 import cls from './ProfileEditingForm.module.scss'
 
 export const ProfileEditingForm: ProfileEditingFormFC = (user) => {
-  const { register } = useFormContext()
   const { t } = useTranslation('profile')
+  const { register } = useFormContext()
 
   return (
     <form className={cls['profile-form']}>
