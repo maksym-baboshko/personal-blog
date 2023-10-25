@@ -16,14 +16,13 @@ export const LanguageSwitcher: LanguageSwitcherFC = ({ className, size = 'xs' })
   const { t } = useTranslation()
 
   return (
-    <div className={cn(cls.switcher)}>
+    <div className={cn(cls.switcher)} onClick={handleLangChange} role="button">
       <Button
         size={size}
         color="default"
         variant="outlined"
         appearance="square"
         className={className}
-        onClick={handleLangChange}
       >
         {nextLang.toUpperCase()}
       </Button>
