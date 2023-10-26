@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom'
 import { Navbar } from '@widgets/Navbar'
 import { Sidebar } from '@widgets/Sidebar'
 import { useAuth } from '@shared/hooks/common'
-import { PageLoader } from '@widgets/PageLoader'
+import { PageLoader } from '@shared/ui/PageLoader'
 
 import { useLoadState } from '../lib'
 

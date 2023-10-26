@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 import { Text } from '@shared/ui/Text'
-import { PageLoader } from '@widgets/PageLoader'
+import { PageLoader } from '@shared/ui/PageLoader'
 import { EditableProfile } from '@features/EditableProfile'
 
 import { type ProfileFC } from './Profile.types'

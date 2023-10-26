@@ -9,9 +9,9 @@ import {
   getNotFoundRoute
 } from '@shared/constants/router'
 import { RootPage } from '@pages/root'
+import { PageError } from '@pages/error'
 import { AboutPage } from '@pages/about'
 import { ProfilePage } from '@pages/profile'
-import { PageError } from '@widgets/PageError'
 import { RootLayout } from '@pages/root-layout'
 import { NotFoundPage } from '@pages/not-found'
 

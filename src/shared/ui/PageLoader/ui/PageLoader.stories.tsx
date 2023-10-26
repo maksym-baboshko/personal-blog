@@ -5,7 +5,7 @@ import { withFullscreen } from '@shared/lib/storybook'
 import { PageLoader } from './PageLoader'
 
 const meta = {
-  title: 'widgets/PageLoader',
+  title: 'shared/PageLoader',
   component: PageLoader,
   parameters: { layout: 'fullscreen' },
   decorators: [withFullscreen]
