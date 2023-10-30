@@ -1,3 +1,5 @@
+export type UserGender = 'male' | 'female'
+
 export interface User {
   id: number
   email: string
@@ -6,7 +8,7 @@ export interface User {
   lname: string
   isPrivate: boolean
   age?: number
-  gender?: string
+  gender?: UserGender
   avatar?: string
   originCity?: string
   currentCity?: string

@@ -1,0 +1,42 @@
+.select {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  outline: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &:focus-visible {
+    transition: box-shadow 0.3s ease;
+  }
+
+  &.sm:focus-visible {
+    box-shadow:
+      0 0 0 3px var(--bg-primary),
+      0 0 0 6px var(--border-primary);
+  }
+
+  &.md:focus-visible {
+    box-shadow:
+      0 0 0 4px var(--bg-primary),
+      0 0 0 7px var(--btn-primary-focus);
+  }
+
+  &.lg:focus-visible {
+    box-shadow:
+      0 0 0 5px var(--bg-primary),
+      0 0 0 8px var(--border-primary);
+  }
+}
+
+::placeholder {
+  color: var(--text-secondary);
+}

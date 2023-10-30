@@ -1,9 +1,8 @@
 import { userActions } from '@entities/User'
+import { type User } from '@shared/types/user'
 import { type RootState } from '@shared/types/store'
 
 import { api } from '../root'
-
-import { type User } from './types'
 
 const userApi = api.injectEndpoints({
   endpoints: (build) => ({

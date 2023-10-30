@@ -1,7 +1,7 @@
 import cn from 'classnames'
 
-import { Avatar } from '@shared/ui/Avatar'
 import { Text } from '@shared/ui/Text'
+import { Avatar } from '@shared/ui/Avatar'
 
 import { type ProfileViewCardFC } from './ProfileViewCard.types'
 

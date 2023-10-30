@@ -2,11 +2,12 @@ import { useCallback, useState } from 'react'
 
 import { useForm } from 'react-hook-form'
 
-import { useUpdateUserMutation, type User } from '@shared/api/user'
+import { type User } from '@shared/types/user'
+import { useUpdateUserMutation } from '@shared/api/user'
 
 export const useProfileEditing = (user: Partial<User>) => {
   const [updateUser, { isLoading: isSaving, error: savingError }] = useUpdateUserMutation()
-  const formMethods = useForm<Partial<User>>({ defaultValues: user })
+  const formMethods = useForm<Partial<User>>({ values: user })
   const [isEditing, setIsEditing] = useState(false)
 
   const onSave = useCallback(

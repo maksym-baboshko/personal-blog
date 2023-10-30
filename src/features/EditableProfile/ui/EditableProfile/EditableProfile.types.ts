@@ -1,6 +1,6 @@
 import { type FC } from 'react'
 
-import { type User } from '@shared/api/user'
+import { type User } from '@shared/types/user'
 
 interface EditableProfileProps extends Partial<User> {
   readonly: boolean

@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
-import { type User } from '@shared/api/user'
+import { type User } from '@shared/types/user'
 import { type AuthResponse } from '@shared/api/auth/types'
 import { LS_JWT_KEY } from '@shared/constants/localStorage'
 

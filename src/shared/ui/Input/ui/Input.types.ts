@@ -20,7 +20,6 @@ export enum InputAutoComplete {
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>
 
 export interface InputProps extends HTMLInputProps {
-  className?: string
   size?: EnumAsUnion<typeof InputSize>
   autoComplete?: EnumAsUnion<typeof InputAutoComplete>
   fullWidth?: boolean

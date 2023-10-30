@@ -1,4 +1,4 @@
-import { type User } from '@shared/api/user'
+import { type User } from '@shared/types/user'
 
 const userData: User = {
   email: 'max.baboshko@gmail.com',

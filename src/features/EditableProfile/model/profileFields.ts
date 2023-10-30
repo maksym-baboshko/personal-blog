@@ -1,8 +1,8 @@
-import { type User } from '@shared/api/user'
+import { type User } from '@shared/types/user'
 import { type InputAutoComplete } from '@shared/ui/Input'
 
 export interface IProfileField {
-  value: keyof User
+  name: keyof User
   inputId: string
   labelKey: string
   type: string
@@ -11,30 +11,30 @@ export interface IProfileField {
 
 export const profileFields: IProfileField[] = [
   {
-    value: 'fname',
+    name: 'fname',
     inputId: 'first-name',
     labelKey: 'fields.first_name',
     type: 'text',
     autoComplete: 'given-name'
   },
   {
-    value: 'lname',
+    name: 'lname',
     inputId: 'last-name',
     labelKey: 'fields.last_name',
     type: 'text',
     autoComplete: 'family-name'
   },
   {
-    value: 'age',
+    name: 'age',
     inputId: 'age',
     labelKey: 'fields.age',
     type: 'text'
   },
   {
-    value: 'gender',
-    inputId: 'sex',
+    name: 'gender',
+    inputId: 'gender',
     labelKey: 'fields.gender',
-    type: 'text',
+    type: 'select',
     autoComplete: 'sex'
   }
 ]
