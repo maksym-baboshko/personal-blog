@@ -18,6 +18,7 @@ export const useLoadUser = () => {
   useEffect(() => {
     if (!isError) return
 
+    // If there is any other error except 401
     dispatch(userActions.logOut())
   }, [dispatch, isError])
 

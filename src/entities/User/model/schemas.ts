@@ -16,6 +16,8 @@ import {
 
 import { type tUserGender } from '@entities/Gender'
 
+import { getUserSchemaErrorMsg } from '../lib'
+
 export const EmailSchema = string([
   minLength(1, 'Please enter your email'),
   email('The email address is invalid')
@@ -38,7 +40,7 @@ export const UserCredentialsSchema = object({
 
 export const UserSchema = transform(
   object({
-    id: number(),
+    id: number(getUserSchemaErrorMsg('id must be a number')),
     roles: array(string()),
     isPrivate: boolean(),
     email: EmailSchema,
@@ -46,10 +48,10 @@ export const UserSchema = transform(
     fname: string([minLength(1, 'First name is required')]),
     lname: string([minLength(1, 'Last name is required')]),
     age: nullable(number('Age must be a number', [minValue(0, 'Age must be a positive number')])),
-    gender: nullable(picklist(['', 'male', 'female'], 'UserSchema: Invalid gender')),
-    avatar: nullable(string('UserSchema: Invalid avatar')),
-    originCity: nullable(string('UserSchema: Invalid originCity')),
-    currentCity: nullable(string('UserSchema: Invalid currentCity')),
+    gender: nullable(picklist(['', 'male', 'female'], getUserSchemaErrorMsg('Invalid gender'))),
+    avatar: nullable(string(getUserSchemaErrorMsg('Invalid avatar'))),
+    originCity: nullable(string(getUserSchemaErrorMsg('Invalid originCity'))),
+    currentCity: nullable(string(getUserSchemaErrorMsg('Invalid currentCity'))),
     password: optional(PasswordSchema),
     config: optional(unknown()),
     permissions: optional(unknown())

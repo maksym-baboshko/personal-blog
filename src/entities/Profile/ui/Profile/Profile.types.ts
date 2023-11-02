@@ -6,7 +6,7 @@ interface ProfileProps {
   user: tUser | null
   readonly: boolean
   isLoading: boolean
-  error: string | undefined
+  error?: string
 }
 
 export type ProfileFC = FC<ProfileProps>
