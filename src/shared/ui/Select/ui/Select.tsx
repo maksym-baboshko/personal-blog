@@ -8,12 +8,12 @@ import cls from './Select.module.scss'
 
 export const Select = memo(
   forwardRef<HTMLSelectElement, SelectProps>(function Select(props, ref) {
-    const { options, className, fullWidth, size = 'md', placeholder, ...restProps } = props
+    const { options = [], className, size = 'md', placeholder, ...restProps } = props
 
-    const classes = cn(cls.select, { [cls[size]]: size, [cls['full-width']]: fullWidth }, className)
+    const classes = cn(cls.select, { [cls[size]]: size }, className)
 
     return (
-      <>
+      <div className={cls['select-wrapper']}>
         <select ref={ref} className={classes} {...restProps}>
           {placeholder && (
             <option value="" disabled>
@@ -27,7 +27,7 @@ export const Select = memo(
             </option>
           ))}
         </select>
-      </>
+      </div>
     )
   })
 )

@@ -6,8 +6,8 @@ import { useTranslation } from 'react-i18next'
 import { Text } from '@shared/ui/Text'
 import { Input } from '@shared/ui/Input'
 import { Button } from '@shared/ui/Button'
+import { type tUserCredentials } from '@entities/User'
 import { useLogin } from '@features/Authentication/lib'
-import { type UserCredentials } from '@shared/api/auth'
 
 import { type AuthFormFC } from './AuthForm.types'
 
@@ -15,7 +15,7 @@ import cls from './AuthForm.module.scss'
 
 const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
   const { loginHandler, isAuthenticating, authErrMsg } = useLogin(onSuccess)
-  const { register, handleSubmit } = useForm<UserCredentials>()
+  const { register, handleSubmit } = useForm<tUserCredentials>()
   const { t } = useTranslation('common')
 
   return (

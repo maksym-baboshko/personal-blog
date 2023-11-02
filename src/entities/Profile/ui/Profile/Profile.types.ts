@@ -1,9 +1,9 @@
 import { type FC } from 'react'
 
-import { type User } from '@shared/types/user'
+import { type tUser } from '@entities/User'
 
 interface ProfileProps {
-  user: User | null
+  user: tUser | null
   readonly: boolean
   isLoading: boolean
   error: string | undefined

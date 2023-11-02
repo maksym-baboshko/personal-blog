@@ -6,10 +6,11 @@ import { useUserId } from '.'
 
 export const useAuthState = () => {
   const { userId, token } = useUserId()
+  const isUserAuthenticated = useAppSelector(selectAuthenticationStatus)
 
-  const isUserLoggedIn = useAppSelector(selectAuthenticationStatus) && !!token
-  const isUserLoggedOut = !useAppSelector(selectAuthenticationStatus) && !token
-  const isUserAuthenticating = !useAppSelector(selectAuthenticationStatus) && !!token
+  const isUserLoggedIn = isUserAuthenticated && !!token
+  const isUserLoggedOut = !isUserAuthenticated && !token
+  const isUserAuthenticating = !isUserAuthenticated && !!token
 
   return { isUserLoggedIn, isUserLoggedOut, isUserAuthenticating, userId, token }
 }

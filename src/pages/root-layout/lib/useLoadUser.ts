@@ -10,10 +10,16 @@ export const useLoadUser = () => {
   const dispatch = useAppDispatch()
   const { userId, isUserLoggedOut } = useAuthState()
 
-  const { data, isLoading } = useGetUserQuery(userId, {
+  const { data, isLoading, isError } = useGetUserQuery(userId, {
     skip: isUserLoggedOut,
     pollingInterval: DEFAULT_REFETCH_INTERVAL
   })
+
+  useEffect(() => {
+    if (!isError) return
+
+    dispatch(userActions.logOut())
+  }, [dispatch, isError])
 
   useEffect(() => {
     if (!data) return

@@ -19,7 +19,7 @@ enum InputSize {
 
 export interface SelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size'> {
   placeholder?: string
-  options: Array<{ label: string; value: string }>
+  options?: Array<{ label: string; value: string }>
   size?: EnumAsUnion<typeof InputSize>
   fullWidth?: boolean
   autoComplete?: EnumAsUnion<typeof InputAutoComplete>

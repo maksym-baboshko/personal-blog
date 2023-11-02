@@ -1,17 +1,17 @@
-import { type User } from '@shared/types/user'
+import { type tUser } from '@entities/User'
 
-const userData: User = {
+const userData: tUser = {
   email: 'max.baboshko@gmail.com',
   username: 'exy',
+  roles: [],
   fname: 'Maksym',
   lname: 'Baboshko',
   age: 27,
-  originCountry: 'ua',
-  currentCountry: 'no',
   originCity: 'kharkiv',
   currentCity: 'bergen',
   avatar: 'https://i.pravatar.cc/150?img=7',
   gender: 'male',
+
   isPrivate: false,
   id: 1
 }

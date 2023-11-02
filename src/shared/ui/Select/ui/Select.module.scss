@@ -1,3 +1,31 @@
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::before,
+.select-wrapper::after {
+  --size: 0.3rem;
+
+  content: '';
+  position: absolute;
+  right: 1rem;
+  pointer-events: none;
+}
+
+.select-wrapper::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid var(--text-primary);
+  top: 40%;
+}
+
+.select-wrapper::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid var(--text-primary);
+  top: 55%;
+}
+
 .select {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
@@ -9,10 +37,7 @@
   -moz-appearance: none;
   -webkit-appearance: none;
   cursor: pointer;
-
-  &.full-width {
-    width: 100%;
-  }
+  width: 100%;
 
   &:focus-visible {
     transition: box-shadow 0.3s ease;

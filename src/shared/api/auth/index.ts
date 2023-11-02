@@ -1,3 +1,4 @@
 export { useLoginMutation } from './auth'
 
-export type { AuthResponse, UserCredentials } from './types'
+export { AuthResponseSchema } from './model/schemas'
+export type { tAuthResponse, tRawAuthResponse } from './model/types'

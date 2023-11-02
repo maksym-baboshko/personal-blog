@@ -32,8 +32,10 @@
     "fname",
     "lname",
     "Lngs",
+    "picklist",
     "reduxjs",
     "signin",
-    "testid"
+    "testid",
+    "valibot"
   ]
 }

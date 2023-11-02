@@ -1,12 +1,9 @@
-import { useMemo } from 'react'
-
 import { useTranslation } from 'react-i18next'
 import { useFormContext } from 'react-hook-form'
 
 import { Input } from '@shared/ui/Input'
 import { Avatar } from '@shared/ui/Avatar'
-import { Select } from '@shared/ui/Select'
-import { type UserGender } from '@shared/types/user'
+import { GenderSelect } from '@entities/Gender'
 
 import { profileFields } from '../../model'
 
@@ -16,14 +13,8 @@ import cls from './ProfileEditingForm.module.scss'
 
 export const ProfileEditingForm: ProfileEditingFormFC = (user) => {
   const { t } = useTranslation('profile')
-  const { register } = useFormContext()
 
-  const options = useMemo((): Array<{ value: UserGender; label: string }> => {
-    return [
-      { value: 'male', label: t('sex.male') },
-      { value: 'female', label: t('sex.female') }
-    ]
-  }, [t])
+  const { register } = useFormContext()
 
   return (
     <form className={cls['profile-form']}>
@@ -34,7 +25,6 @@ export const ProfileEditingForm: ProfileEditingFormFC = (user) => {
           const { name, inputId, labelKey, type, autoComplete } = field
 
           const isInput = ['text', 'number'].includes(type)
-          const isSelect = type === 'select'
 
           let isRequired = false
           let valueAsNumber = false
@@ -43,33 +33,17 @@ export const ProfileEditingForm: ProfileEditingFormFC = (user) => {
             case 'fname':
             case 'lname':
               isRequired = true
-          }
-
-          switch (name) {
+              break
             case 'age':
               valueAsNumber = true
+              break
           }
 
           return (
             <div key={name} className={cls['input-field']}>
-              <label htmlFor={inputId} hidden className={cls.label}>
+              <label htmlFor={inputId} hidden>
                 {t(labelKey)}:&nbsp;
               </label>
-
-              {isSelect && (
-                <Select
-                  id={inputId}
-                  options={options}
-                  placeholder={t(labelKey)}
-                  autoComplete={autoComplete}
-                  fullWidth
-                  {...register(name, {
-                    required: isRequired,
-                    valueAsNumber,
-                    setValueAs: (v) => (v === '' ? null : v)
-                  })}
-                />
-              )}
 
               {isInput && (
                 <Input
@@ -84,6 +58,10 @@ export const ProfileEditingForm: ProfileEditingFormFC = (user) => {
             </div>
           )
         })}
+
+        <div className={cls['input-field']}>
+          <GenderSelect {...register('gender')} />
+        </div>
       </div>
     </form>
   )

@@ -1,17 +1,22 @@
 import { useCallback, useState } from 'react'
 
 import { useForm } from 'react-hook-form'
+import { valibotResolver } from '@hookform/resolvers/valibot'
 
-import { type User } from '@shared/types/user'
+import { UserSchema, type tUser } from '@entities/User'
 import { useUpdateUserMutation } from '@shared/api/user'
 
-export const useProfileEditing = (user: Partial<User>) => {
+export const useProfileEditing = (user: Partial<tUser>) => {
   const [updateUser, { isLoading: isSaving, error: savingError }] = useUpdateUserMutation()
-  const formMethods = useForm<Partial<User>>({ values: user })
   const [isEditing, setIsEditing] = useState(false)
 
+  const formMethods = useForm<Partial<tUser>>({
+    values: user,
+    resolver: valibotResolver(UserSchema)
+  })
+
   const onSave = useCallback(
-    async (data: Partial<User>) => {
+    async (data: Partial<tUser>) => {
       const isUserUpdated = JSON.stringify(data) !== JSON.stringify(user)
 
       setIsEditing(false)

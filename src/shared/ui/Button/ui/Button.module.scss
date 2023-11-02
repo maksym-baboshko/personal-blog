@@ -93,6 +93,10 @@
   background-color: var(--btn-bg-primary);
   color: var(--btn-text-primary);
 
+  &:hover {
+    background-color: var(--btn-bg-primary-hover);
+  }
+
   &.icon svg {
     fill: var(--btn-text-primary);
   }
@@ -122,6 +126,11 @@
   outline: 1px solid var(--btn-bg-primary);
   outline-offset: -1px;
   color: var(--btn-bg-primary);
+
+  &:hover {
+    outline-color: var(--btn-bg-primary-hover);
+    color: var(--btn-bg-primary-hover);
+  }
 
   &.default {
     color: var(--text-primary);

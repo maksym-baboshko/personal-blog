@@ -1,14 +1,13 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
-import { type User } from '@shared/types/user'
-import { type AuthResponse } from '@shared/api/auth/types'
+import { type tAuthResponse } from '@shared/api/auth'
 import { LS_JWT_KEY } from '@shared/constants/localStorage'
 
-import { type UserStateSchema } from '../../types'
+import { type tUser, type iUserState } from '../../types'
 
 const token = localStorage.getItem(LS_JWT_KEY)
 
-const initialState: UserStateSchema = {
+const initialState: iUserState = {
   isAuthenticated: false,
   data: null,
   token
@@ -18,13 +17,13 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    authWithCredentials: (state, { payload }: PayloadAction<AuthResponse>) => {
+    authWithCredentials: (state, { payload }: PayloadAction<tAuthResponse>) => {
       state.data = payload.user
       state.isAuthenticated = true
       state.token = payload.accessToken
       localStorage.setItem(LS_JWT_KEY, payload.accessToken)
     },
-    updateData: (state, { payload }: PayloadAction<User>) => {
+    updateData: (state, { payload }: PayloadAction<tUser>) => {
       state.data = payload
       state.isAuthenticated = true
     },
