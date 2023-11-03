@@ -23,4 +23,7 @@ export interface InputProps extends HTMLInputProps {
   size?: EnumAsUnion<typeof InputSize>
   autoComplete?: EnumAsUnion<typeof InputAutoComplete>
   fullWidth?: boolean
+  label?: string
+  isInvalid?: boolean
+  errorMessage?: string
 }

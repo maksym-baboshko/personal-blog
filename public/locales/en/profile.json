@@ -28,9 +28,31 @@
     "female": "Female"
   },
   "fields": {
-    "first_name": "First name",
-    "last_name": "Last name",
-    "age": "Age",
-    "gender": "Sex"
+    "first_name": {
+      "label": "First name",
+      "placeholder": "Enter your first name",
+      "errors": {
+        "required": "First name is required"
+      }
+    },
+    "last_name": {
+      "label": "Last name",
+      "placeholder": "Enter your last name",
+      "errors": {
+        "required": "Last name is required"
+      }
+    },
+    "age": {
+      "label": "Age",
+      "placeholder": "Enter your age",
+      "errors": {
+        "required": "Age is required",
+        "min": "Age must be greater than 0"
+      }
+    },
+    "gender": {
+      "label": "Gender",
+      "placeholder": "Specify your gender"
+    }
   }
 }

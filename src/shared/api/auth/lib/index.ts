@@ -1,1 +1,0 @@
-export { getAuthSchemaErrorMsg } from './getAuthSchemaErrorMsg'

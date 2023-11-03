@@ -9,7 +9,7 @@
       "username": "exy",
       "fname": "Maksym",
       "lname": "Baboshko",
-      "age": 0,
+      "age": 27,
       "originCity": "kharkiv",
       "currentCity": "bergen",
       "avatar": "https://gravatar.com/userimage/241269867/66620849b7e75974c6a38f734c1ad54d.jpeg?size=256",
@@ -24,11 +24,11 @@
       "username": "alice_mol",
       "fname": "Alisa",
       "lname": "Molochkina",
-      "age": 0,
-      "originCity": "",
-      "currentCity": "",
-      "avatar": "",
-      "gender": ""
+      "age": null,
+      "originCity": null,
+      "currentCity": null,
+      "avatar": null,
+      "gender": null
     }
   ],
   "posts": [

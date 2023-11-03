@@ -1,5 +1,12 @@
 .select-wrapper {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  & label {
+    margin-left: 8px;
+  }
 }
 
 .select-wrapper::before,
@@ -16,14 +23,14 @@
   border-left: var(--size) solid transparent;
   border-right: var(--size) solid transparent;
   border-bottom: var(--size) solid var(--text-primary);
-  top: 40%;
+  top: 61%;
 }
 
 .select-wrapper::after {
   border-left: var(--size) solid transparent;
   border-right: var(--size) solid transparent;
   border-top: var(--size) solid var(--text-primary);
-  top: 55%;
+  top: 74%;
 }
 
 .select {

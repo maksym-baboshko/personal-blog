@@ -22,5 +22,6 @@ export interface SelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement
   options?: Array<{ label: string; value: string }>
   size?: EnumAsUnion<typeof InputSize>
   fullWidth?: boolean
+  label?: string
   autoComplete?: EnumAsUnion<typeof InputAutoComplete>
 }

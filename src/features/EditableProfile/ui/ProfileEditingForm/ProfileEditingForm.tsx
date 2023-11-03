@@ -14,7 +14,7 @@ import cls from './ProfileEditingForm.module.scss'
 export const ProfileEditingForm: ProfileEditingFormFC = (user) => {
   const { t } = useTranslation('profile')
 
-  const { register } = useFormContext()
+  const { register, formState } = useFormContext()
 
   return (
     <form className={cls['profile-form']}>
@@ -22,9 +22,13 @@ export const ProfileEditingForm: ProfileEditingFormFC = (user) => {
 
       <div className={cls['info-fields']}>
         {profileFields.map((field) => {
-          const { name, inputId, labelKey, type, autoComplete } = field
+          const { name, inputId, labelKey, placeholderKey, type, autoComplete } = field
 
-          const isInput = ['text', 'number'].includes(type)
+          const label = t(labelKey)
+          const placeholder = t(placeholderKey)
+          const isInvalid = Boolean(formState.errors[name])
+          const errorMessageKey = formState.errors[name]?.message?.toString()
+          const errorMessage = errorMessageKey && t(errorMessageKey)
 
           let isRequired = false
           let valueAsNumber = false
@@ -41,20 +45,18 @@ export const ProfileEditingForm: ProfileEditingFormFC = (user) => {
 
           return (
             <div key={name} className={cls['input-field']}>
-              <label htmlFor={inputId} hidden>
-                {t(labelKey)}:&nbsp;
-              </label>
-
-              {isInput && (
-                <Input
-                  id={inputId}
-                  type={type}
-                  placeholder={t(labelKey)}
-                  autoComplete={autoComplete}
-                  fullWidth
-                  {...register(name, { required: isRequired, valueAsNumber })}
-                />
-              )}
+              <Input
+                id={inputId}
+                type={type}
+                label={label}
+                isInvalid={isInvalid}
+                aria-invalid={isInvalid}
+                errorMessage={errorMessage}
+                placeholder={placeholder}
+                autoComplete={autoComplete}
+                fullWidth
+                {...register(name, { required: isRequired, valueAsNumber })}
+              />
             </div>
           )
         })}

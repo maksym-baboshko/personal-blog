@@ -28,9 +28,31 @@
     "female": "Kvinne"
   },
   "fields": {
-    "first_name": "Navn",
-    "last_name": "Etternavn",
-    "age": "Alder",
-    "gender": "Kjønn"
+    "first_name": {
+      "label": "Navn",
+      "placeholder": "Skriv inn ditt navn",
+      "errors": {
+        "required": "Navn er obligatorisk"
+      }
+    },
+    "last_name": {
+      "label": "Etternavn",
+      "placeholder": "Skriv inn ditt etternavn",
+      "errors": {
+        "required": "Etternavn er obligatorisk"
+      }
+    },
+    "age": {
+      "label": "Alder",
+      "placeholder": "Skriv inn din alder",
+      "errors": {
+        "required": "Alder er obligatorisk",
+        "min": "Alder må være større enn 0"
+      }
+    },
+    "gender": {
+      "label": "Kjønn",
+      "placeholder": "Oppgi ditt kjønn"
+    }
   }
 }

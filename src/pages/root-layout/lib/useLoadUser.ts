@@ -10,17 +10,10 @@ export const useLoadUser = () => {
   const dispatch = useAppDispatch()
   const { userId, isUserLoggedOut } = useAuthState()
 
-  const { data, isLoading, isError } = useGetUserQuery(userId, {
+  const { data, isLoading } = useGetUserQuery(userId, {
     skip: isUserLoggedOut,
     pollingInterval: DEFAULT_REFETCH_INTERVAL
   })
-
-  useEffect(() => {
-    if (!isError) return
-
-    // If there is any other error except 401
-    dispatch(userActions.logOut())
-  }, [dispatch, isError])
 
   useEffect(() => {
     if (!data) return

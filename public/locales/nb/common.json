@@ -8,8 +8,22 @@
   "theme": "Tema",
   "login": "Logg inn",
   "auth_form": {
-    "email": "E-post",
-    "password": "Passord",
+    "email": {
+      "label": "E-post",
+      "placeholder": "Skriv inn din e-post",
+      "errors": {
+        "required": "E-post er obligatorisk",
+        "email": "E-post er ugyldig"
+      }
+    },
+    "password": {
+      "label": "Passord",
+      "placeholder": "Skriv inn passord",
+      "errors": {
+        "required": "Passord er obligatorisk",
+        "min": "Passordet må være lengre enn 8 tegn"
+      }
+    },
     "submit": "Logg inn",
     "login": {
       "title": "Jeg er glad for å se deg! Logg inn"

@@ -28,9 +28,31 @@
     "female": "Жінка"
   },
   "fields": {
-    "first_name": "Ім'я",
-    "last_name": "Прізвище",
-    "age": "Вік",
-    "gender": "Стать"
+    "first_name": {
+      "label": "Ім'я",
+      "placeholder": "Введіть ваше ім'я",
+      "errors": {
+        "required": "Ім'я є обов'язковим"
+      }
+    },
+    "last_name": {
+      "label": "Прізвище",
+      "placeholder": "Введіть ваше прізвище",
+      "errors": {
+        "required": "Прізвище є обов'язковим"
+      }
+    },
+    "age": {
+      "label": "Вік",
+      "placeholder": "Введіть ваш вік",
+      "errors": {
+        "required": "Вік є обов'язковим",
+        "min": "Вік повинен бути більше 0"
+      }
+    },
+    "gender": {
+      "label": "Стать",
+      "placeholder": "Вкажіть вашу стать"
+    }
   }
 }

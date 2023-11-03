@@ -5,7 +5,11 @@ import { useTranslation } from 'react-i18next'
 import { Select, type SelectProps } from '@shared/ui/Select'
 
 import { type tUserGenderOptions } from '../../model/types'
-import { UserGenderLabelKey, UserGenderValue, LABEL_KEY, SELECT_ID } from '../../model/constants'
+import { UserGenderValue, UserGenderLabelKey } from '../../model/constants'
+
+const SELECT_ID = 'gender'
+const LABEL_KEY = 'fields.gender.label'
+const PLACEHOLDER_KEY = 'fields.gender.placeholder'
 
 export const GenderSelect = forwardRef<HTMLSelectElement, SelectProps>(
   function GenderSelect(props, ref) {
@@ -19,19 +23,15 @@ export const GenderSelect = forwardRef<HTMLSelectElement, SelectProps>(
     }, [t])
 
     return (
-      <>
-        <label htmlFor={SELECT_ID} hidden>
-          {t(LABEL_KEY)}
-        </label>
-        <Select
-          {...props}
-          id={SELECT_ID}
-          options={options}
-          placeholder={t(LABEL_KEY)}
-          autoComplete="sex"
-          ref={ref}
-        />
-      </>
+      <Select
+        {...props}
+        id={SELECT_ID}
+        options={options}
+        label={t(LABEL_KEY)}
+        placeholder={t(PLACEHOLDER_KEY)}
+        autoComplete="sex"
+        ref={ref}
+      />
     )
   }
 )

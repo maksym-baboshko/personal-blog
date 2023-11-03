@@ -8,4 +8,4 @@ export {
 export { userReducer, userActions } from './model/store/slice'
 
 export { UserSchema } from './model/schemas'
-export type { tUser, tRawUserData, tUserCredentials } from './model/types'
+export type { tUser, tRawUserData } from './model/types'

@@ -1,3 +1,22 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  & label {
+    margin-left: 8px;
+  }
+
+  &.invalid label {
+    color: var(--danger-light);
+  }
+
+  & .error-message {
+    color: var(--danger-light);
+    margin-left: 8px;
+  }
+}
+
 .input {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
@@ -5,6 +24,18 @@
   border-radius: 8px;
   padding: 10px 16px;
   outline: none;
+
+  &.invalid-input {
+    color: var(--danger-dark);
+  }
+
+  &.invalid-input::placeholder {
+    color: var(--danger-dark);
+  }
+
+  &::placeholder {
+    color: var(--text-secondary);
+  }
 
   &.full-width {
     width: 100%;
@@ -18,21 +49,35 @@
     box-shadow:
       0 0 0 3px var(--bg-primary),
       0 0 0 6px var(--border-primary);
+
+    &.invalid-input {
+      box-shadow:
+        0 0 0 3px var(--bg-primary),
+        0 0 0 6px var(--danger-light);
+    }
   }
 
   &.md:focus-visible {
     box-shadow:
       0 0 0 4px var(--bg-primary),
       0 0 0 7px var(--btn-primary-focus);
+
+    &.invalid-input {
+      box-shadow:
+        0 0 0 4px var(--bg-primary),
+        0 0 0 7px var(--danger-light);
+    }
   }
 
   &.lg:focus-visible {
     box-shadow:
       0 0 0 5px var(--bg-primary),
       0 0 0 8px var(--border-primary);
-  }
-}
 
-::placeholder {
-  color: var(--text-secondary);
+    &.invalid-input {
+      box-shadow:
+        0 0 0 5px var(--bg-primary),
+        0 0 0 8px var(--danger-light);
+    }
+  }
 }

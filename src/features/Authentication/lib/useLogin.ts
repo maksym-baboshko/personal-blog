@@ -3,11 +3,13 @@ import { useCallback, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { type SubmitHandler } from 'react-hook-form'
 
+import { userActions } from '@entities/User'
 import { useAuth } from '@shared/hooks/common'
 import { getErrorMessage } from '@shared/lib/api'
 import { useLoginMutation } from '@shared/api/auth'
 import { useAppDispatch } from '@shared/hooks/store'
-import { type tUserCredentials, userActions } from '@entities/User'
+
+import { type tAuthCredentials } from '../model/types'
 
 export const useLogin = (onLogin: (() => void) | undefined) => {
   const [login, { isLoading, error }] = useLoginMutation()
@@ -18,7 +20,7 @@ export const useLogin = (onLogin: (() => void) | undefined) => {
 
   const authErrMsg = useMemo(() => getErrorMessage(error), [error])
 
-  const loginHandler: SubmitHandler<tUserCredentials> = useCallback(
+  const loginHandler: SubmitHandler<tAuthCredentials> = useCallback(
     async (credentials) => {
       const res = await login(credentials)
 

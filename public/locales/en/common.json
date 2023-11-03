@@ -8,8 +8,22 @@
   "theme": "Theme",
   "login": "Sign in",
   "auth_form": {
-    "email": "E-mail",
-    "password": "Password",
+    "email": {
+      "label": "Email",
+      "placeholder": "Enter your email",
+      "errors": {
+        "required": "Email is required",
+        "email": "Email is invalid"
+      }
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "Enter your password",
+      "errors": {
+        "required": "Password is required",
+        "min": "Password must be at least 8 characters"
+      }
+    },
     "submit": "Sign in",
     "login": {
       "title": "I'm happy to see you! Sign in"

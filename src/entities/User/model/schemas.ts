@@ -9,50 +9,28 @@ import {
   optional,
   picklist,
   nullable,
+  minValue,
   minLength,
-  transform,
-  minValue
+  transform
 } from 'valibot'
 
 import { type tUserGender } from '@entities/Gender'
 
-import { getUserSchemaErrorMsg } from '../lib'
-
-export const EmailSchema = string([
-  minLength(1, 'Please enter your email'),
-  email('The email address is invalid')
-])
-
-export const UsernameSchema = string([
-  minLength(1, 'Username is required'),
-  minLength(3, 'The username cannot be less than 3 characters')
-])
-
-export const PasswordSchema = string([
-  minLength(1, 'Password is required'),
-  minLength(8, 'Your password must have 8 characters or more')
-])
-
-export const UserCredentialsSchema = object({
-  email: EmailSchema,
-  password: PasswordSchema
-})
-
 export const UserSchema = transform(
   object({
-    id: number(getUserSchemaErrorMsg('id must be a number')),
+    id: number([minValue(1)]),
     roles: array(string()),
     isPrivate: boolean(),
-    email: EmailSchema,
-    username: UsernameSchema,
-    fname: string([minLength(1, 'First name is required')]),
-    lname: string([minLength(1, 'Last name is required')]),
-    age: nullable(number('Age must be a number', [minValue(0, 'Age must be a positive number')])),
-    gender: nullable(picklist(['', 'male', 'female'], getUserSchemaErrorMsg('Invalid gender'))),
-    avatar: nullable(string(getUserSchemaErrorMsg('Invalid avatar'))),
-    originCity: nullable(string(getUserSchemaErrorMsg('Invalid originCity'))),
-    currentCity: nullable(string(getUserSchemaErrorMsg('Invalid currentCity'))),
-    password: optional(PasswordSchema),
+    email: string([minLength(1), email()]),
+    username: string([minLength(1), minLength(3)]),
+    fname: string([minLength(1, 'fields.first_name.errors.required')]),
+    lname: string([minLength(1, 'fields.last_name.errors.required')]),
+    age: nullable(number('fields.age.errors.required', [minValue(0, 'fields.age.errors.min')])),
+    gender: nullable(picklist(['', 'male', 'female'])),
+    avatar: nullable(string()),
+    originCity: nullable(string()),
+    currentCity: nullable(string()),
+    password: optional(string([minLength(1), minLength(8)])),
     config: optional(unknown()),
     permissions: optional(unknown())
   }),
@@ -60,10 +38,10 @@ export const UserSchema = transform(
     return {
       ...output,
       age: output.age || 0,
-      gender: (output.gender || '') as tUserGender,
       avatar: output.avatar || '',
       originCity: output.originCity || '',
-      currentCity: output.currentCity || ''
+      currentCity: output.currentCity || '',
+      gender: (output.gender || '') as tUserGender
     }
   }
 )

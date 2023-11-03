@@ -1,13 +1,16 @@
-import { memo } from 'react'
+import { memo, useCallback } from 'react'
 
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
+import { valibotResolver } from '@hookform/resolvers/valibot'
 
 import { Text } from '@shared/ui/Text'
 import { Input } from '@shared/ui/Input'
 import { Button } from '@shared/ui/Button'
-import { type tUserCredentials } from '@entities/User'
 import { useLogin } from '@features/Authentication/lib'
+
+import { type tAuthCredentials } from '../../model/types'
+import { AuthCredentialsSchema } from '../../model/schemas'
 
 import { type AuthFormFC } from './AuthForm.types'
 
@@ -15,41 +18,50 @@ import cls from './AuthForm.module.scss'
 
 const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
   const { loginHandler, isAuthenticating, authErrMsg } = useLogin(onSuccess)
-  const { register, handleSubmit } = useForm<tUserCredentials>()
+  const { register, handleSubmit, formState } = useForm<tAuthCredentials>({
+    resolver: valibotResolver(AuthCredentialsSchema)
+  })
+
   const { t } = useTranslation('common')
+
+  const getErrorMessage = useCallback(
+    (fieldName: keyof tAuthCredentials) => {
+      const errorMessageKey = formState.errors[fieldName]?.message
+      return errorMessageKey && t(errorMessageKey)
+    },
+    [formState.errors, t]
+  )
 
   return (
     <form className={cls.form} onSubmit={handleSubmit(loginHandler)}>
-      <h2 className={cls.title}>{t('auth_form.login.title')}</h2>
+      <Text className={cls.title} heading={t('auth_form.login.title')} textAlign="center" />
 
       <div className={cls['input-field']}>
-        <label htmlFor="email" hidden className={cls.label}>
-          {t('auth_form.email')}
-        </label>
-
         <Input
           id="email"
           type="email"
           autoComplete="email"
           autoFocus
           className={cls.input}
-          placeholder={t('auth_form.email')}
-          {...register('email', { required: true })}
+          isInvalid={Boolean(formState.errors.email)}
+          errorMessage={getErrorMessage('email')}
+          label={t('auth_form.email.label')}
+          placeholder={t('auth_form.email.placeholder')}
+          {...register('email')}
         />
       </div>
 
       <div className={cls['input-field']}>
-        <label htmlFor="password" hidden className={cls.label}>
-          {t('auth_form.password')}
-        </label>
-
         <Input
           id="password"
           type="password"
           autoComplete="current-password"
           className={cls.input}
-          placeholder={t('auth_form.password')}
-          {...register('password', { required: true })}
+          isInvalid={Boolean(formState.errors.password)}
+          errorMessage={getErrorMessage('password')}
+          label={t('auth_form.password.label')}
+          placeholder={t('auth_form.password.placeholder')}
+          {...register('password')}
         />
       </div>
 
