@@ -1,36 +1,20 @@
-import { memo, useCallback } from 'react'
+import { memo } from 'react'
 
-import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { valibotResolver } from '@hookform/resolvers/valibot'
 
 import { Text } from '@shared/ui/Text'
 import { Input } from '@shared/ui/Input'
 import { Button } from '@shared/ui/Button'
-import { useLogin } from '@features/Authentication/lib'
-
-import { type tAuthCredentials } from '../../model/types'
-import { AuthCredentialsSchema } from '../../model/schemas'
+import { useAuthForm, useLogin } from '@features/Authentication/lib'
 
 import { type AuthFormFC } from './AuthForm.types'
 
 import cls from './AuthForm.module.scss'
 
 const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
+  const { register, handleSubmit, getFieldValidationMessage, formState } = useAuthForm()
   const { loginHandler, isAuthenticating, authErrMsg } = useLogin(onSuccess)
-  const { register, handleSubmit, formState } = useForm<tAuthCredentials>({
-    resolver: valibotResolver(AuthCredentialsSchema)
-  })
-
   const { t } = useTranslation('common')
-
-  const getErrorMessage = useCallback(
-    (fieldName: keyof tAuthCredentials) => {
-      const errorMessageKey = formState.errors[fieldName]?.message
-      return errorMessageKey && t(errorMessageKey)
-    },
-    [formState.errors, t]
-  )
 
   return (
     <form className={cls.form} onSubmit={handleSubmit(loginHandler)}>
@@ -44,7 +28,7 @@ const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
           autoFocus
           className={cls.input}
           isInvalid={Boolean(formState.errors.email)}
-          errorMessage={getErrorMessage('email')}
+          errorMessage={getFieldValidationMessage('email')}
           label={t('auth_form.email.label')}
           placeholder={t('auth_form.email.placeholder')}
           {...register('email')}
@@ -58,7 +42,7 @@ const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
           autoComplete="current-password"
           className={cls.input}
           isInvalid={Boolean(formState.errors.password)}
-          errorMessage={getErrorMessage('password')}
+          errorMessage={getFieldValidationMessage('password')}
           label={t('auth_form.password.label')}
           placeholder={t('auth_form.password.placeholder')}
           {...register('password')}

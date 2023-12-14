@@ -2,7 +2,7 @@ import cn from 'classnames'
 import { useTranslation } from 'react-i18next'
 
 import { Button } from '@shared/ui/Button'
-import { useAuth } from '@shared/hooks/common'
+import { useAuthGuard } from '@shared/hooks/common'
 
 import { useLangSwitcher } from '../lib'
 
@@ -12,7 +12,7 @@ import cls from './LanguageSwitcher.module.scss'
 
 export const LanguageSwitcher: LanguageSwitcherFC = ({ className, size = 'xs' }) => {
   const { nextLang, handleLangChange } = useLangSwitcher()
-  const { isAccessAllowed } = useAuth()
+  const { isAccessAllowed } = useAuthGuard()
   const { t } = useTranslation()
 
   return (

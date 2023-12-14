@@ -1,21 +1,10 @@
 .profile-form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.avatar {
-  margin-bottom: 20px;
-}
-
-.info-fields {
-  display: flex;
   flex-wrap: wrap;
   gap: 20px;
   width: 100%;
 }
 
-.input-field {
+.profile-field {
   flex: 1 1 calc(100% / 2 - 20px / 2);
 }

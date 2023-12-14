@@ -28,6 +28,12 @@
     "female": "Female"
   },
   "fields": {
+    "avatar": {
+      "placeholder": {
+        "heading": "Upload a new profile photo",
+        "subheading": "Simply drag and drop or click here"
+      }
+    },
     "first_name": {
       "label": "First name",
       "placeholder": "Enter your first name",

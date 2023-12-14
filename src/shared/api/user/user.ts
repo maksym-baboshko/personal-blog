@@ -54,6 +54,14 @@ const userApi = api.injectEndpoints({
           dispatch(userActions.updateData(userBeforeUpdate as tUser))
         }
       }
+    }),
+    uploadAvatar: build.mutation<{ avatarUrl: string }, FormData>({
+      query: (avatar) => ({
+        url: 'users/avatar',
+        method: 'POST',
+        body: avatar
+      }),
+      extraOptions: { maxRetries: 0 }
     })
   })
 })
@@ -62,4 +70,4 @@ export const {
   getUser: { useQueryState: useGetUserQueryState }
 } = userApi.endpoints
 
-export const { useGetUserQuery, useUpdateUserMutation } = userApi
+export const { useGetUserQuery, useUpdateUserMutation, useUploadAvatarMutation } = userApi

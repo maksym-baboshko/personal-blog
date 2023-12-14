@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom'
 
 import { Navbar } from '@widgets/Navbar'
 import { Sidebar } from '@widgets/Sidebar'
-import { useAuth } from '@shared/hooks/common'
+import { useAuthGuard } from '@shared/hooks/common'
 import { PageLoader } from '@shared/ui/PageLoader'
 
 import { useLoadState } from '../lib'
@@ -13,7 +13,7 @@ import { useLoadState } from '../lib'
 import cls from './RootLayout.module.scss'
 
 export const RootLayout: FC = memo(function RootLayout() {
-  const { isAccessAllowed, isAccessDenied } = useAuth()
+  const { isAccessAllowed, isAccessDenied } = useAuthGuard()
 
   useLoadState()
 

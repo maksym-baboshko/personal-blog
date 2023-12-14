@@ -28,6 +28,12 @@
     "female": "Kvinne"
   },
   "fields": {
+    "avatar": {
+      "placeholder": {
+        "heading": "Last opp et nytt profilbilde",
+        "subheading": "Vennligst dra og slipp eller klikk her"
+      }
+    },
     "first_name": {
       "label": "Navn",
       "placeholder": "Skriv inn ditt navn",

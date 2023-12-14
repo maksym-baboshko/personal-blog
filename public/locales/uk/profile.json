@@ -28,6 +28,12 @@
     "female": "Жінка"
   },
   "fields": {
+    "avatar": {
+      "placeholder": {
+        "heading": "Завантажте нове фото профілю",
+        "subheading": "Просто перетягніть його або натисніть тут"
+      }
+    },
     "first_name": {
       "label": "Ім'я",
       "placeholder": "Введіть ваше ім'я",

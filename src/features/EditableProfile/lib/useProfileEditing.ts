@@ -1,41 +1,58 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 
 import { useForm } from 'react-hook-form'
 import { valibotResolver } from '@hookform/resolvers/valibot'
 
-import { UserSchema, type tUser } from '@entities/User'
-import { useUpdateUserMutation } from '@shared/api/user'
+import { UserFormSchema, type tUser } from '@entities/User'
+import { useUpdateUserMutation, useUploadAvatarMutation } from '@shared/api/user'
 
 export const useProfileEditing = (user: Partial<tUser>) => {
   const [updateUser, { isLoading: isSaving, error: savingError }] = useUpdateUserMutation()
+  const [uploadAvatar] = useUploadAvatarMutation()
   const [isEditing, setIsEditing] = useState(false)
 
-  const formMethods = useForm<Partial<tUser>>({
-    values: user,
-    resolver: valibotResolver(UserSchema)
+  const transformedUser = useMemo(() => {
+    return {
+      ...user,
+      avatar: user.avatar ? { url: user.avatar, file: null } : null
+    }
+  }, [user])
+
+  const formMethods = useForm<Partial<typeof transformedUser>>({
+    values: transformedUser,
+    resolver: valibotResolver(UserFormSchema)
   })
 
   const onSave = useCallback(
-    async (data: Partial<tUser>) => {
-      const isUserUpdated = JSON.stringify(data) !== JSON.stringify(user)
+    async (data: Partial<typeof transformedUser>) => {
+      const isUserUpdated = JSON.stringify(data) !== JSON.stringify(transformedUser)
 
       setIsEditing(false)
 
       if (!isUserUpdated) return
 
       try {
-        await updateUser(data).unwrap()
+        let avatar = data.avatar?.url
+
+        if (data.avatar?.file) {
+          const formData = new FormData()
+          formData.append('avatar', data.avatar.file)
+
+          avatar = (await uploadAvatar(formData).unwrap()).avatarUrl
+        }
+
+        await updateUser({ ...data, avatar }).unwrap()
       } catch {
-        formMethods.reset(user)
+        formMethods.reset(transformedUser)
       }
     },
-    [user, formMethods, updateUser]
+    [transformedUser, formMethods, updateUser, uploadAvatar]
   )
 
   const onCancelEditing = useCallback(() => {
-    formMethods.reset(user)
+    formMethods.reset(transformedUser)
     setIsEditing(false)
-  }, [formMethods, user])
+  }, [formMethods, transformedUser])
 
   const onEditing = useCallback(() => {
     setIsEditing(true)

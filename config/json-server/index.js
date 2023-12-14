@@ -1,6 +1,7 @@
 const cors = require('cors')
 const path = require('path')
 const multer = require('multer')
+const express = require('express')
 const auth = require('json-server-auth')
 const jsonServer = require('json-server')
 
@@ -24,10 +25,20 @@ const router = jsonServer.router(dbPath)
 const middlewares = jsonServer.defaults()
 const permissions = auth.rewriter(permissionsConfig)
 
-const upload = multer({
-  dest: path.join(__dirname, 'uploads'),
-  limits: { fileSize: 10 * 1024 * 1024 }
+// * Setup custom middlewares
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.resolve(__dirname, 'public', 'assets', 'images'))
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+  }
 })
+
+const upload = multer({ storage, limits: { fileSize: 10 * 1024 * 1024 } })
+
+server.use('/public', express.static(path.join(__dirname, 'public')))
 
 //* CORS setup
 server.use(
@@ -50,12 +61,14 @@ const delayRequests = async (req, res, next) => {
 server.use(delayRequests)
 
 // * Custom middleware
-server.post('/profile', upload.single('avatar'), function (req, res, next) {
+server.post(ROUTER_PREFIX + '/users/avatar', upload.single('avatar'), function (req, res) {
   const { file } = req
 
+  const appUrl = `${req.protocol}://${req.get('host')}/`
+  const avatarUrl = appUrl + path.join('public', 'assets', 'images', file.filename)
+
   if (file?.filename) {
-    res.json({ fileName: file.filename })
-    next()
+    res.json({ avatarUrl })
   } else {
     res.status(400).json({ error: 'File upload failed' })
   }

@@ -14,7 +14,7 @@ import cls from './EditableProfile.module.scss'
 export const EditableProfile: EditableProfileFC = memo(function ProfileEditing(props) {
   const { readonly, ...user } = props
 
-  const { isEditing, formMethods, onEditing, onCancelEditing, onSave } = useProfileEditing(user)
+  const { formMethods, isEditing, onEditing, onCancelEditing, onSave } = useProfileEditing(user)
 
   return (
     <FormProvider {...formMethods}>

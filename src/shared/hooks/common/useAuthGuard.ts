@@ -4,7 +4,7 @@ import { getRootRoute } from '@shared/constants/router'
 
 import { useAuthState } from './useAuthState'
 
-export const useAuth = () => {
+export const useAuthGuard = () => {
   let isAccessDenied = false
   const root = getRootRoute()
   const location = useLocation()

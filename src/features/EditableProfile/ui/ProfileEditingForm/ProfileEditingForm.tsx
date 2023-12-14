@@ -2,8 +2,9 @@ import { useTranslation } from 'react-i18next'
 import { useFormContext } from 'react-hook-form'
 
 import { Input } from '@shared/ui/Input'
-import { Avatar } from '@shared/ui/Avatar'
 import { GenderSelect } from '@entities/Gender'
+import { DropzoneField } from '@shared/ui/DropzoneField'
+import { AvatarUploadArea } from '@features/AvatarUploading'
 
 import { profileFields } from '../../model'
 
@@ -11,16 +12,17 @@ import { type ProfileEditingFormFC } from './ProfileEditingForm.types'
 
 import cls from './ProfileEditingForm.module.scss'
 
-export const ProfileEditingForm: ProfileEditingFormFC = (user) => {
+export const ProfileEditingForm: ProfileEditingFormFC = () => {
+  const { register, formState, control } = useFormContext()
   const { t } = useTranslation('profile')
 
-  const { register, formState } = useFormContext()
-
   return (
-    <form className={cls['profile-form']}>
-      <Avatar src={user.avatar} className={cls.avatar} size="lg" />
+    <>
+      <form className={cls['profile-form']}>
+        <DropzoneField name="avatar" control={control}>
+          {AvatarUploadArea}
+        </DropzoneField>
 
-      <div className={cls['info-fields']}>
         {profileFields.map((field) => {
           const { name, inputId, labelKey, placeholderKey, type, autoComplete } = field
 
@@ -44,7 +46,7 @@ export const ProfileEditingForm: ProfileEditingFormFC = (user) => {
           }
 
           return (
-            <div key={name} className={cls['input-field']}>
+            <div key={name} className={cls['profile-field']}>
               <Input
                 id={inputId}
                 type={type}
@@ -61,10 +63,10 @@ export const ProfileEditingForm: ProfileEditingFormFC = (user) => {
           )
         })}
 
-        <div className={cls['input-field']}>
+        <div className={cls['profile-field']}>
           <GenderSelect {...register('gender')} />
         </div>
-      </div>
-    </form>
+      </form>
+    </>
   )
 }
