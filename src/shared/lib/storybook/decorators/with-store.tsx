@@ -4,7 +4,7 @@ import { type DeepPartial } from '@reduxjs/toolkit'
 import { StoreProvider } from '@app/providers/StoreProvider'
 import { type AsyncReducers, type RootState } from '@shared/types/store'
 
-const defaultAsyncReducers: AsyncReducers = {}
+const defaultAsyncReducers = {}
 
 type WithStoreFunc = (state?: DeepPartial<RootState>, asyncReducers?: AsyncReducers) => Decorator
 
