@@ -3,6 +3,9 @@ storybook-static
 dist
 *.local
 
+#server assets
+avatar*
+
 # Logs
 logs
 *.log
