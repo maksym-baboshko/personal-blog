@@ -12,7 +12,12 @@ export const ProfileViewCard: ProfileViewCardFC = (user) => {
 
   return (
     <div className={cn(cls['profile-card'])}>
-      <Avatar src={user.avatar || undefined} className={cls.avatar} size="lg" />
+      <Avatar
+        size="lg"
+        className={cls.avatar}
+        src={user.avatar || undefined}
+        isLoading={user.isAvatarUpdating}
+      />
 
       <Text textAlign="center" heading={fullName} text={`@${user.username}`} />
     </div>

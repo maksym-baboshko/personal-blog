@@ -10,6 +10,6 @@ describe('Button', () => {
 
   it('should render Button with theme', () => {
     render(<Button variant="solid">Button</Button>)
-    expect(screen.getByText('Button')).toHaveClass('solid')
+    expect(screen.getByTestId('button')).toHaveClass('solid')
   })
 })

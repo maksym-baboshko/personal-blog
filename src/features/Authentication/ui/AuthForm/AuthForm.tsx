@@ -56,7 +56,7 @@ const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
         type="submit"
         variant="solid"
         size="md"
-        disabled={isAuthenticating}
+        loading={isAuthenticating}
       >
         {t('auth_form.submit')}
       </Button>

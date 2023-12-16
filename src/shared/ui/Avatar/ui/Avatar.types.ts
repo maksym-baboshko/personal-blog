@@ -10,6 +10,7 @@ enum AvatarSize {
 interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string
   size?: EnumAsUnion<typeof AvatarSize>
+  isLoading?: boolean
 }
 
 export type AvatarFC = FC<AvatarProps>

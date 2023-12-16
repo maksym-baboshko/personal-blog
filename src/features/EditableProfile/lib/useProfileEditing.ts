@@ -7,9 +7,13 @@ import { UserFormSchema, type tUser } from '@entities/User'
 import { useUpdateUserMutation, useUploadAvatarMutation } from '@shared/api/user'
 
 export const useProfileEditing = (user: Partial<tUser>) => {
-  const [updateUser, { isLoading: isSaving, error: savingError }] = useUpdateUserMutation()
-  const [uploadAvatar] = useUploadAvatarMutation()
+  const [updateUser, { isLoading: isUpdating }] = useUpdateUserMutation()
+  const [uploadAvatar, { isLoading: isAvatarUploading }] = useUploadAvatarMutation()
+  const [isAvatarChanged, setIsAvatarChanged] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
+
+  const isAvatarUpdating = (isUpdating || isAvatarUploading) && isAvatarChanged
+  const isSaving = isUpdating || isAvatarUploading
 
   const transformedUser = useMemo(() => {
     return {
@@ -37,6 +41,7 @@ export const useProfileEditing = (user: Partial<tUser>) => {
         if (data.avatar?.file) {
           const formData = new FormData()
           formData.append('avatar', data.avatar.file)
+          setIsAvatarChanged(true)
 
           avatar = (await uploadAvatar(formData).unwrap()).avatarUrl
         }
@@ -44,6 +49,8 @@ export const useProfileEditing = (user: Partial<tUser>) => {
         await updateUser({ ...data, avatar }).unwrap()
       } catch {
         formMethods.reset(transformedUser)
+      } finally {
+        setIsAvatarChanged(false)
       }
     },
     [transformedUser, formMethods, updateUser, uploadAvatar]
@@ -58,5 +65,5 @@ export const useProfileEditing = (user: Partial<tUser>) => {
     setIsEditing(true)
   }, [])
 
-  return { isEditing, isSaving, savingError, formMethods, onEditing, onCancelEditing, onSave }
+  return { isEditing, isSaving, isAvatarUpdating, formMethods, onEditing, onCancelEditing, onSave }
 }

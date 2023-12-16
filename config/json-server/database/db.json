@@ -12,7 +12,7 @@
       "age": 27,
       "originCity": "kharkiv",
       "currentCity": "bergen",
-      "avatar": "http://localhost:8000/public/assets/images/avatar-1702588512229.jpg",
+      "avatar": "http://localhost:8000/public/assets/images/avatar-1702768813384.jpg",
       "gender": "male"
     },
     {
@@ -27,7 +27,7 @@
       "age": 0,
       "originCity": "",
       "currentCity": "",
-      "avatar": "http://localhost:8000/public/assets/images/avatar-1702585072755.jpg",
+      "avatar": "http://localhost:8000/public/assets/images/avatar-1702590883085.jpg",
       "gender": ""
     }
   ],

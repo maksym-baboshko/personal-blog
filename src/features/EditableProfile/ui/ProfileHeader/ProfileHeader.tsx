@@ -11,7 +11,7 @@ import { type ProfileHeaderFC } from './ProfileHeader.types'
 import cls from './ProfileHeader.module.scss'
 
 export const ProfileHeader: ProfileHeaderFC = memo(function ProfileHeader(props) {
-  const { username, readonly, isEditing, onEditing, onCancelEditing, onSave } = props
+  const { username, readonly, isEditing, isSaving, onEditing, onCancelEditing, onSave } = props
 
   const { t } = useTranslation('profile')
 
@@ -26,7 +26,13 @@ export const ProfileHeader: ProfileHeaderFC = memo(function ProfileHeader(props)
               {t('cancel')}
             </Button>
           )}
-          <Button onClick={isEditing ? onSave : onEditing} variant="solid" size="sm">
+
+          <Button
+            onClick={isEditing ? onSave : onEditing}
+            loading={isSaving}
+            variant="solid"
+            size="sm"
+          >
             {isEditing ? t('save') : t('edit')}
           </Button>
         </div>

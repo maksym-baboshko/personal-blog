@@ -35,4 +35,5 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: EnumAsUnion<typeof ButtonSize>
   isIcon?: boolean
   appearance?: EnumAsUnion<typeof ButtonAppearance>
+  loading?: boolean
 }

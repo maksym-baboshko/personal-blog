@@ -14,7 +14,8 @@ import cls from './EditableProfile.module.scss'
 export const EditableProfile: EditableProfileFC = memo(function ProfileEditing(props) {
   const { readonly, ...user } = props
 
-  const { formMethods, isEditing, onEditing, onCancelEditing, onSave } = useProfileEditing(user)
+  const { formMethods, isEditing, onSave, isAvatarUpdating, ...editingProps } =
+    useProfileEditing(user)
 
   return (
     <FormProvider {...formMethods}>
@@ -24,13 +25,15 @@ export const EditableProfile: EditableProfileFC = memo(function ProfileEditing(p
             readonly={readonly}
             isEditing={isEditing}
             username={user.username}
-            onEditing={onEditing}
-            onCancelEditing={onCancelEditing}
             onSave={formMethods.handleSubmit(onSave)}
+            {...editingProps}
           />
 
           {!readonly && isEditing && <ProfileEditingForm {...user} />}
-          {(readonly || !isEditing) && <ProfileViewCard {...user} />}
+
+          {(readonly || !isEditing) && (
+            <ProfileViewCard isAvatarUpdating={isAvatarUpdating} {...user} />
+          )}
         </div>
       </div>
     </FormProvider>

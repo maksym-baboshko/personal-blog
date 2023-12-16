@@ -4,6 +4,7 @@ interface ProfileHeaderProps {
   username: string | undefined
   readonly: boolean
   isEditing: boolean
+  isSaving: boolean
   onEditing: () => void
   onCancelEditing: () => void
   onSave: () => void

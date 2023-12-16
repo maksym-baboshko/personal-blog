@@ -16,6 +16,7 @@ export const Button = memo(
       variant = 'light',
       color = 'primary',
       appearance = 'rectangle',
+      loading,
       ...restProps
     } = props
 
@@ -26,14 +27,16 @@ export const Button = memo(
         [cls.icon]: isIcon,
         [cls[color]]: color,
         [cls[variant]]: variant,
-        [cls[appearance]]: appearance
+        [cls[appearance]]: appearance,
+        [cls.loading]: loading
       },
       className
     )
 
     return (
-      <button ref={ref} className={classes} {...restProps}>
-        {children}
+      <button data-testid="button" ref={ref} className={classes} disabled={loading} {...restProps}>
+        {loading && <span className={cls.spinner}></span>}
+        <div className={cn(cls.content, { [cls.loading]: loading })}>{children}</div>
       </button>
     )
   })

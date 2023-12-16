@@ -10,7 +10,25 @@ const meta = {
   title: 'shared/Button',
   component: Button,
   parameters: { layout: 'centered' },
-  tags: ['autodocs']
+  tags: ['autodocs'],
+  argTypes: {
+    color: {
+      control: 'select',
+      options: ['default', 'primary', 'secondary', 'success', 'warning', 'danger']
+    },
+    variant: {
+      control: 'select',
+      options: ['light', 'solid', 'outlined']
+    },
+    appearance: {
+      control: 'select',
+      options: ['rectangle', 'square', 'circle']
+    },
+    size: {
+      control: 'select',
+      options: ['xs', 'sm', 'md', 'lg', 'xl']
+    }
+  }
 } satisfies Meta<typeof Button>
 
 export default meta
@@ -67,5 +85,13 @@ export const Disabled: Story = {
     variant: 'solid',
     children: 'Button',
     disabled: true
+  }
+}
+
+export const Loading: Story = {
+  args: {
+    variant: 'solid',
+    children: 'Button',
+    loading: true
   }
 }
