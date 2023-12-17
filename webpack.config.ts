@@ -23,9 +23,10 @@ export default (env: BuildEnv): Configuration => {
   const port = env.port ?? 3000
   const mode = env.mode ?? 'development'
   const isDev = mode === 'development'
+  const project = env.project ?? 'frontend'
   const apiURL = getApiBaseURL(mode, env.apiURL)
 
-  const config: Configuration = buildConfig({ mode, paths, isDev, port, apiURL })
+  const config: Configuration = buildConfig({ mode, paths, isDev, port, apiURL, project })
 
   return config
 }

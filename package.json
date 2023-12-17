@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "license": "ISC",
   "scripts": {
-    "start:dev:client": "webpack serve --env port=3000 --env mode=development",
+    "start:dev:client": "webpack serve --env port=3000 --env mode=development --env project=frontend",
     "start:dev:server": "node ./config/json-server/index.js",
     "start:dev:storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build:dev:client": "webpack build --env mode=development",

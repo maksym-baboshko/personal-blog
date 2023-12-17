@@ -16,6 +16,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
       html: path.resolve(rootDir, 'public', 'index.html')
     },
     mode: 'development',
+    project: 'storybook',
     isDev: true,
     port: 3000,
     apiURL: 'https://stub-api.com'
@@ -23,8 +24,8 @@ export default ({ config }: { config: Configuration }): Configuration => {
 
   const globalConstants = {
     __IS_DEV__: JSON.stringify(options.isDev),
-    __API__: JSON.stringify('https://stub-api.com'),
-    __PROJECT__: JSON.stringify('storybook')
+    __API__: JSON.stringify(options.apiURL),
+    __PROJECT__: JSON.stringify(options.project)
   }
 
   if (config.resolve) {

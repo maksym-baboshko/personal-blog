@@ -7,8 +7,8 @@ import { UserFormSchema, type tUser } from '@entities/User'
 import { useUpdateUserMutation, useUploadAvatarMutation } from '@shared/api/user'
 
 export const useProfileEditing = (user: Partial<tUser>) => {
-  const [updateUser, { isLoading: isUpdating }] = useUpdateUserMutation()
   const [uploadAvatar, { isLoading: isAvatarUploading }] = useUploadAvatarMutation()
+  const [updateUser, { isLoading: isUpdating }] = useUpdateUserMutation()
   const [isAvatarChanged, setIsAvatarChanged] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
 
@@ -33,7 +33,7 @@ export const useProfileEditing = (user: Partial<tUser>) => {
 
       setIsEditing(false)
 
-      if (!isUserUpdated) return
+      if (!isUserUpdated || __PROJECT__ === 'storybook') return
 
       try {
         let avatar = data.avatar?.url

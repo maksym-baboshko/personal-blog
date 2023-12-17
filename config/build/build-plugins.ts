@@ -5,7 +5,7 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
 import { type BuildPluginsFunc } from './types'
 
-export const buildPlugins: BuildPluginsFunc = ({ paths, isDev, apiURL }) => {
+export const buildPlugins: BuildPluginsFunc = ({ paths, isDev, apiURL, project }) => {
   const plugins = [
     new ProgressPlugin(),
     new HtmlWebpackPlugin({ template: paths.html }),
@@ -15,7 +15,8 @@ export const buildPlugins: BuildPluginsFunc = ({ paths, isDev, apiURL }) => {
     }),
     new DefinePlugin({
       __API__: JSON.stringify(apiURL),
-      __IS_DEV__: JSON.stringify(isDev)
+      __IS_DEV__: JSON.stringify(isDev),
+      __PROJECT__: JSON.stringify(project)
     })
   ]
 

@@ -7,6 +7,7 @@ import {
 } from 'webpack'
 
 export type BuildMode = 'development' | 'production'
+export type ProjectMode = 'frontend' | 'storybook' | 'jest'
 
 export type BuildConfigFunc = (options: BuildOptions) => Configuration
 export type BuildLoadersFunc = (options: BuildOptions) => RuleSetRule[]
@@ -19,6 +20,7 @@ export interface BuildEnv {
   mode: BuildMode
   port: number
   apiURL: string
+  project: ProjectMode
 }
 
 export interface BuildPaths {
@@ -35,4 +37,5 @@ export interface BuildOptions {
   isDev: boolean
   port: number
   apiURL: string
+  project: ProjectMode
 }

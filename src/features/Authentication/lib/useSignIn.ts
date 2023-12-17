@@ -11,7 +11,7 @@ import { useAppDispatch } from '@shared/hooks/store'
 
 import { type tAuthCredentials } from '../model/types'
 
-export const useLogin = (onLogin: (() => void) | undefined) => {
+export const useSignIn = (onLogin: (() => void) | undefined) => {
   const [login, { isLoading, error }] = useLoginMutation()
   const { from } = useAuthGuard()
 
@@ -22,6 +22,8 @@ export const useLogin = (onLogin: (() => void) | undefined) => {
 
   const loginHandler: SubmitHandler<tAuthCredentials> = useCallback(
     async (credentials) => {
+      if (__PROJECT__ === 'storybook') return
+
       const res = await login(credentials)
 
       if ('data' in res) {
@@ -33,5 +35,5 @@ export const useLogin = (onLogin: (() => void) | undefined) => {
     [from, navigate, dispatch, onLogin, login]
   )
 
-  return { isAuthenticating: isLoading, authErrMsg, loginHandler }
+  return { isSigninIn: isLoading, authErrMsg, loginHandler }
 }

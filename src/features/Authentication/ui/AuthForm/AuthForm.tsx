@@ -1,20 +1,31 @@
-import { memo } from 'react'
+import { memo, useEffect, useState } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
 import { Text } from '@shared/ui/Text'
 import { Input } from '@shared/ui/Input'
 import { Button } from '@shared/ui/Button'
-import { useAuthForm, useLogin } from '@features/Authentication/lib'
+import { useAuthForm, useSignIn } from '@features/Authentication/lib'
 
 import { type AuthFormFC } from './AuthForm.types'
 
 import cls from './AuthForm.module.scss'
 
-const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess }) {
+const AuthForm: AuthFormFC = memo(function AuthForm({ onSuccess, isModalClosing }) {
   const { register, handleSubmit, getFieldValidationMessage, formState } = useAuthForm()
-  const { loginHandler, isAuthenticating, authErrMsg } = useLogin(onSuccess)
+  const { loginHandler, isSigninIn, authErrMsg } = useSignIn(onSuccess)
+  const [isAuthenticating, setIsAuthenticating] = useState(false)
   const { t } = useTranslation('common')
+
+  useEffect(() => {
+    if (isSigninIn || isModalClosing) {
+      setIsAuthenticating(true)
+    }
+
+    return () => {
+      setIsAuthenticating(false)
+    }
+  }, [isSigninIn, isModalClosing])
 
   return (
     <form className={cls.form} onSubmit={handleSubmit(loginHandler)}>
