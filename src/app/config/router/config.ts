@@ -2,13 +2,15 @@ import { createBrowserRouter } from 'react-router-dom'
 
 import {
   getRootRoute,
+  getFeedRoute,
   getAboutRoute,
-  getPostsRoute,
   getProfileRoute,
   getSettingsRoute,
-  getNotFoundRoute
+  getNotFoundRoute,
+  getPostRoute
 } from '@shared/constants/router'
 import { RootPage } from '@pages/root'
+import { PostPage } from '@pages/post'
 import { PageError } from '@pages/error'
 import { AboutPage } from '@pages/about'
 import { ProfilePage } from '@pages/profile'
@@ -27,7 +29,11 @@ export const router = createBrowserRouter([
         Component: RootPage
       },
       {
-        path: getPostsRoute(),
+        path: getPostRoute(':id'),
+        Component: PostPage
+      },
+      {
+        path: getFeedRoute(),
         Component: AboutPage
       },
       {

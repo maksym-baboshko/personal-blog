@@ -2,7 +2,7 @@ import { type SVGAttributes, type FC } from 'react'
 
 import {
   getAboutRoute,
-  getPostsRoute,
+  getFeedRoute,
   getProfileRoute,
   getRootRoute,
   getSettingsRoute
@@ -15,7 +15,7 @@ import SettingsIcon from '@shared/assets/icons/settings.svg'
 
 export interface ISidebarItem {
   path: string
-  textKey: 'main' | 'posts' | 'profile' | 'settings' | 'about'
+  textKey: 'main' | 'feed' | 'profile' | 'settings' | 'about'
   icon: FC<SVGAttributes<SVGElement>>
 }
 
@@ -26,8 +26,8 @@ export const sidebarItems: ISidebarItem[] = [
     icon: () => <Logo />
   },
   {
-    path: getPostsRoute(),
-    textKey: 'posts',
+    path: getFeedRoute(),
+    textKey: 'feed',
     icon: () => <PostsIcon />
   },
   {

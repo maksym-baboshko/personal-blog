@@ -40,6 +40,7 @@ export const useProfileEditing = (user: Partial<tUser>) => {
 
         if (data.avatar?.file) {
           const formData = new FormData()
+
           formData.append('avatar', data.avatar.file)
           setIsAvatarChanged(true)
 

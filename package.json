@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "license": "ISC",
   "scripts": {
+    "start:dev": "concurrently \"npm run start:dev:server\" \"npm run start:dev:client\"",
     "start:dev:client": "webpack serve --env port=3000 --env mode=development --env project=frontend",
     "start:dev:server": "node ./config/json-server/index.js",
     "start:dev:storybook": "storybook dev -p 6006 -c ./config/storybook",
@@ -23,6 +24,7 @@
     "@hookform/resolvers": "^3.3.2",
     "@reduxjs/toolkit": "^1.9.6",
     "classnames": "^2.3.2",
+    "concurrently": "^8.2.2",
     "i18next": "^23.5.1",
     "i18next-browser-languagedetector": "^7.1.0",
     "i18next-http-backend": "^2.2.2",

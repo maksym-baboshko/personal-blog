@@ -1,4 +1,4 @@
-import { useCallback, useContext, useMemo } from 'react'
+import { useCallback, useContext } from 'react'
 
 import { LS_THEME_KEY } from '@shared/constants/localStorage'
 import { type AppTheme, appThemes } from '@shared/constants/theme'
@@ -22,7 +22,7 @@ export const useTheme = (): Result => {
     return { nextThemeIdx, nextTheme }
   }, [theme])
 
-  const { nextTheme: newTheme, nextThemeIdx } = useMemo(getNextTheme, [getNextTheme])
+  const { nextTheme: newTheme, nextThemeIdx } = getNextTheme()
 
   const toggleTheme = useCallback((): void => {
     setTheme(newTheme)
